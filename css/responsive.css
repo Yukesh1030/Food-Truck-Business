@@ -50,6 +50,15 @@ html, body {
 }
 
 /* ==========================================================================
+   Desktop Viewports (1025px and above) - Strictly Hide Hamburger
+   ========================================================================== */
+@media screen and (min-width: 1025px) {
+  .hamburger-toggle {
+    display: none !important;
+  }
+}
+
+/* ==========================================================================
    Laptops & Small Desktop (1024px to 1279px)
    ========================================================================== */
 @media screen and (max-width: 1279px) {

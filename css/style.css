@@ -515,7 +515,7 @@ ul, ol {
    Hamburger Toggle Button & Mobile Off-Canvas Drawer
    ========================================================================== */
 .hamburger-toggle {
-  display: flex;
+  display: none; /* Hidden on Desktop by default; shown only on mobile/tablet view */
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -1181,3 +1181,28 @@ ul, ol {
   }
 }
 
+
+/* ==========================================================================
+   Form Validation Global Error States
+   ========================================================================== */
+.form-error-msg {
+  color: #e74c3c;
+  font-size: 0.8rem;
+  font-weight: 500;
+  margin-top: 4px;
+  display: none;
+}
+
+.form-group.has-error .form-error-msg {
+  display: block;
+}
+
+.form-group.has-error .form-input,
+.form-group.has-error .form-select,
+.form-group.has-error .form-textarea,
+input.is-invalid,
+textarea.is-invalid,
+select.is-invalid {
+  border-color: #e74c3c !important;
+  box-shadow: 0 0 0 3px rgba(231, 76, 60, 0.25) !important;
+}
