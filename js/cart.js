@@ -33,22 +33,22 @@ document.addEventListener('DOMContentLoaded', () => {
           <div class="cart-item-thumb">
             <img src="${item.image}" alt="${item.name}">
           </div>
-          <div class="cart-item-details">
+          <div class="cart-item-info">
             <h4 class="cart-item-title">${item.name}</h4>
-            <span class="cart-item-price">₹${item.price}</span>
-            <div class="cart-item-actions">
-              <div class="qty-counter-box" style="transform: scale(0.85); transform-origin: left;">
-                <button class="qty-btn" onclick="CartManager.updateQty('${item.id}', -1); renderCart();">-</button>
-                <span class="qty-number">${item.qty}</span>
-                <button class="qty-btn" onclick="CartManager.updateQty('${item.id}', 1); renderCart();">+</button>
-              </div>
-              <button class="cart-item-remove-btn" title="Remove" onclick="CartManager.removeItem('${item.id}'); renderCart();">
-                <i class="fa-solid fa-trash-can"></i>
-              </button>
-            </div>
+            <span class="cart-item-unit-price">₹${item.price} each</span>
           </div>
-          <div class="cart-item-row-total" style="font-family: var(--font-heading); font-size: 1.5rem; color: var(--color-primary); margin-left: auto;">
-            ₹${item.price * item.qty}
+          <div class="cart-item-controls">
+            <div class="cart-qty-stepper">
+              <button class="cart-qty-btn" type="button" onclick="CartManager.updateQty('${item.id}', -1); renderCart();" aria-label="Decrease quantity">−</button>
+              <span class="cart-qty-val">${item.qty}</span>
+              <button class="cart-qty-btn" type="button" onclick="CartManager.updateQty('${item.id}', 1); renderCart();" aria-label="Increase quantity">+</button>
+            </div>
+            <div class="cart-item-total">
+              <span class="cart-item-total-val">₹${item.price * item.qty}</span>
+            </div>
+            <button class="cart-item-remove-btn" type="button" title="Remove Item" onclick="CartManager.removeItem('${item.id}'); renderCart();" aria-label="Remove item">
+              <i class="fa-solid fa-trash-can"></i>
+            </button>
           </div>
         </div>
       `).join('');
@@ -87,4 +87,3 @@ document.addEventListener('DOMContentLoaded', () => {
 
   renderCart();
 });
-

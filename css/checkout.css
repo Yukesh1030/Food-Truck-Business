@@ -1,28 +1,38 @@
 /* ==========================================================================
    STACKLY Food Truck - Checkout Page Styles
+   Optimized for Android & all mobile viewport sizes
    ========================================================================== */
 
 .checkout-layout-grid {
   display: grid;
   grid-template-columns: 1.3fr 0.8fr;
-  gap: clamp(30px, 5vw, 60px);
+  gap: clamp(24px, 4vw, 50px);
   align-items: start;
+  width: 100%;
+  box-sizing: border-box;
 }
 
+/* Step Panels */
 .checkout-step-panel {
   background: var(--color-card-bg);
   border-radius: var(--radius-lg);
-  padding: 34px;
+  padding: 32px;
   box-shadow: var(--shadow-sm);
   border: 1px solid var(--color-card-border);
   margin-bottom: 24px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.checkout-step-panel:last-child {
+  margin-bottom: 0;
 }
 
 .checkout-step-header {
   display: flex;
   align-items: center;
   gap: 16px;
-  margin-bottom: 24px;
+  margin-bottom: 22px;
   padding-bottom: 14px;
   border-bottom: 2px solid rgba(23, 23, 23, 0.08);
 }
@@ -39,12 +49,85 @@
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
+  line-height: 1;
+}
+
+.step-title-wrap {
+  flex: 1;
+  min-width: 0;
+}
+
+.step-title {
+  font-size: 1.35rem;
+  color: var(--color-primary);
+  margin: 0 0 2px 0;
+  line-height: 1.25;
+}
+
+.step-subtitle {
+  font-size: 0.85rem;
+  color: #666;
+  margin: 0;
+  line-height: 1.35;
+}
+
+/* Form inputs & styling */
+.checkout-fields-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.form-label {
+  font-size: 0.82rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--color-primary);
+}
+
+.form-input {
+  width: 100%;
+  padding: 13px 16px;
+  border-radius: var(--radius-sm);
+  border: 1.5px solid rgba(23, 23, 23, 0.18);
+  background: #FFFFFF;
+  color: var(--color-text-main);
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  line-height: 1.4;
+  box-sizing: border-box;
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 3px rgba(244, 179, 35, 0.2);
+}
+
+.form-input::placeholder {
+  color: #999;
 }
 
 .checkout-fields-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 16px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 /* Pickup Truck Selection Cards */
@@ -52,6 +135,8 @@
   display: flex;
   flex-direction: column;
   gap: 14px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .truck-radio-card {
@@ -60,9 +145,13 @@
   gap: 16px;
   padding: 18px;
   border-radius: var(--radius-md);
-  border: 2px solid rgba(23, 23, 23, 0.1);
+  border: 2px solid rgba(23, 23, 23, 0.12);
   cursor: pointer;
   transition: all var(--transition-fast);
+  width: 100%;
+  box-sizing: border-box;
+  background: #FFFFFF;
+  touch-action: manipulation;
 }
 
 .truck-radio-card:hover {
@@ -79,16 +168,30 @@
   accent-color: var(--color-accent);
   margin-top: 4px;
   flex-shrink: 0;
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+}
+
+.truck-card-info {
+  flex: 1;
+  min-width: 0;
 }
 
 .truck-card-info h4 {
-  font-size: 1.25rem;
-  margin-bottom: 4px;
+  font-size: 1.15rem;
+  margin: 0 0 4px 0;
+  line-height: 1.3;
+  color: var(--color-primary);
+  word-break: break-word;
 }
 
 .truck-card-info p {
-  font-size: 0.88rem;
+  font-size: 0.85rem;
   color: var(--color-text-muted);
+  margin: 0;
+  line-height: 1.4;
+  word-break: break-word;
 }
 
 /* Payment Method Cards */
@@ -97,10 +200,12 @@
   grid-template-columns: repeat(3, 1fr);
   gap: 14px;
   margin-top: 14px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .payment-method-card {
-  padding: 16px;
+  padding: 16px 12px;
   border-radius: var(--radius-md);
   border: 2px solid rgba(23, 23, 23, 0.12);
   text-align: center;
@@ -110,6 +215,10 @@
   flex-direction: column;
   align-items: center;
   gap: 8px;
+  width: 100%;
+  box-sizing: border-box;
+  background: #FFFFFF;
+  touch-action: manipulation;
 }
 
 .payment-method-card:hover {
@@ -124,12 +233,27 @@
 .payment-method-icon {
   font-size: 1.8rem;
   color: var(--color-primary);
+  transition: color var(--transition-fast);
+}
+
+.payment-method-card.selected .payment-method-icon {
+  color: var(--color-accent);
 }
 
 .payment-info {
   display: flex;
   flex-direction: column;
   gap: 2px;
+}
+
+.payment-info strong {
+  font-size: 0.95rem;
+  color: var(--color-primary);
+}
+
+.payment-info span {
+  font-size: 0.75rem;
+  color: #777;
 }
 
 /* Right Summary Sidebar */
@@ -142,14 +266,43 @@
   position: sticky;
   top: 100px;
   box-shadow: var(--shadow-md);
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .checkout-summary-title {
   font-size: 1.6rem;
   color: var(--color-accent);
-  margin-bottom: 20px;
+  margin: 0 0 20px 0;
   padding-bottom: 12px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.checkout-item-line {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 10px;
+  margin-bottom: 10px;
+  font-size: 0.9rem;
+}
+
+.checkout-item-name {
+  flex: 1;
+  min-width: 0;
+  word-break: break-word;
+  color: rgba(245, 240, 230, 0.9);
+}
+
+.checkout-item-qty {
+  color: var(--color-accent);
+  margin-left: 4px;
+}
+
+.checkout-item-price {
+  flex-shrink: 0;
+  font-weight: 600;
+  color: var(--color-text-light);
 }
 
 /* ==========================================================================
@@ -158,7 +311,7 @@
 @media (max-width: 1024px) {
   .checkout-layout-grid {
     grid-template-columns: 1fr;
-    gap: 32px;
+    gap: 28px;
   }
 
   .checkout-summary-box {
@@ -184,65 +337,167 @@
   }
 
   .step-num-badge {
+    width: 34px;
+    height: 34px;
+    font-size: 1.25rem;
+  }
+
+  .step-title {
+    font-size: 1.25rem;
+  }
+}
+
+/* Mobile & Android Viewports (<= 640px) */
+@media (max-width: 640px) {
+  .checkout-layout-grid {
+    gap: 20px;
+  }
+
+  .checkout-step-panel {
+    padding: 18px 14px;
+    border-radius: var(--radius-md);
+    margin-bottom: 16px;
+  }
+
+  .checkout-step-header {
+    gap: 10px;
+    margin-bottom: 16px;
+    padding-bottom: 10px;
+  }
+
+  .step-num-badge {
     width: 32px;
     height: 32px;
     font-size: 1.2rem;
   }
 
-  .checkout-step-header h3 {
-    font-size: 1.25rem !important;
-  }
-}
-
-@media (max-width: 640px) {
-  .checkout-fields-grid {
-    grid-template-columns: 1fr !important;
-    gap: 14px;
+  .step-title {
+    font-size: 1.15rem;
   }
 
-  .truck-radio-card {
-    padding: 14px;
+  .step-subtitle {
+    font-size: 0.8rem;
+  }
+
+  .checkout-fields-wrapper {
     gap: 12px;
   }
 
+  .checkout-fields-grid {
+    grid-template-columns: 1fr !important;
+    gap: 12px;
+  }
+
+  .form-input {
+    padding: 12px 14px;
+    font-size: 0.92rem;
+  }
+
+  .truck-radio-options {
+    gap: 10px;
+  }
+
+  .truck-radio-card {
+    padding: 14px 12px;
+    gap: 12px;
+  }
+
+  .truck-radio-input {
+    margin-top: 2px;
+  }
+
   .truck-card-info h4 {
-    font-size: 1.1rem;
+    font-size: 1.02rem;
     line-height: 1.3;
   }
 
   .truck-card-info p {
-    font-size: 0.82rem;
+    font-size: 0.8rem;
+    line-height: 1.35;
   }
 
   .payment-methods-grid {
     grid-template-columns: 1fr;
     gap: 10px;
+    margin-top: 10px;
   }
 
   .payment-method-card {
     flex-direction: row;
     align-items: center;
     text-align: left;
-    padding: 14px 18px;
-    gap: 16px;
+    padding: 12px 14px;
+    gap: 14px;
   }
 
   .payment-method-icon {
-    font-size: 1.6rem;
-    width: 32px;
+    font-size: 1.5rem;
+    width: 28px;
     text-align: center;
     flex-shrink: 0;
   }
+
+  .payment-info {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .payment-info strong {
+    font-size: 0.92rem;
+  }
+
+  .payment-info span {
+    font-size: 0.74rem;
+  }
+
+  .checkout-summary-box {
+    padding: 20px 16px;
+    border-radius: var(--radius-md);
+  }
+
+  .checkout-summary-title {
+    font-size: 1.4rem;
+    margin-bottom: 16px;
+    padding-bottom: 10px;
+  }
+
+  #placeOrderBtn {
+    padding: 14px 18px !important;
+    font-size: 1rem !important;
+    white-space: normal !important;
+    box-sizing: border-box;
+  }
 }
 
+/* Small Android Phones (<= 380px) */
 @media (max-width: 380px) {
+  .checkout-step-panel {
+    padding: 14px 10px;
+  }
+
   .truck-radio-card {
     padding: 12px 10px;
     gap: 10px;
   }
 
+  .truck-card-info h4 {
+    font-size: 0.95rem;
+  }
+
+  .truck-card-info p {
+    font-size: 0.76rem;
+  }
+
   .payment-method-card {
-    padding: 12px 14px;
-    gap: 12px;
+    padding: 10px 12px;
+    gap: 10px;
+  }
+
+  .payment-info strong {
+    font-size: 0.88rem;
+  }
+
+  .checkout-summary-box {
+    padding: 16px 12px;
   }
 }

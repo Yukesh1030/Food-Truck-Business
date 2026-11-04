@@ -7,7 +7,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const checkoutSubtotalEl = document.getElementById('checkoutSubtotal');
   const checkoutTotalEl = document.getElementById('checkoutTotal');
   const placeOrderBtn = document.getElementById('placeOrderBtn');
-  const checkoutForm = document.getElementById('checkoutForm');
 
   const cart = CartManager.getCart();
 
@@ -20,9 +19,9 @@ document.addEventListener('DOMContentLoaded', () => {
   // Render Mini Order Summary
   if (checkoutItemsList) {
     checkoutItemsList.innerHTML = cart.map(item => `
-      <div style="display: flex; justify-content: space-between; margin-bottom: 10px; font-size: 0.9rem;">
-        <span>${item.name} <strong>x${item.qty}</strong></span>
-        <span>₹${item.price * item.qty}</span>
+      <div class="checkout-item-line">
+        <span class="checkout-item-name">${item.name} <strong class="checkout-item-qty">×${item.qty}</strong></span>
+        <span class="checkout-item-price">₹${item.price * item.qty}</span>
       </div>
     `).join('');
   }
@@ -109,4 +108,3 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 });
-
