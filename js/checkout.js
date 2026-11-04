@@ -63,8 +63,23 @@ document.addEventListener('DOMContentLoaded', () => {
       const phone = document.getElementById('custPhone')?.value.trim();
       const email = document.getElementById('custEmail')?.value.trim();
 
-      if (!name || !phone || !email) {
-        showToast('Please fill in your name, phone and email.', 'exclamation-circle');
+      if (!name) {
+        showToast('Please enter your full name.', 'exclamation-circle');
+        document.getElementById('custName')?.focus();
+        return;
+      }
+
+      const phoneClean = phone.replace(/\D/g, '');
+      if (!phone || phoneClean.length !== 10) {
+        showToast('Please enter a valid 10-digit mobile number.', 'exclamation-circle');
+        document.getElementById('custPhone')?.focus();
+        return;
+      }
+
+      const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+      if (!email || !emailRegex.test(email)) {
+        showToast('Please enter a valid email address.', 'exclamation-circle');
+        document.getElementById('custEmail')?.focus();
         return;
       }
 

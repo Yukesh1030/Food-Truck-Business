@@ -287,69 +287,14 @@ function showToast(message, icon = 'info-circle') {
   }, 3200);
 }
 
-// Quick View Dish Modal
+// Quick View Dish Modal (Feature completely removed as requested)
 function openQuickView(dishId) {
-  const dish = STACKLY_MENU.find(d => d.id === dishId);
-  if (!dish) return;
-
-  let modal = document.getElementById('quickViewModal');
-  if (!modal) {
-    modal = document.createElement('div');
-    modal.id = 'quickViewModal';
-    modal.className = 'modal-overlay';
-    document.body.appendChild(modal);
-  }
-
-  modal.innerHTML = `
-    <div class="modal-content-card">
-      <button class="modal-close-btn" onclick="closeQuickView()">
-        <i class="fa-solid fa-xmark"></i>
-      </button>
-      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 28px; padding: 30px;" class="modal-split-grid">
-        <div style="height: 360px; border-radius: 14px; overflow: hidden; background: #171717;">
-          <img src="${dish.image}" alt="${dish.name}" style="width: 100%; height: 100%; object-fit: cover;">
-        </div>
-        <div style="display: flex; flex-direction: column; justify-content: space-between;">
-          <div>
-            <div style="display: flex; gap: 8px; margin-bottom: 8px;">
-              <span class="tag-pill ${dish.type}">${dish.type === 'veg' ? 'Veg' : 'Non-Veg'}</span>
-              ${dish.spicy ? '<span class="tag-pill spicy"><i class="fa-solid fa-pepper-hot"></i> Spicy</span>' : ''}
-              <span class="badge badge-yellow">${dish.tag}</span>
-            </div>
-            <h2 style="font-size: 2.2rem; margin-bottom: 10px;">${dish.name}</h2>
-            <p style="font-size: 0.95rem; color: #666; margin-bottom: 16px;">${dish.desc}</p>
-            <div style="display: flex; gap: 16px; margin-bottom: 16px; font-size: 0.88rem; font-weight: 500;">
-              <span><i class="fa-solid fa-fire" style="color: #F4B323;"></i> ${dish.calories}</span>
-              <span><i class="fa-solid fa-clock" style="color: #F4B323;"></i> ${dish.prepTime}</span>
-              <span><i class="fa-solid fa-star" style="color: #F4B323;"></i> ${dish.rating} (120+ reviews)</span>
-            </div>
-            <div style="font-size: 0.82rem; color: #777;">
-              <strong>Key Ingredients:</strong> ${dish.ingredients.join(', ')}
-            </div>
-          </div>
-          <div style="display: flex; align-items: center; justify-content: space-between; border-top: 1px solid rgba(23,23,23,0.1); padding-top: 20px; margin-top: 20px;">
-            <span style="font-family: var(--font-heading); font-size: 2.4rem; color: #171717;">₹${dish.price}</span>
-            <div style="display: flex; gap: 12px;">
-              <a href="food-details.html?id=${dish.id}" class="btn btn-outline btn-sm">Full Details</a>
-              <button class="btn btn-primary btn-sm" onclick="CartManager.addItem('${dish.id}', 1); closeQuickView();">
-                <i class="fa-solid fa-cart-plus"></i> Add to Cart
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  `;
-
-  modal.classList.add('active');
-  modal.onclick = (e) => {
-    if (e.target === modal) closeQuickView();
-  };
+  return false;
 }
 
 function closeQuickView() {
   const modal = document.getElementById('quickViewModal');
-  if (modal) modal.classList.remove('active');
+  if (modal) modal.remove();
 }
 
 // Global Init on DOM Load

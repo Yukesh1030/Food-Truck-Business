@@ -47,7 +47,7 @@ document.addEventListener('DOMContentLoaded', () => {
               </button>
             </div>
           </div>
-          <div style="font-family: var(--font-heading); font-size: 1.5rem; color: var(--color-primary); margin-left: auto;">
+          <div class="cart-item-row-total" style="font-family: var(--font-heading); font-size: 1.5rem; color: var(--color-primary); margin-left: auto;">
             ₹${item.price * item.qty}
           </div>
         </div>

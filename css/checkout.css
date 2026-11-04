@@ -38,6 +38,13 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-shrink: 0;
+}
+
+.checkout-fields-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
 }
 
 /* Pickup Truck Selection Cards */
@@ -71,6 +78,7 @@
 .truck-radio-input {
   accent-color: var(--color-accent);
   margin-top: 4px;
+  flex-shrink: 0;
 }
 
 .truck-card-info h4 {
@@ -118,3 +126,123 @@
   color: var(--color-primary);
 }
 
+.payment-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+/* Right Summary Sidebar */
+.checkout-summary-box {
+  background: var(--color-primary);
+  color: var(--color-text-light);
+  border-radius: var(--radius-lg);
+  padding: 32px;
+  border: 2px solid var(--color-accent);
+  position: sticky;
+  top: 100px;
+  box-shadow: var(--shadow-md);
+}
+
+.checkout-summary-title {
+  font-size: 1.6rem;
+  color: var(--color-accent);
+  margin-bottom: 20px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+/* ==========================================================================
+   Responsive Breakpoints for Checkout
+   ========================================================================== */
+@media (max-width: 1024px) {
+  .checkout-layout-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .checkout-summary-box {
+    position: static;
+    top: auto;
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .checkout-step-panel {
+    padding: clamp(18px, 4vw, 26px);
+  }
+
+  .checkout-summary-box {
+    padding: clamp(20px, 4vw, 28px);
+  }
+
+  .checkout-step-header {
+    gap: 12px;
+    margin-bottom: 18px;
+    padding-bottom: 12px;
+  }
+
+  .step-num-badge {
+    width: 32px;
+    height: 32px;
+    font-size: 1.2rem;
+  }
+
+  .checkout-step-header h3 {
+    font-size: 1.25rem !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .checkout-fields-grid {
+    grid-template-columns: 1fr !important;
+    gap: 14px;
+  }
+
+  .truck-radio-card {
+    padding: 14px;
+    gap: 12px;
+  }
+
+  .truck-card-info h4 {
+    font-size: 1.1rem;
+    line-height: 1.3;
+  }
+
+  .truck-card-info p {
+    font-size: 0.82rem;
+  }
+
+  .payment-methods-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .payment-method-card {
+    flex-direction: row;
+    align-items: center;
+    text-align: left;
+    padding: 14px 18px;
+    gap: 16px;
+  }
+
+  .payment-method-icon {
+    font-size: 1.6rem;
+    width: 32px;
+    text-align: center;
+    flex-shrink: 0;
+  }
+}
+
+@media (max-width: 380px) {
+  .truck-radio-card {
+    padding: 12px 10px;
+    gap: 10px;
+  }
+
+  .payment-method-card {
+    padding: 12px 14px;
+    gap: 12px;
+  }
+}

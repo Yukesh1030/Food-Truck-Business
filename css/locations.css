@@ -28,81 +28,222 @@
   letter-spacing: 1px;
 }
 
-/* Map Display Area */
+/* Real-Time Google Map Component & City Selector */
+.map-city-tabs-wrap {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 24px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  padding: 4px 2px 10px 2px;
+  -webkit-overflow-scrolling: touch;
+}
+
+.map-city-tabs-wrap::-webkit-scrollbar {
+  display: none;
+}
+
+.map-city-tab-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(255, 255, 255, 0.08);
+  color: #F5F0E6;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  padding: 12px 22px;
+  border-radius: var(--radius-full);
+  font-family: var(--font-body);
+  font-size: 0.92rem;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all var(--transition-fast);
+}
+
+.map-city-tab-btn:hover {
+  background: rgba(244, 179, 35, 0.15);
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+  transform: translateY(-2px);
+}
+
+.map-city-tab-btn.active {
+  background: var(--color-accent);
+  color: var(--color-primary);
+  border-color: var(--color-accent);
+  box-shadow: 0 6px 20px rgba(244, 179, 35, 0.35);
+  font-weight: 700;
+}
+
+.interactive-map-wrapper {
+  position: relative;
+  width: 100%;
+}
+
 .interactive-map-frame {
   width: 100%;
-  height: clamp(340px, 45vh, 520px);
-  border-radius: var(--radius-lg);
+  height: clamp(380px, 58vh, 540px);
+  border-radius: 20px;
   overflow: hidden;
   position: relative;
   background: #111;
-  border: 3px solid var(--color-primary);
-  box-shadow: var(--shadow-lg);
+  border: 2px solid var(--color-accent);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 
-.map-bg-visual {
+.google-map-iframe {
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  opacity: 0.65;
-  filter: grayscale(40%) contrast(110%);
+  border: none;
+  display: block;
 }
 
-.map-overlay-pins {
+/* Live Status Badge in Corner of Map */
+.map-live-status-pill {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-}
-
-.map-pin-marker {
-  position: absolute;
-  pointer-events: auto;
-  cursor: pointer;
-  transform: translate(-50%, -100%);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  transition: transform var(--transition-fast);
-}
-
-.map-pin-marker:hover {
-  transform: translate(-50%, -115%) scale(1.1);
-  z-index: 10;
-}
-
-.pin-icon-wrap {
-  width: 48px;
-  height: 48px;
-  background-color: var(--color-accent);
-  border: 3px solid var(--color-primary);
-  border-radius: 50% 50% 50% 0;
-  transform: rotate(-45deg);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.4);
-}
-
-.pin-icon-wrap i {
-  transform: rotate(45deg);
-  color: var(--color-primary);
-  font-size: 1.25rem;
-}
-
-.pin-label-card {
-  background: var(--color-primary);
-  color: var(--color-text-light);
-  padding: 6px 14px;
-  border-radius: var(--radius-sm);
+  top: 18px;
+  right: 18px;
+  background: rgba(23, 23, 23, 0.92);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  color: #F5F0E6;
+  border: 1px solid rgba(46, 204, 113, 0.4);
+  padding: 8px 16px;
+  border-radius: var(--radius-full);
   font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  z-index: 4;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+/* Floating Truck Info Card */
+.map-truck-floating-card {
+  position: absolute;
+  bottom: 22px;
+  left: 22px;
+  max-width: 440px;
+  width: calc(100% - 44px);
+  background: rgba(23, 23, 23, 0.94);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  padding: 22px;
+  border-radius: 16px;
+  border: 1px solid rgba(244, 179, 35, 0.5);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6);
+  color: #F5F0E6;
+  z-index: 4;
+  transition: opacity 0.35s ease, transform 0.35s ease;
+}
+
+.map-truck-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.live-status-time {
+  font-size: 0.82rem;
+  color: #2ecc71;
   font-weight: 600;
-  white-space: nowrap;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-  margin-top: 8px;
-  border: 1px solid var(--color-accent);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.map-truck-title {
+  font-size: 1.4rem;
+  color: #F5F0E6;
+  margin-bottom: 6px;
+  line-height: 1.3;
+}
+
+.map-truck-address {
+  font-size: 0.88rem;
+  color: rgba(245, 240, 230, 0.78);
+  line-height: 1.6;
+  margin-bottom: 14px;
+}
+
+.map-truck-meta-row {
+  display: flex;
+  gap: 18px;
+  font-size: 0.85rem;
+  color: rgba(245, 240, 230, 0.85);
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+
+.map-truck-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+/* Mobile Responsiveness for Map */
+@media (max-width: 768px) {
+  .interactive-map-frame {
+    height: 330px;
+    border-radius: 16px;
+  }
+
+  .interactive-map-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .map-live-status-pill {
+    top: 12px;
+    right: 12px;
+    font-size: 0.72rem;
+    padding: 6px 12px;
+    gap: 8px;
+  }
+
+  .map-truck-floating-card {
+    position: static;
+    width: 100%;
+    max-width: 100%;
+    background: var(--color-primary);
+    padding: 18px;
+    border-radius: 16px;
+    border: 2px solid var(--color-accent);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .map-truck-title {
+    font-size: 1.25rem;
+  }
+
+  .map-truck-meta-row {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .map-city-tab-btn {
+    padding: 10px 16px;
+    font-size: 0.82rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .map-truck-actions {
+    flex-direction: column;
+  }
+
+  .map-truck-actions .btn {
+    width: 100%;
+    text-align: center;
+  }
 }
 
 /* Weekly Schedule Table */

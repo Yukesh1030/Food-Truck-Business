@@ -309,4 +309,75 @@ document.addEventListener('DOMContentLoaded', () => {
       el.style.transform = 'none';
     });
   });
+
+  // 3. Stat Counter Animations (For Story & Achievements)
+  const initCounterAnimations = () => {
+    const counters = document.querySelectorAll('.stat-counter');
+    if (!counters.length) return;
+
+    const runCounter = (el) => {
+      if (el.dataset.animated === 'true') return;
+      el.dataset.animated = 'true';
+
+      const target = parseFloat(el.dataset.target) || 0;
+      const start = el.dataset.start !== undefined ? parseFloat(el.dataset.start) : 0;
+      const duration = parseInt(el.dataset.duration, 10) || 2000;
+      const prefix = el.dataset.prefix || '';
+      const suffix = el.dataset.suffix || '';
+      const decimals = parseInt(el.dataset.decimals, 10) || 0;
+
+      if (prefersReducedMotion) {
+        const finalVal = decimals > 0 ? target.toFixed(decimals) : Math.round(target).toLocaleString('en-IN');
+        el.textContent = `${prefix}${finalVal}${suffix}`;
+        return;
+      }
+
+      let startTime = null;
+      // Exponential ease-out for smooth countdown / countup
+      const easeOutExpo = (t) => t === 1 ? 1 : 1 - Math.pow(2, -10 * t);
+
+      const updateCounter = (now) => {
+        if (!startTime) startTime = now;
+        const elapsed = now - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        const easedProgress = easeOutExpo(progress);
+
+        const currentVal = start + (target - start) * easedProgress;
+        const formatted = decimals > 0 
+          ? currentVal.toFixed(decimals) 
+          : Math.round(currentVal).toLocaleString('en-IN');
+
+        el.textContent = `${prefix}${formatted}${suffix}`;
+
+        if (progress < 1) {
+          requestAnimationFrame(updateCounter);
+        } else {
+          const finalVal = decimals > 0 
+            ? target.toFixed(decimals) 
+            : Math.round(target).toLocaleString('en-IN');
+          el.textContent = `${prefix}${finalVal}${suffix}`;
+          el.classList.add('counter-completed');
+        }
+      };
+
+      requestAnimationFrame(updateCounter);
+    };
+
+    if ('IntersectionObserver' in window) {
+      const observer = new IntersectionObserver((entries, obs) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            runCounter(entry.target);
+            obs.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.25, rootMargin: '0px 0px -40px 0px' });
+
+      counters.forEach(c => observer.observe(c));
+    } else {
+      counters.forEach(runCounter);
+    }
+  };
+
+  initCounterAnimations();
 });

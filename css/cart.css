@@ -166,3 +166,123 @@
   margin-bottom: 18px;
 }
 
+/* ==========================================================================
+   Responsive Breakpoints for Cart
+   ========================================================================== */
+@media (max-width: 1024px) {
+  .cart-layout-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .cart-summary-box {
+    position: static;
+    top: auto;
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .cart-items-container {
+    padding: clamp(16px, 4vw, 24px);
+  }
+
+  .cart-summary-box {
+    padding: clamp(20px, 5vw, 28px);
+  }
+
+  .summary-title {
+    font-size: 1.5rem;
+    margin-bottom: 18px;
+  }
+}
+
+@media (max-width: 600px) {
+  .cart-item-row {
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 16px 0;
+  }
+
+  .cart-item-thumb {
+    width: 74px;
+    height: 74px;
+    border-radius: var(--radius-sm);
+  }
+
+  .cart-item-details {
+    flex: 1;
+    min-width: 140px;
+  }
+
+  .cart-item-title {
+    font-size: 1.15rem;
+    line-height: 1.25;
+    margin-bottom: 4px;
+  }
+
+  .cart-item-price {
+    font-size: 1.05rem;
+    padding: 2px 8px;
+    margin-bottom: 6px;
+  }
+
+  .cart-item-actions {
+    margin-top: 4px;
+    gap: 12px;
+  }
+
+  .cart-item-row-total {
+    width: 100%;
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    margin-left: 0 !important;
+    padding-top: 10px;
+    border-top: 1px dashed rgba(23, 23, 23, 0.12);
+    font-size: 1.3rem !important;
+  }
+
+  .cart-item-row-total::before {
+    content: "Item Total:";
+    font-family: var(--font-body);
+    font-size: 0.82rem;
+    color: var(--color-text-muted);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .promo-code-wrap {
+    flex-direction: row;
+    gap: 8px;
+  }
+
+  .promo-input {
+    min-width: 0;
+    font-size: 0.85rem;
+    padding: 10px 12px;
+  }
+
+  .promo-code-wrap button {
+    flex-shrink: 0;
+    padding: 10px 16px;
+  }
+}
+
+@media (max-width: 380px) {
+  .cart-item-row {
+    gap: 10px;
+  }
+
+  .cart-item-thumb {
+    width: 64px;
+    height: 64px;
+  }
+
+  .cart-item-title {
+    font-size: 1.05rem;
+  }
+}
+

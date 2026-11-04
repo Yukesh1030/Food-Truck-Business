@@ -161,3 +161,112 @@
   margin-bottom: 16px;
 }
 
+
+/* ==========================================================================
+   Horizontal Card & Mobile Responsiveness for Menu Page
+   ========================================================================== */
+.food-card-horizontal {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  align-items: stretch;
+}
+
+@media (max-width: 1024px) {
+  .menu-grid-wrapper {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+}
+
+@media (max-width: 768px) {
+  .menu-controls-bar {
+    padding: clamp(16px, 4vw, 22px);
+    margin-bottom: 32px;
+    gap: 16px;
+  }
+
+  .menu-search-input {
+    padding: 12px 16px 12px 46px;
+    font-size: 0.92rem;
+  }
+
+  .menu-search-icon {
+    left: 16px;
+    font-size: 1rem;
+  }
+
+  .category-pills-row {
+    gap: 8px;
+    padding-bottom: 6px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    flex-wrap: nowrap;
+  }
+
+  .category-tab-btn {
+    padding: 8px 16px;
+    font-size: 0.82rem;
+    flex-shrink: 0;
+  }
+
+  .dietary-filters-row {
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  .dietary-tag-btn {
+    padding: 6px 12px;
+    font-size: 0.78rem;
+  }
+
+  .menu-grid-wrapper {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .food-card-horizontal {
+    display: flex !important;
+    flex-direction: column !important;
+  }
+
+  .food-card-horizontal .food-card-thumb-wrap {
+    height: 200px !important;
+    width: 100% !important;
+  }
+
+  .menu-category-section-title {
+    font-size: 1.35rem;
+    gap: 12px;
+    margin-bottom: 18px;
+  }
+
+  .category-section-icon {
+    width: 40px;
+    height: 40px;
+    font-size: 1.15rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .food-card-body {
+    padding: 16px;
+  }
+
+  .food-card-title {
+    font-size: 1.25rem;
+  }
+
+  .food-card-desc {
+    font-size: 0.85rem;
+    margin-bottom: 14px;
+  }
+
+  .combo-deal-card {
+    padding: 16px !important;
+  }
+
+  .category-tab-btn {
+    padding: 7px 14px;
+    font-size: 0.8rem;
+  }
+}

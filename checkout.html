@@ -94,7 +94,7 @@
   </aside>
 
   <!-- Main Checkout Content -->
-  <main class="section-padding" style="padding-top: 140px; background-color: var(--color-bg);">
+  <main class="section-padding" style="padding-top: clamp(100px, 12vw, 140px); background-color: var(--color-bg);">
     <div class="container">
       
       <div class="section-header text-left" style="margin-bottom: 30px;">
@@ -122,7 +122,7 @@
                 <label class="form-label" for="custName">Full Name *</label>
                 <input type="text" id="custName" class="form-input" placeholder="e.g. Aditi Rao" value="Aditi Rao" required>
               </div>
-              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;" class="grid-2-cols">
+              <div class="checkout-fields-grid">
                 <div class="form-group">
                   <label class="form-label" for="custPhone">Mobile Number (for pickup SMS) *</label>
                   <input type="tel" id="custPhone" class="form-input" placeholder="9876543210" value="9876543210" required>
@@ -193,18 +193,24 @@
             <div class="payment-methods-grid">
               <div class="payment-method-card selected">
                 <i class="fa-solid fa-qrcode payment-method-icon" style="color: #F4B323;"></i>
-                <strong>Instant UPI</strong>
-                <span style="font-size: 0.75rem; color: #777;">GPay, PhonePe, Paytm</span>
+                <div class="payment-info">
+                  <strong>Instant UPI</strong>
+                  <span style="font-size: 0.75rem; color: #777;">GPay, PhonePe, Paytm</span>
+                </div>
               </div>
               <div class="payment-method-card">
                 <i class="fa-regular fa-credit-card payment-method-icon"></i>
-                <strong>Card Payment</strong>
-                <span style="font-size: 0.75rem; color: #777;">Visa, Master, RuPay</span>
+                <div class="payment-info">
+                  <strong>Card Payment</strong>
+                  <span style="font-size: 0.75rem; color: #777;">Visa, Master, RuPay</span>
+                </div>
               </div>
               <div class="payment-method-card">
                 <i class="fa-solid fa-money-bill-wave payment-method-icon"></i>
-                <strong>Cash at Truck</strong>
-                <span style="font-size: 0.75rem; color: #777;">Pay at window</span>
+                <div class="payment-info">
+                  <strong>Cash at Truck</strong>
+                  <span style="font-size: 0.75rem; color: #777;">Pay at window</span>
+                </div>
               </div>
             </div>
           </div>
@@ -212,8 +218,8 @@
         </div>
 
         <!-- Right: Order Summary Sidebar -->
-        <div style="background: var(--color-primary); color: var(--color-text-light); border-radius: 20px; padding: 32px; border: 2px solid var(--color-accent); position: sticky; top: 100px;">
-          <h3 style="font-size: 1.6rem; color: var(--color-accent); margin-bottom: 20px; padding-bottom: 12px; border-bottom: 1px solid rgba(255,255,255,0.15);">
+        <div class="checkout-summary-box">
+          <h3 class="checkout-summary-title">
             BAG SUMMARY
           </h3>
 
@@ -251,7 +257,7 @@
   </main>
 
   <!-- Common Footer -->
-  <!-- <footer class="site-footer">
+  <footer class="site-footer">
     <div class="container">
       <div class="footer-top-grid">
         <div class="footer-brand-col">
@@ -318,7 +324,7 @@
         </div>
       </div>
     </div>
-  </footer> -->
+  </footer>
 
   <!-- Scripts -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.14.2/gsap.min.js"></script>

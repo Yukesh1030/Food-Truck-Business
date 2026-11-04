@@ -158,34 +158,74 @@
       <div class="section-header">
         <span class="special-label">02. Fleet Coordinates</span>
         <h2 class="section-title">INTERACTIVE LOCATION MAP</h2>
-        <p class="section-desc">Click any marker on our interactive city route grid to see operating hours, address, and spot parking details.</p>
+        <p class="section-desc">Track our rolling mobile kitchens live across South India. Select a city below to view real-time Google Map coordinates, parking spots, and window pickup times.</p>
       </div>
 
-      <div class="interactive-map-frame">
-        <img src="assets/images/hero/hero-locations.webp" alt="Map View" class="map-bg-visual">
-        <div class="map-overlay-pins">
-          <!-- Pin 1: Bengaluru -->
-          <div class="map-pin-marker" style="top: 38%; left: 32%;" data-location="Bengaluru - Koramangala Hub">
-            <div class="pin-icon-wrap"><i class="fa-solid fa-truck-fast"></i></div>
-            <div class="pin-label-card">Bengaluru (Live Truck)</div>
+      <!-- City Hub Selector Tabs -->
+      <div class="map-city-tabs-wrap">
+        <button class="map-city-tab-btn active" data-city="bengaluru">
+          <span class="pulse-indicator-dot"></span>
+          <span>Bengaluru (Live Truck 01)</span>
+        </button>
+        <button class="map-city-tab-btn" data-city="hyderabad">
+          <span>Hyderabad (Truck 02)</span>
+        </button>
+        <button class="map-city-tab-btn" data-city="chennai">
+          <span>Chennai (Truck 03)</span>
+        </button>
+        <button class="map-city-tab-btn" data-city="coimbatore">
+          <span>Coimbatore (Truck 04)</span>
+        </button>
+      </div>
+
+      <!-- Real-Time Interactive Google Map Container -->
+      <div class="interactive-map-wrapper">
+        <div class="interactive-map-frame" id="liveMapFrame">
+          
+          <!-- Live Status Floating Badge -->
+          <div class="map-live-status-pill">
+            <span class="radar-ping-dot"></span>
+            <span id="mapLiveStatusText">LIVE GPS SATELLITE FEED · BENGALURU</span>
           </div>
-          <!-- Pin 2: Hyderabad -->
-          <div class="map-pin-marker" style="top: 25%; left: 52%;" data-location="Hyderabad - Madhapur Tech Hub">
-            <div class="pin-icon-wrap" style="background-color: #F5F0E6;"><i class="fa-solid fa-utensils"></i></div>
-            <div class="pin-label-card">Hyderabad (Truck 02)</div>
+
+          <!-- Real-Time Google Map Iframe -->
+          <iframe 
+            id="googleMapIframe"
+            class="google-map-iframe"
+            title="STACKLY Food Truck Live Location Map"
+            src="https://maps.google.com/maps?q=Sony+World+Signal,+80+Feet+Road,+Koramangala+5th+Block,+Bengaluru,+Karnataka+560095&t=&z=16&ie=UTF8&iwloc=&output=embed"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+
+          <!-- Floating Truck Information Card on Map -->
+          <div class="map-truck-floating-card" id="mapTruckCard">
+            <div class="map-truck-card-header">
+              <span class="badge badge-yellow" id="mapTruckBadge">TRUCK 01 · ACTIVE NOW</span>
+              <div class="live-status-time"><i class="fa-regular fa-clock"></i> <span id="mapTruckHours">Open Till 11:30 PM</span></div>
+            </div>
+            <h3 class="map-truck-title" id="mapTruckTitle">Bengaluru · Koramangala 5th Block</h3>
+            <p class="map-truck-address" id="mapTruckAddress">
+              Sony World Signal, 80 Feet Road, Koramangala 5th Block, Bengaluru, Karnataka &ndash; 560095
+            </p>
+            <div class="map-truck-meta-row">
+              <span><i class="fa-solid fa-phone" style="color: var(--color-accent);"></i> Window: <strong id="mapTruckPhone">+91 98400 12345</strong></span>
+              <span><i class="fa-solid fa-fire" style="color: #e74c3c;"></i> Wait: <strong id="mapTruckWait">8-12 mins</strong></span>
+            </div>
+            <div class="map-truck-actions">
+              <a href="https://www.google.com/maps/dir/?api=1&destination=Sony+World+Signal+80+Feet+Road+Koramangala+5th+Block+Bengaluru" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm" id="mapDirectionsBtn">
+                <i class="fa-solid fa-diamond-turn-right"></i> Open Directions
+              </a>
+              <a href="menu.html" class="btn btn-outline-white btn-sm">
+                <i class="fa-solid fa-burger"></i> Order Ahead
+              </a>
+            </div>
           </div>
-          <!-- Pin 3: Chennai -->
-          <div class="map-pin-marker" style="top: 55%; left: 68%;" data-location="Chennai - Urapakkam Avenue">
-            <div class="pin-icon-wrap" style="background-color: #F5F0E6;"><i class="fa-solid fa-burger"></i></div>
-            <div class="pin-label-card">Chennai (Truck 03)</div>
-          </div>
-          <!-- Pin 4: Coimbatore -->
-          <div class="map-pin-marker" style="top: 65%; left: 28%;" data-location="Coimbatore - PN Palayam Stop">
-            <div class="pin-icon-wrap" style="background-color: #F5F0E6;"><i class="fa-solid fa-star"></i></div>
-            <div class="pin-label-card">Coimbatore (Truck 04)</div>
-          </div>
+
         </div>
       </div>
+
     </div>
   </section>
 
@@ -277,7 +317,7 @@
       <div class="stops-cards-grid">
         <div class="stop-card">
           <div class="stop-card-city">
-            <h3 class="stop-city-name">Bengaluru</h3>
+            <h3 class="stop-city-name" style="color: #171717;">Bengaluru</h3>
             <span class="badge badge-yellow">Tomorrow</span>
           </div>
           <div class="stop-detail-row">
@@ -293,7 +333,7 @@
 
         <div class="stop-card">
           <div class="stop-card-city">
-            <h3 class="stop-city-name">Hyderabad</h3>
+            <h3 class="stop-city-name"style="color: #171717;">Hyderabad</h3>
             <span class="badge badge-yellow">Sunday</span>
           </div>
           <div class="stop-detail-row">
@@ -309,7 +349,7 @@
 
         <div class="stop-card">
           <div class="stop-card-city">
-            <h3 class="stop-city-name">Chennai</h3>
+            <h3 class="stop-city-name"style="color: #171717;">Chennai</h3>
             <span class="badge badge-yellow">Next Tuesday</span>
           </div>
           <div class="stop-detail-row">

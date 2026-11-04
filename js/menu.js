@@ -50,9 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
         <div class="food-card-thumb-wrap">
           <span class="badge badge-yellow food-card-badge">${item.tag}</span>
           <img src="${item.image}" alt="${item.name}" class="food-card-img" loading="lazy">
-          <button class="food-card-quick-view" title="Quick View" onclick="openQuickView('${item.id}')">
-            <i class="fa-solid fa-eye"></i>
-          </button>
+
         </div>
         <div class="food-card-body">
           <div class="food-card-tags">

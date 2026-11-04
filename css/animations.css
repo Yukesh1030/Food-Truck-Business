@@ -185,3 +185,80 @@
   }
 }
 
+
+/* ==========================================================================
+   Stat Counter Animations & Real-Time Map Radar Effects
+   ========================================================================== */
+.stat-counter {
+  display: inline-block;
+  will-change: transform;
+  font-variant-numeric: tabular-nums;
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.stat-counter.counter-completed {
+  animation: counterPop 0.45s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes counterPop {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); filter: brightness(1.15); }
+  100% { transform: scale(1); }
+}
+
+.achievement-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.achievement-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.08);
+  border-color: var(--color-accent) !important;
+}
+
+/* Radar Ping Dot */
+.radar-ping-dot {
+  width: 10px;
+  height: 10px;
+  background-color: #2ecc71;
+  border-radius: 50%;
+  position: relative;
+  display: inline-block;
+  flex-shrink: 0;
+}
+
+.radar-ping-dot::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 2px solid #2ecc71;
+  transform: translate(-50%, -50%);
+  animation: radarPing 1.8s infinite cubic-bezier(0, 0.2, 0.8, 1);
+}
+
+@keyframes radarPing {
+  0% { width: 10px; height: 10px; opacity: 1; }
+  100% { width: 28px; height: 28px; opacity: 0; }
+}
+
+/* Active City Tab Pulse Indicator */
+.pulse-indicator-dot {
+  width: 8px;
+  height: 8px;
+  background: #2ecc71;
+  border-radius: 50%;
+  display: inline-block;
+  flex-shrink: 0;
+  box-shadow: 0 0 0 0 rgba(46, 204, 113, 0.7);
+  animation: tabDotPulse 2s infinite;
+}
+
+@keyframes tabDotPulse {
+  0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(46, 204, 113, 0.7); }
+  70% { transform: scale(1); box-shadow: 0 0 0 8px rgba(46, 204, 113, 0); }
+  100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(46, 204, 113, 0); }
+}
