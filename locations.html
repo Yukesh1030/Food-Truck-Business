@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Locations & Live Schedule | STACKLY Food Truck</title>
+  <meta name="description" content="Follow the STACKLY Food Truck live GPS stops across Bengaluru, Hyderabad, Chennai, and Coimbatore. View our weekly schedule, parking notes, and event routes.">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/webp" href="assets/Brand-logo.webp">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/locations.css">
+
+  <link rel="preload" as="image" href="assets/images/hero/hero-locations.webp" type="image/webp">
+</head>
+<body>
+
+  <!-- Sticky Navbar -->
+  <header class="site-header hero-dark" id="mainHeader">
+    <div class="header-container">
+      <a href="index.html" class="brand-logo-link" aria-label="STACKLY Food Truck Home">
+        <img src="assets/Brand-logo.webp" alt="STACKLY Food Truck Logo" class="brand-logo-img">
+      </a>
+
+      <nav class="nav-menu-wrapper" aria-label="Primary Navigation">
+        <ul class="nav-links-list">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="about.html" class="nav-link">About</a></li>
+          <li><a href="menu.html" class="nav-link">Menu</a></li>
+          <li><a href="locations.html" class="nav-link active">Locations</a></li>
+          <li><a href="contact.html" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <a href="cart.html" class="cart-icon-btn" aria-label="View Cart">
+          <i class="fa-solid fa-basket-shopping"></i>
+          <span class="cart-badge-count" style="display: none;">0</span>
+        </a>
+        <a href="login.html" class="btn btn-primary login-nav-btn">Login</a>
+        <button class="hamburger-toggle" aria-label="Toggle Navigation Menu" aria-expanded="false">
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-nav-overlay" id="mobileOverlay"></div>
+  <aside class="mobile-nav-drawer" id="mobileDrawer">
+    <div>
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px;">
+        <img src="assets/Brand-logo.webp" alt="STACKLY" style="height: 38px;">
+      </div>
+      <ul class="mobile-links-list">
+        <li><a href="index.html" class="mobile-link"><span>01</span> Home</a></li>
+        <li><a href="about.html" class="mobile-link"><span>02</span> About</a></li>
+        <li><a href="menu.html" class="mobile-link"><span>03</span> Menu</a></li>
+        <li><a href="locations.html" class="mobile-link active"><span>04</span> Locations</a></li>
+        <li><a href="contact.html" class="mobile-link"><span>05</span> Contact</a></li>
+      </ul>
+    </div>
+    <div class="mobile-drawer-footer">
+      <div class="mobile-truck-status-badge">
+        <span class="status-dot-pulse"></span>
+        <div style="font-size: 0.82rem; color: #F5F0E6;">
+          <strong>Live Truck:</strong> Koramangala 5th Block, Bengaluru
+        </div>
+      </div>
+      <a href="login.html" class="btn btn-primary" style="width: 100%;">Login / Account</a>
+    </div>
+  </aside>
+
+  <!-- Locations Hero Section -->
+  <section class="locations-hero-section bg-dark" style="position: relative; padding-top: 160px; padding-bottom: 80px; overflow: hidden; text-align: center;">
+    <img src="assets/images/hero/hero-locations.webp" alt="STACKLY Locations Map Cover" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.3; z-index: 1;">
+    <div style="position: absolute; inset: 0; background: radial-gradient(circle at center, rgba(244, 179, 35, 0.12), rgba(23, 23, 23, 0.96) 80%); z-index: 2;"></div>
+
+    <div class="container" style="position: relative; z-index: 5;">
+      <span class="special-label" style="margin-bottom: 12px;">Live Fleet Tracker</span>
+      <h1 style="color: #F5F0E6; margin-bottom: 12px; font-size: clamp(3rem, 7vw, 5.8rem);">
+        WHERE THE <span style="color: #F4B323;">FLAVOUR TAKES YOU.</span>
+      </h1>
+      <p style="color: rgba(245,240,230,0.8); max-width: 660px; margin: 0 auto 30px auto; font-size: 1.15rem; line-height: 1.7;">
+        Follow our wheels in real time. Track today's serving coordinates, upcoming weekend festival routes, and weekly operating hours across South India.
+      </p>
+    </div>
+  </section>
+
+  <!-- SECTION 01: Current Location Highlight -->
+  <section class="section-padding-sm" style="background-color: var(--color-bg);" id="currentLocation">
+    <div class="container">
+      <div class="live-truck-hero-card">
+        <div style="display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 32px; align-items: center;" class="grid-2-cols">
+          <div>
+            <div style="display: flex; gap: 12px; align-items: center; margin-bottom: 14px;">
+              <span class="live-badge-glow"><i class="fa-solid fa-satellite-dish"></i> GPS ACTIVE NOW</span>
+              <span class="badge badge-yellow">TRUCK 01 - BENGALURU FLEET</span>
+            </div>
+            <h2 style="font-size: clamp(2rem, 4vw, 3.2rem); color: #F5F0E6; margin-bottom: 10px;">KORAMANGALA 5TH BLOCK</h2>
+            <p style="font-size: 1rem; color: rgba(245,240,230,0.8); line-height: 1.7; margin-bottom: 22px;">
+              Opposite Sony World Signal, 80 Feet Road, Koramangala 5th Block, Bengaluru, Karnataka – 560095.<br>
+              <strong>Status:</strong> Kitchen doors open. Smashing fresh patties! Serving until 11:30 PM tonight.
+            </p>
+            <div style="display: flex; gap: 14px; flex-wrap: wrap;">
+              <a href="#interactiveMap" class="btn btn-primary"><i class="fa-solid fa-map-location-dot"></i> View on Interactive Map</a>
+              <a href="menu.html" class="btn btn-outline-white"><i class="fa-solid fa-utensils"></i> Order Ahead For Pickup</a>
+            </div>
+          </div>
+          <div style="border-radius: 16px; overflow: hidden; height: 260px; border: 2px solid rgba(244,179,35,0.4);">
+            <img src="assets/images/food-truck/truck-location.webp" alt="Food Truck Live Spot" style="width: 100%; height: 100%; object-fit: cover;">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 02: Interactive Location Map -->
+  <section class="section-padding bg-dark" id="interactiveMap">
+    <div class="container">
+      <div class="section-header">
+        <span class="special-label">02. Fleet Coordinates</span>
+        <h2 class="section-title">INTERACTIVE LOCATION MAP</h2>
+        <p class="section-desc">Click any marker on our interactive city route grid to see operating hours, address, and spot parking details.</p>
+      </div>
+
+      <div class="interactive-map-frame">
+        <img src="assets/images/hero/hero-locations.webp" alt="Map View" class="map-bg-visual">
+        <div class="map-overlay-pins">
+          <!-- Pin 1: Bengaluru -->
+          <div class="map-pin-marker" style="top: 38%; left: 32%;" data-location="Bengaluru - Koramangala Hub">
+            <div class="pin-icon-wrap"><i class="fa-solid fa-truck-fast"></i></div>
+            <div class="pin-label-card">Bengaluru (Live Truck)</div>
+          </div>
+          <!-- Pin 2: Hyderabad -->
+          <div class="map-pin-marker" style="top: 25%; left: 52%;" data-location="Hyderabad - Madhapur Tech Hub">
+            <div class="pin-icon-wrap" style="background-color: #F5F0E6;"><i class="fa-solid fa-utensils"></i></div>
+            <div class="pin-label-card">Hyderabad (Truck 02)</div>
+          </div>
+          <!-- Pin 3: Chennai -->
+          <div class="map-pin-marker" style="top: 55%; left: 68%;" data-location="Chennai - Urapakkam Avenue">
+            <div class="pin-icon-wrap" style="background-color: #F5F0E6;"><i class="fa-solid fa-burger"></i></div>
+            <div class="pin-label-card">Chennai (Truck 03)</div>
+          </div>
+          <!-- Pin 4: Coimbatore -->
+          <div class="map-pin-marker" style="top: 65%; left: 28%;" data-location="Coimbatore - PN Palayam Stop">
+            <div class="pin-icon-wrap" style="background-color: #F5F0E6;"><i class="fa-solid fa-star"></i></div>
+            <div class="pin-label-card">Coimbatore (Truck 04)</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 03: Weekly Operating Schedule -->
+  <section class="section-padding" id="weeklySchedule">
+    <div class="container">
+      <div class="section-header">
+        <span class="special-label dark">03. Route Timetable</span>
+        <h2 class="section-title">WEEKLY OPERATING SCHEDULE</h2>
+        <p class="section-desc">We follow a strict rolling schedule so you always know when the aroma of toasted brioche hits your neighborhood.</p>
+      </div>
+
+      <div class="schedule-table-wrap">
+        <table class="schedule-table">
+          <thead>
+            <tr>
+              <th>Day</th>
+              <th>City / Hub</th>
+              <th>Primary Stop Address</th>
+              <th>Operating Hours</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="day-badge">Monday</span></td>
+              <td>Bengaluru</td>
+              <td>Tech Park Gate 2, Outer Ring Road, Bellandur</td>
+              <td>12:00 PM – 10:30 PM</td>
+              <td><span class="badge badge-outline">Scheduled</span></td>
+            </tr>
+            <tr>
+              <td><span class="day-badge">Tuesday</span></td>
+              <td>Hyderabad</td>
+              <td>Ayyappa Society Main Road, Madhapur</td>
+              <td>12:30 PM – 11:00 PM</td>
+              <td><span class="badge badge-outline">Scheduled</span></td>
+            </tr>
+            <tr>
+              <td><span class="day-badge">Wednesday</span></td>
+              <td>Chennai</td>
+              <td>Ambika Complex Avenue, Urapakkam</td>
+              <td>01:00 PM – 11:00 PM</td>
+              <td><span class="badge badge-outline">Scheduled</span></td>
+            </tr>
+            <tr>
+              <td><span class="day-badge">Thursday</span></td>
+              <td>Coimbatore</td>
+              <td>Nethaji Road, PN Palayam Junction</td>
+              <td>12:00 PM – 10:30 PM</td>
+              <td><span class="badge badge-outline">Scheduled</span></td>
+            </tr>
+            <tr class="today-highlight">
+              <td><span class="day-badge" style="background: var(--color-accent); color: #171717;">Friday (Today)</span></td>
+              <td>Bengaluru</td>
+              <td>Sony World Junction, Koramangala 5th Block</td>
+              <td>12:00 PM – 11:30 PM</td>
+              <td><span class="badge badge-yellow"><i class="fa-solid fa-fire"></i> Sizzling Now</span></td>
+            </tr>
+            <tr>
+              <td><span class="day-badge">Saturday</span></td>
+              <td>Bengaluru / Hyderabad</td>
+              <td>Indiranagar 100ft Road / Hitec City Cyber Towers</td>
+              <td>01:00 PM – Midnight</td>
+              <td><span class="badge badge-outline">Weekend Rush</span></td>
+            </tr>
+            <tr>
+              <td><span class="day-badge">Sunday</span></td>
+              <td>All Hubs</td>
+              <td>Sunday Street Market & Carnival Parks</td>
+              <td>11:00 AM – 11:00 PM</td>
+              <td><span class="badge badge-outline">Family Carnival</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 04: Upcoming Stops -->
+  <section class="section-padding bg-dark" id="upcomingStops">
+    <div class="container">
+      <div class="section-header">
+        <span class="special-label">04. Mark Your Calendar</span>
+        <h2 class="section-title">UPCOMING TRUCK STOPS</h2>
+        <p class="section-desc">Plan ahead for special appearances, university campus popups, and weekend festival parking.</p>
+      </div>
+
+      <div class="stops-cards-grid">
+        <div class="stop-card">
+          <div class="stop-card-city">
+            <h3 class="stop-city-name">Bengaluru</h3>
+            <span class="badge badge-yellow">Tomorrow</span>
+          </div>
+          <div class="stop-detail-row">
+            <i class="fa-solid fa-location-dot"></i>
+            <div><strong>Indiranagar 100 Feet Road</strong><br>Near Metro Station Exit 2</div>
+          </div>
+          <div class="stop-detail-row">
+            <i class="fa-solid fa-clock"></i>
+            <div>1:00 PM – Midnight</div>
+          </div>
+          <a href="menu.html" class="btn btn-outline btn-sm" style="margin-top: 10px;">Pre-order Bites</a>
+        </div>
+
+        <div class="stop-card">
+          <div class="stop-card-city">
+            <h3 class="stop-city-name">Hyderabad</h3>
+            <span class="badge badge-yellow">Sunday</span>
+          </div>
+          <div class="stop-detail-row">
+            <i class="fa-solid fa-location-dot"></i>
+            <div><strong>Inorbit Mall Promenade</strong><br>Madhapur, Hyderabad</div>
+          </div>
+          <div class="stop-detail-row">
+            <i class="fa-solid fa-clock"></i>
+            <div>11:30 AM – 10:30 PM</div>
+          </div>
+          <a href="menu.html" class="btn btn-outline btn-sm" style="margin-top: 10px;">Pre-order Bites</a>
+        </div>
+
+        <div class="stop-card">
+          <div class="stop-card-city">
+            <h3 class="stop-city-name">Chennai</h3>
+            <span class="badge badge-yellow">Next Tuesday</span>
+          </div>
+          <div class="stop-detail-row">
+            <i class="fa-solid fa-location-dot"></i>
+            <div><strong>Besant Nagar Beach Promenade</strong><br>6th Avenue, Chennai</div>
+          </div>
+          <div class="stop-detail-row">
+            <i class="fa-solid fa-clock"></i>
+            <div>4:00 PM – 11:00 PM</div>
+          </div>
+          <a href="menu.html" class="btn btn-outline btn-sm" style="margin-top: 10px;">Pre-order Bites</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 05: Location Details (Parking, Seating, Directions) -->
+  <section class="section-padding" id="locationDetails">
+    <div class="container">
+      <div class="section-header">
+        <span class="special-label dark">05. Visitor Amenities</span>
+        <h2 class="section-title">SPOT DETAILS & PARKING GUIDE</h2>
+        <p class="section-desc">We ensure every truck stop is convenient with designated pedestrian pickup lanes, outdoor picnic benches, and clean bins.</p>
+      </div>
+
+      <div class="grid-3-cols" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px;">
+        <div style="background: #fff; padding: 30px; border-radius: 16px; border: 1px solid rgba(23,23,23,0.08);">
+          <div style="width: 50px; height: 50px; border-radius: 12px; background: #171717; color: #F4B323; display: flex; align-items: center; justify-content: center; font-size: 1.3rem; margin-bottom: 16px;">
+            <i class="fa-solid fa-square-parking"></i>
+          </div>
+          <h3 style="font-size: 1.4rem; margin-bottom: 8px;">Dedicated Free Parking</h3>
+          <p style="font-size: 0.9rem; color: #666; line-height: 1.6;">Designated two-wheeler and four-wheeler bays located directly adjacent to our service window.</p>
+        </div>
+
+        <div style="background: #fff; padding: 30px; border-radius: 16px; border: 1px solid rgba(23,23,23,0.08);">
+          <div style="width: 50px; height: 50px; border-radius: 12px; background: #171717; color: #F4B323; display: flex; align-items: center; justify-content: center; font-size: 1.3rem; margin-bottom: 16px;">
+            <i class="fa-solid fa-chair"></i>
+          </div>
+          <h3 style="font-size: 1.4rem; margin-bottom: 8px;">Street Picnic Seating</h3>
+          <p style="font-size: 0.9rem; color: #666; line-height: 1.6;">Shaded wooden benches, standing high-tables, and chill street vibes with good tunes playing all day.</p>
+        </div>
+
+        <div style="background: #fff; padding: 30px; border-radius: 16px; border: 1px solid rgba(23,23,23,0.08);">
+          <div style="width: 50px; height: 50px; border-radius: 12px; background: #171717; color: #F4B323; display: flex; align-items: center; justify-content: center; font-size: 1.3rem; margin-bottom: 16px;">
+            <i class="fa-solid fa-qrcode"></i>
+          </div>
+          <h3 style="font-size: 1.4rem; margin-bottom: 8px;">Express QR Pickup</h3>
+          <p style="font-size: 0.9rem; color: #666; line-height: 1.6;">Order on your phone and skip the queue. Simply show your digital QR code to grab your hot box.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 06: Special Event Locations -->
+  <section class="section-padding bg-dark" id="specialEventLocations">
+    <div class="container">
+      <div class="section-header">
+        <span class="special-label">06. Festival Routes</span>
+        <h2 class="section-title">SPECIAL EVENT LOCATIONS</h2>
+        <p class="section-desc">Catch STACKLY headlined at music festivals, weekend flea markets, indie concerts, and night bazaars.</p>
+      </div>
+
+      <div class="grid-2-cols" style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px;">
+        <div style="background: #222; border-radius: 18px; overflow: hidden; border: 1px solid rgba(255,255,255,0.08);">
+          <div style="height: 220px;"><img src="assets/images/events/festival-truck.webp" alt="Music Fest" style="width: 100%; height: 100%; object-fit: cover;"></div>
+          <div style="padding: 24px;">
+            <span class="badge badge-yellow" style="margin-bottom: 8px;">Upcoming Festival</span>
+            <h3 style="font-size: 1.6rem; color: #F5F0E6; margin-bottom: 8px;">Echoes Urban Beats Fest</h3>
+            <p style="font-size: 0.9rem; color: rgba(245,240,230,0.7); margin-bottom: 16px;">Serving full menu from 2 live trucks at Palace Grounds, Bengaluru. Exclusive festival truffle burger available.</p>
+            <a href="event-booking.html" class="btn btn-outline-white btn-sm">Event Details</a>
+          </div>
+        </div>
+
+        <div style="background: #222; border-radius: 18px; overflow: hidden; border: 1px solid rgba(255,255,255,0.08);">
+          <div style="height: 220px;"><img src="assets/images/events/event-catering-1.webp" alt="Night Market" style="width: 100%; height: 100%; object-fit: cover;"></div>
+          <div style="padding: 24px;">
+            <span class="badge badge-yellow" style="margin-bottom: 8px;">Flea & Night Market</span>
+            <h3 style="font-size: 1.6rem; color: #F5F0E6; margin-bottom: 8px;">Sunday Soul Sante Pop-Up</h3>
+            <p style="font-size: 0.9rem; color: rgba(245,240,230,0.7); margin-bottom: 16px;">Live food court residency serving loaded cheese fries and craft coolers from 10:00 AM to 10:00 PM.</p>
+            <a href="event-booking.html" class="btn btn-outline-white btn-sm">Event Details</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 07: Location Notifications Subscription -->
+  <section class="section-padding" id="locationNotifications">
+    <div class="container">
+      <div style="background: var(--color-primary); color: var(--color-text-light); border-radius: 24px; padding: clamp(32px, 5vw, 60px); border: 2px solid var(--color-accent); text-align: center; max-width: 860px; margin: 0 auto;">
+        <span class="special-label">07. Never Miss A Bite</span>
+        <h2 style="font-size: clamp(2.2rem, 4.5vw, 3.8rem); color: #F5F0E6; margin: 10px 0 16px 0;">SUBSCRIBE FOR LOCATION UPDATES</h2>
+        <p style="color: rgba(245,240,230,0.8); max-width: 600px; margin: 0 auto 30px auto; font-size: 1.05rem;">
+          Get instant SMS or WhatsApp pings when the STACKLY truck parks within 3 km of your campus or office!
+        </p>
+
+        <form id="locationAlertForm" style="display: flex; gap: 12px; max-width: 500px; margin: 0 auto; flex-wrap: wrap;">
+          <input type="tel" placeholder="Enter 10-digit mobile number..." required style="flex: 1; min-width: 240px; padding: 16px 20px; border-radius: var(--radius-full); background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.2); color: #F5F0E6;">
+          <button type="submit" class="btn btn-primary" style="padding: 16px 28px;">Notify Me</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 08: Visit Us CTA -->
+  <section class="section-padding bg-dark" style="text-align: center;">
+    <div class="container">
+      <span class="special-label">Hit The Road</span>
+      <h2 style="font-size: clamp(2.4rem, 5vw, 4.2rem); color: #F5F0E6; margin: 12px 0 18px 0;">HUNGRY NOW? FOLLOW THE SCENT.</h2>
+      <p style="color: rgba(245,240,230,0.75); max-width: 600px; margin: 0 auto 30px auto; font-size: 1.1rem;">
+        Get GPS turn-by-turn directions directly to our serving window or browse the digital menu before stepping out.
+      </p>
+      <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
+        <a href="#interactiveMap" class="btn btn-primary btn-lg"><i class="fa-solid fa-diamond-turn-right"></i> Find Directions</a>
+        <a href="menu.html" class="btn btn-outline-white btn-lg"><i class="fa-solid fa-burger"></i> Explore The Menu</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Common Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top-grid">
+        <div class="footer-brand-col">
+          <a href="index.html">
+            <img src="assets/Brand-logo.webp" alt="STACKLY Food Truck" class="footer-logo-img">
+          </a>
+          <div class="footer-tagline">Big Flavours. Fresh Moves. Street Food Reimagined.</div>
+          <p class="footer-brand-desc">
+            Redefining urban street food with culinary precision, unapologetic flavours, and an iconic mobile kitchen experience across South India.
+          </p>
+          <div class="footer-social-row">
+            <a href="404.html" class="social-icon-btn" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="404.html" class="social-icon-btn" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="404.html" class="social-icon-btn" aria-label="Twitter / X"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="404.html" class="social-icon-btn" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="footer-heading">Quick Links</h4>
+          <ul class="footer-links-list">
+            <li class="footer-link-item"><a href="index.html"><i class="fa-solid fa-chevron-right"></i> Home</a></li>
+            <li class="footer-link-item"><a href="about.html"><i class="fa-solid fa-chevron-right"></i> About</a></li>
+            <li class="footer-link-item"><a href="menu.html"><i class="fa-solid fa-chevron-right"></i> Menu</a></li>
+            <li class="footer-link-item"><a href="locations.html"><i class="fa-solid fa-chevron-right"></i> Locations</a></li>
+            <li class="footer-link-item"><a href="contact.html"><i class="fa-solid fa-chevron-right"></i> Contact</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-heading">Branch Offices</h4>
+          <div class="branch-offices-list">
+            <div class="branch-office-item">
+              <div class="branch-office-name"><i class="fa-solid fa-building"></i> Bengaluru Branch Office</div>
+              <div class="branch-office-address">Evolve Studio, 4th Floor, Khata No 10, Begur - Koppa Rd, in front of SNN Raj Serenity, Suraksha Nagar, Yelenahalli, Begur, Bengaluru, Karnataka – 560068</div>
+            </div>
+            <div class="branch-office-item">
+              <div class="branch-office-name"><i class="fa-solid fa-building"></i> Hyderabad Branch Office</div>
+              <div class="branch-office-address">STACKLY, 4th floor, Jayasudha heights, Plot no 459, 100 feet road, Ayyappa society, Madhapur, Beside YSR statue, Hyderabad, Telangana – 500081</div>
+            </div>
+            <div class="branch-office-item">
+              <div class="branch-office-name"><i class="fa-solid fa-building"></i> Chennai Branch Office</div>
+              <div class="branch-office-address">No.9, Ambika Complex, 1st Floor, Gokulam Colony, Karanaipudhuchery main road, Urapakkam, Chennai, Tamil Nadu, India – 603202</div>
+            </div>
+            <div class="branch-office-item">
+              <div class="branch-office-name"><i class="fa-solid fa-building"></i> Coimbatore Branch Office</div>
+              <div class="branch-office-address">Stackly, 79 Aiswarya Complex, Nethaji Road, PN Palayam, Coimbatore, Tamil Nadu, India – 641037</div>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="footer-heading">Truck Hubs & Support</h4>
+          <ul class="footer-links-list">
+            <li class="footer-link-item"><a href="404.html"><i class="fa-solid fa-chevron-right"></i> Franchise & Fleet Partnerships</a></li>
+            <li class="footer-link-item"><a href="404.html"><i class="fa-solid fa-chevron-right"></i> Nutrition & Allergen Guide</a></li>
+            <li class="footer-link-item"><a href="404.html"><i class="fa-solid fa-chevron-right"></i> Street Chef Academy</a></li>
+            <li class="footer-link-item"><a href="404.html"><i class="fa-solid fa-chevron-right"></i> Food Truck Licensing</a></li>
+            <li class="footer-link-item"><a href="404.html"><i class="fa-solid fa-chevron-right"></i> Careers & Crew Auditions</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>© 2026 STACKLY Food Truck. All rights reserved. Big Flavours. Fresh Moves. Street Food Reimagined.</div>
+        <div class="footer-bottom-links">
+          <a href="404.html">Privacy Policy</a>
+          <a href="404.html">Terms of Service</a>
+          <a href="404.html">Cookie Preferences</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.14.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.14.2/ScrollTrigger.min.js"></script>
+  <script src="https://unpkg.com/lenis@1.3.11/dist/lenis.min.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/navigation.js"></script>
+  <script src="js/lenis.js"></script>
+  <script src="js/animations.js"></script>
+  <script src="js/locations.js"></script>
+</body>
+</html>
+

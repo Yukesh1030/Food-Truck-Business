@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create an Account | STACKLY Food Truck</title>
+  <meta name="description" content="Join STACKLY Food Truck today. Sign up as a Client or Admin to order street food, unlock loyalty perks, and track catering bookings.">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/webp" href="assets/Brand-logo.webp">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="stylesheet" href="css/animations.css">
+
+  <style>
+    /* Dedicated Auth Page Layout Matching Uploaded Screenshot */
+    body.auth-page {
+      background: linear-gradient(135deg, #f0f4f2 0%, #e6ebe8 50%, #d8dedb 100%);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    .auth-top-bar {
+      width: 100%;
+      padding: 24px clamp(20px, 4vw, 48px);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 10;
+    }
+
+    .auth-back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: #171717;
+      transition: transform var(--transition-fast);
+    }
+
+    .auth-back-link:hover {
+      transform: translateX(-4px);
+    }
+
+    .auth-brand-logo {
+      height: 38px;
+      width: auto;
+      object-fit: contain;
+    }
+
+    .auth-center-container {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 100px 20px 40px 20px;
+    }
+
+    .auth-card-wrapper {
+      background: #FFFFFF;
+      border-radius: 28px;
+      padding: clamp(32px, 5vw, 48px);
+      width: 100%;
+      max-width: 440px;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.08);
+      position: relative;
+    }
+
+    .auth-card-title {
+      font-family: var(--font-body);
+      font-weight: 700;
+      font-size: 1.85rem;
+      text-align: center;
+      color: #171717;
+      margin-bottom: 4px;
+      text-transform: none;
+      letter-spacing: -0.5px;
+    }
+
+    .auth-card-subtitle {
+      font-size: 0.92rem;
+      color: #777;
+      text-align: center;
+      margin-bottom: 24px;
+    }
+
+    .auth-input-wrap {
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+
+    .auth-input-icon {
+      position: absolute;
+      left: 16px;
+      color: #999;
+      font-size: 1rem;
+    }
+
+    .auth-input {
+      width: 100%;
+      padding: 14px 16px 14px 44px;
+      border-radius: 12px;
+      border: 1.5px solid #e2e8f0;
+      background: #FFFFFF;
+      font-size: 0.95rem;
+      color: #171717;
+      transition: all 0.2s ease;
+    }
+
+    .auth-input:focus {
+      border-color: #171717;
+      box-shadow: 0 0 0 3px rgba(23, 23, 23, 0.1);
+    }
+
+    .pwd-toggle-btn {
+      position: absolute;
+      right: 16px;
+      background: none;
+      color: #999;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+
+    .pwd-toggle-btn:hover {
+      color: #171717;
+    }
+
+    .auth-select {
+      width: 100%;
+      padding: 14px 16px 14px 44px;
+      border-radius: 12px;
+      border: 1.5px solid #e2e8f0;
+      background: #FFFFFF;
+      font-size: 0.95rem;
+      color: #171717;
+      appearance: none;
+      -webkit-appearance: none;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .auth-select:focus {
+      border-color: #171717;
+      box-shadow: 0 0 0 3px rgba(23, 23, 23, 0.1);
+    }
+
+    .select-chevron {
+      position: absolute;
+      right: 16px;
+      color: #999;
+      pointer-events: none;
+    }
+
+    .auth-submit-btn {
+      width: 100%;
+      padding: 15px;
+      border-radius: 12px;
+      background-color: #171717;
+      color: #FFFFFF;
+      font-weight: 700;
+      font-size: 1rem;
+      margin-top: 24px;
+      cursor: pointer;
+      transition: all 0.25s ease;
+    }
+
+    .auth-submit-btn:hover {
+      background-color: #000000;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .auth-footer-prompt {
+      text-align: center;
+      margin-top: 24px;
+      font-size: 0.9rem;
+      color: #666;
+    }
+
+    .auth-footer-prompt a {
+      font-weight: 700;
+      color: #171717;
+    }
+
+    .auth-footer-prompt a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body class="auth-page">
+
+  <!-- Top Bar: Back to Home (Left) & STACKLY Logo (Right) -->
+  <header class="auth-top-bar">
+    <a href="index.html" class="auth-back-link">
+      <i class="fa-solid fa-arrow-left"></i> Back to Home
+    </a>
+    <a href="index.html">
+      <img src="assets/Brand-logo.webp" alt="STACKLY" class="auth-brand-logo">
+    </a>
+  </header>
+
+  <!-- Center Card Container -->
+  <main class="auth-center-container">
+    <div class="auth-card-wrapper">
+      <h1 class="auth-card-title">Create an Account</h1>
+      <p class="auth-card-subtitle">Join STACKLY today</p>
+
+      <form id="signupForm" novalidate>
+        
+        <!-- Sign Up As Dropdown -->
+        <div class="form-group" style="margin-bottom: 18px;">
+          <label class="form-label" for="signupRole" style="font-size: 0.82rem; font-weight: 600; color: #333; text-transform: none; letter-spacing: normal;">Sign Up As</label>
+          <div class="auth-input-wrap">
+            <i class="fa-regular fa-user auth-input-icon"></i>
+            <select id="signupRole" class="auth-select">
+              <option value="Client" selected>Client</option>
+              <option value="Admin">Admin</option>
+            </select>
+            <i class="fa-solid fa-chevron-down select-chevron"></i>
+          </div>
+        </div>
+
+        <!-- Full Name -->
+        <div class="form-group" style="margin-bottom: 18px;">
+          <label class="form-label" for="signupName" style="font-size: 0.82rem; font-weight: 600; color: #333; text-transform: none; letter-spacing: normal;">Full Name</label>
+          <div class="auth-input-wrap">
+            <i class="fa-regular fa-user auth-input-icon"></i>
+            <input type="text" id="signupName" class="auth-input" placeholder="John Doe" required>
+          </div>
+        </div>
+
+        <!-- Email Address -->
+        <div class="form-group" style="margin-bottom: 18px;">
+          <label class="form-label" for="signupEmail" style="font-size: 0.82rem; font-weight: 600; color: #333; text-transform: none; letter-spacing: normal;">Email Address</label>
+          <div class="auth-input-wrap">
+            <i class="fa-regular fa-envelope auth-input-icon"></i>
+            <input type="email" id="signupEmail" class="auth-input" placeholder="user@example.com" required>
+          </div>
+        </div>
+
+        <!-- Password -->
+        <div class="form-group" style="margin-bottom: 8px;">
+          <label class="form-label" for="signupPassword" style="font-size: 0.82rem; font-weight: 600; color: #333; text-transform: none; letter-spacing: normal;">Password</label>
+          <div class="auth-input-wrap">
+            <i class="fa-solid fa-lock auth-input-icon"></i>
+            <input type="password" id="signupPassword" class="auth-input" placeholder="••••••••" required>
+            <button type="button" class="pwd-toggle-btn" aria-label="Toggle password view">
+              <i class="fa-regular fa-eye"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Signup Submit Button -->
+        <button type="submit" class="auth-submit-btn">Sign Up</button>
+
+        <!-- Already have an account -->
+        <p class="auth-footer-prompt">
+          Already have an account? <a href="login.html">Login here</a>
+        </p>
+
+      </form>
+    </div>
+  </main>
+
+  <!-- Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.14.2/gsap.min.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/validation.js"></script>
+  <script src="js/auth.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Food Details | STACKLY Food Truck</title>
+  <meta name="description" content="View dish specifications, farm-fresh ingredients, portion options and reviews for our signature street food creations.">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/webp" href="assets/Brand-logo.webp">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/food-details.css">
+</head>
+<body>
+
+  <!-- Sticky Navbar -->
+  <header class="site-header scrolled" id="mainHeader">
+    <div class="header-container">
+      <a href="index.html" class="brand-logo-link" aria-label="STACKLY Food Truck Home">
+        <img src="assets/Brand-logo.webp" alt="STACKLY Food Truck Logo" class="brand-logo-img">
+      </a>
+
+      <nav class="nav-menu-wrapper" aria-label="Primary Navigation">
+        <ul class="nav-links-list">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="about.html" class="nav-link">About</a></li>
+          <li><a href="menu.html" class="nav-link active">Menu</a></li>
+          <li><a href="locations.html" class="nav-link">Locations</a></li>
+          <li><a href="contact.html" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <a href="cart.html" class="cart-icon-btn" aria-label="View Cart">
+          <i class="fa-solid fa-basket-shopping"></i>
+          <span class="cart-badge-count" style="display: none;">0</span>
+        </a>
+        <a href="login.html" class="btn btn-primary login-nav-btn">Login</a>
+        <button class="hamburger-toggle" aria-label="Toggle Navigation Menu" aria-expanded="false">
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-nav-overlay" id="mobileOverlay"></div>
+  <aside class="mobile-nav-drawer" id="mobileDrawer">
+    <div>
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px;">
+        <img src="assets/Brand-logo.webp" alt="STACKLY" style="height: 38px;">
+      </div>
+      <ul class="mobile-links-list">
+        <li><a href="index.html" class="mobile-link"><span>01</span> Home</a></li>
+        <li><a href="about.html" class="mobile-link"><span>02</span> About</a></li>
+        <li><a href="menu.html" class="mobile-link active"><span>03</span> Menu</a></li>
+        <li><a href="locations.html" class="mobile-link"><span>04</span> Locations</a></li>
+        <li><a href="contact.html" class="mobile-link"><span>05</span> Contact</a></li>
+      </ul>
+    </div>
+    <div class="mobile-drawer-footer">
+      <a href="login.html" class="btn btn-primary" style="width: 100%;">Login / Account</a>
+    </div>
+  </aside>
+
+  <!-- Food Details Main Content -->
+  <main class="section-padding" style="padding-top: 140px; background-color: var(--color-bg);">
+    <div class="container">
+      
+      <!-- Breadcrumb -->
+      <nav style="display: flex; gap: 8px; font-size: 0.88rem; color: #888; margin-bottom: 24px;">
+        <a href="index.html">Home</a> <span>/</span>
+        <a href="menu.html">Menu</a> <span>/</span>
+        <span style="color: var(--color-primary); font-weight: 600;">Dish Specification</span>
+      </nav>
+
+      <div class="food-details-grid">
+        
+        <!-- Left: Image Gallery -->
+        <div class="details-gallery-wrap">
+          <div class="details-main-img-box">
+            <img src="assets/images/burgers/signature-smash-burger.webp" alt="Dish Presentation" id="foodMainImg" class="details-main-img">
+          </div>
+          <div class="details-thumbs-row">
+            <button class="details-thumb-btn active">
+              <img src="assets/images/burgers/signature-smash-burger.webp" alt="Angle 1" class="details-thumb-img">
+            </button>
+            <button class="details-thumb-btn">
+              <img src="assets/images/burgers/double-cheese-beast.webp" alt="Angle 2" class="details-thumb-img">
+            </button>
+            <button class="details-thumb-btn">
+              <img src="assets/images/gallery/grill-action.webp" alt="Angle 3" class="details-thumb-img">
+            </button>
+            <button class="details-thumb-btn">
+              <img src="assets/images/gallery/sauce-finishing.webp" alt="Angle 4" class="details-thumb-img">
+            </button>
+          </div>
+        </div>
+
+        <!-- Right: Dish Information & Controls -->
+        <div class="details-info-box">
+          <div class="details-meta-row">
+            <span class="badge badge-yellow">Chef Signature</span>
+            <span style="color: #666; font-size: 0.9rem;"><i class="fa-solid fa-star" style="color: #F4B323;"></i> <strong id="foodRating">4.9 / 5.0</strong> (140+ Street Reviews)</span>
+          </div>
+
+          <h1 class="details-title" id="foodTitle">The Beast Smash Burger</h1>
+          <div class="details-price-tag" id="foodPrice">₹349</div>
+
+          <p class="details-desc-long" id="foodDesc">
+            Double 100% prime smashed patties, melted aged cheddar, caramelized sweet onions, and house secret sauce nestled inside a toasted butter brioche bun. Smashed at 450°F on cast iron for the ultimate crunchy lace edge.
+          </p>
+
+          <!-- Nutrition Quick Specs -->
+          <div class="nutrition-grid">
+            <div class="nutrition-pill">
+              <div class="nutrition-value" id="foodCalories">680 kcal</div>
+              <div class="nutrition-label">Energy</div>
+            </div>
+            <div class="nutrition-pill">
+              <div class="nutrition-value">34g</div>
+              <div class="nutrition-label">Protein</div>
+            </div>
+            <div class="nutrition-pill">
+              <div class="nutrition-value">42g</div>
+              <div class="nutrition-label">Carbs</div>
+            </div>
+            <div class="nutrition-pill">
+              <div class="nutrition-value" id="foodPrepTime">8-10 min</div>
+              <div class="nutrition-label">Cook Time</div>
+            </div>
+          </div>
+
+          <!-- Ingredients Spec -->
+          <div class="ingredients-spec-box">
+            <h3 class="ingredients-title"><i class="fa-solid fa-seedling" style="color: #F4B323;"></i> Farm Ingredients & Scratch Sauces</h3>
+            <div class="ingredients-chips-grid" id="foodIngredientsList">
+              <!-- Rendered via food-details.js -->
+            </div>
+          </div>
+
+          <!-- Spice & Portion Selectors -->
+          <div class="option-group-wrap">
+            <span class="option-group-label">Spice Calibration:</span>
+            <div class="option-buttons-row">
+              <button class="option-select-btn active">Mild Street</button>
+              <button class="option-select-btn">Bold Pepper</button>
+              <button class="option-select-btn">Firecracker (+₹20)</button>
+            </div>
+          </div>
+
+          <!-- Quantity and Order Button -->
+          <div class="purchase-controls-row">
+            <div class="qty-counter-box">
+              <button class="qty-btn" id="qtyMinusBtn">-</button>
+              <span class="qty-number" id="foodQtyDisplay">1</span>
+              <button class="qty-btn" id="qtyPlusBtn">+</button>
+            </div>
+            <button class="btn btn-primary btn-lg" id="foodAddToCartBtn" style="flex: 1;">
+              <i class="fa-solid fa-cart-plus"></i> Add To Bag
+            </button>
+          </div>
+
+          <div style="font-size: 0.82rem; color: #777; display: flex; gap: 20px; border-top: 1px solid rgba(23,23,23,0.08); padding-top: 14px;">
+            <span><i class="fa-solid fa-truck-fast" style="color: #F4B323;"></i> Express Truck Pickup</span>
+            <span><i class="fa-solid fa-shield-halved" style="color: #F4B323;"></i> 100% Biodegradable Box</span>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- Common Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top-grid">
+        <div class="footer-brand-col">
+          <a href="index.html">
+            <img src="assets/Brand-logo.webp" alt="STACKLY Food Truck" class="footer-logo-img">
+          </a>
+          <div class="footer-tagline">Big Flavours. Fresh Moves. Street Food Reimagined.</div>
+          <p class="footer-brand-desc">
+            Redefining urban street food with culinary precision, unapologetic flavours, and an iconic mobile kitchen experience across South India.
+          </p>
+          <div class="footer-social-row">
+            <a href="404.html" class="social-icon-btn" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="404.html" class="social-icon-btn" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="404.html" class="social-icon-btn" aria-label="Twitter / X"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="404.html" class="social-icon-btn" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="footer-heading">Quick Links</h4>
+          <ul class="footer-links-list">
+            <li class="footer-link-item"><a href="index.html"><i class="fa-solid fa-chevron-right"></i> Home</a></li>
+            <li class="footer-link-item"><a href="about.html"><i class="fa-solid fa-chevron-right"></i> About</a></li>
+            <li class="footer-link-item"><a href="menu.html"><i class="fa-solid fa-chevron-right"></i> Menu</a></li>
+            <li class="footer-link-item"><a href="locations.html"><i class="fa-solid fa-chevron-right"></i> Locations</a></li>
+            <li class="footer-link-item"><a href="contact.html"><i class="fa-solid fa-chevron-right"></i> Contact</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-heading">Branch Offices</h4>
+          <div class="branch-offices-list">
+            <div class="branch-office-item">
+              <div class="branch-office-name"><i class="fa-solid fa-building"></i> Bengaluru Branch Office</div>
+              <div class="branch-office-address">Evolve Studio, 4th Floor, Khata No 10, Begur - Koppa Rd, in front of SNN Raj Serenity, Suraksha Nagar, Yelenahalli, Begur, Bengaluru, Karnataka – 560068</div>
+            </div>
+            <div class="branch-office-item">
+              <div class="branch-office-name"><i class="fa-solid fa-building"></i> Hyderabad Branch Office</div>
+              <div class="branch-office-address">STACKLY, 4th floor, Jayasudha heights, Plot no 459, 100 feet road, Ayyappa society, Madhapur, Beside YSR statue, Hyderabad, Telangana – 500081</div>
+            </div>
+            <div class="branch-office-item">
+              <div class="branch-office-name"><i class="fa-solid fa-building"></i> Chennai Branch Office</div>
+              <div class="branch-office-address">No.9, Ambika Complex, 1st Floor, Gokulam Colony, Karanaipudhuchery main road, Urapakkam, Chennai, Tamil Nadu, India – 603202</div>
+            </div>
+            <div class="branch-office-item">
+              <div class="branch-office-name"><i class="fa-solid fa-building"></i> Coimbatore Branch Office</div>
+              <div class="branch-office-address">Stackly, 79 Aiswarya Complex, Nethaji Road, PN Palayam, Coimbatore, Tamil Nadu, India – 641037</div>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="footer-heading">Truck Hubs & Support</h4>
+          <ul class="footer-links-list">
+            <li class="footer-link-item"><a href="404.html"><i class="fa-solid fa-chevron-right"></i> Franchise & Fleet Partnerships</a></li>
+            <li class="footer-link-item"><a href="404.html"><i class="fa-solid fa-chevron-right"></i> Nutrition & Allergen Guide</a></li>
+            <li class="footer-link-item"><a href="404.html"><i class="fa-solid fa-chevron-right"></i> Street Chef Academy</a></li>
+            <li class="footer-link-item"><a href="404.html"><i class="fa-solid fa-chevron-right"></i> Food Truck Licensing</a></li>
+            <li class="footer-link-item"><a href="404.html"><i class="fa-solid fa-chevron-right"></i> Careers & Crew Auditions</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>© 2026 STACKLY Food Truck. All rights reserved. Big Flavours. Fresh Moves. Street Food Reimagined.</div>
+        <div class="footer-bottom-links">
+          <a href="404.html">Privacy Policy</a>
+          <a href="404.html">Terms of Service</a>
+          <a href="404.html">Cookie Preferences</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.14.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.14.2/ScrollTrigger.min.js"></script>
+  <script src="https://unpkg.com/lenis@1.3.11/dist/lenis.min.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/navigation.js"></script>
+  <script src="js/lenis.js"></script>
+  <script src="js/food-details.js"></script>
+</body>
+</html>
+

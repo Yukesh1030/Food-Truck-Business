@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Customer Hub | STACKLY Food Truck Client Portal</title>
+  <meta name="description" content="View your past street food orders, live tracking status, favourite dishes, and private event catering bookings.">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/webp" href="assets/Brand-logo.webp">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body class="dashboard-body">
+
+  <div class="dashboard-wrapper">
+    
+    <!-- Sidebar: Exactly 5 Menus -->
+    <aside class="dash-sidebar" id="dashSidebar">
+      <div class="dash-sidebar-header">
+        <a href="index.html">
+          <img src="assets/Brand-logo.webp" alt="STACKLY" class="dash-logo-img">
+        </a>
+        <button class="dash-sidebar-close" id="dashSidebarClose"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+
+      <nav class="dash-nav-list" aria-label="Client Navigation">
+        <!-- Menu 1 -->
+        <div class="dash-nav-item active" data-tab="tab-client-dash">
+          <i class="fa-solid fa-house"></i>
+          <span>01. Dashboard</span>
+        </div>
+
+        <!-- Menu 2 -->
+        <div class="dash-nav-item" data-tab="tab-client-orders">
+          <i class="fa-solid fa-bag-shopping"></i>
+          <span>02. My Orders</span>
+        </div>
+
+        <!-- Menu 3 -->
+        <div class="dash-nav-item" data-tab="tab-client-favs">
+          <i class="fa-solid fa-heart"></i>
+          <span>03. Favourite Foods</span>
+        </div>
+
+        <!-- Menu 4 -->
+        <div class="dash-nav-item" data-tab="tab-client-events">
+          <i class="fa-solid fa-calendar-check"></i>
+          <span>04. Events & Bookings</span>
+        </div>
+
+        <!-- Menu 5 -->
+        <div class="dash-nav-item" data-tab="tab-client-profile">
+          <i class="fa-solid fa-user-gear"></i>
+          <span>05. Profile & Support</span>
+        </div>
+      </nav>
+
+      <div class="dash-sidebar-footer">
+        <button class="dash-logout-btn">
+          <i class="fa-solid fa-arrow-right-from-bracket"></i>
+          <span>Logout Account</span>
+        </button>
+      </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <div class="dash-main-area">
+      
+      <!-- Topbar Navigation -->
+      <header class="dash-topbar">
+        <div class="dash-topbar-left">
+          <button class="dash-menu-toggle" id="dashMenuToggle" aria-label="Toggle Navigation Sidebar">
+            <i class="fa-solid fa-bars"></i>
+          </button>
+          <div class="dash-search-box">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="text" placeholder="Search orders, favorites, receipts...">
+          </div>
+        </div>
+
+        <div class="dash-topbar-right">
+          <a href="menu.html" class="btn btn-primary btn-sm" style="display: inline-flex;"><i class="fa-solid fa-plus"></i> Order New Bites</a>
+
+          <div class="dash-notif-btn" title="Notifications">
+            <i class="fa-regular fa-bell"></i>
+            <span class="notif-badge">2</span>
+          </div>
+
+          <div class="user-profile-badge">
+            <div class="user-avatar-circle" style="background-color: var(--color-primary); color: var(--color-accent);">JD</div>
+            <div style="display: flex; flex-direction: column;">
+              <span class="user-name-text">John Doe</span>
+              <span class="user-role-label">VIP Foodie</span>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- Dashboard Panels Container -->
+      <main class="dash-content-container">
+        
+        <!-- ==========================================
+             TAB 1: CLIENT DASHBOARD
+             ========================================== -->
+        <section class="dash-tab-pane active" id="tab-client-dash">
+          
+          <div style="margin-bottom: 24px;">
+            <span class="special-label dark" style="font-size: 0.78rem;">Welcome Back</span>
+            <h1 style="font-size: 2.2rem; color: var(--color-primary); margin-top: 4px;">HELLO, STREET FOOD LOVER!</h1>
+            <p style="color: #666; font-size: 0.95rem;">Track your sizzling order status, view favorite snacks, and manage your street rewards.</p>
+          </div>
+
+          <!-- Customer KPI Cards -->
+          <div class="kpi-cards-grid">
+            <div class="kpi-card">
+              <div class="kpi-info-col">
+                <span class="kpi-title">Total Orders</span>
+                <span class="kpi-value" id="clientTotalOrders">18</span>
+                <span class="kpi-delta positive"><i class="fa-solid fa-crown"></i> Silver Tier</span>
+              </div>
+              <div class="kpi-icon-wrap"><i class="fa-solid fa-burger"></i></div>
+            </div>
+
+            <div class="kpi-card">
+              <div class="kpi-info-col">
+                <span class="kpi-title">Favourite Items</span>
+                <span class="kpi-value" id="clientFavItems">6</span>
+                <span class="kpi-delta neutral">Saved bites</span>
+              </div>
+              <div class="kpi-icon-wrap"><i class="fa-solid fa-heart"></i></div>
+            </div>
+
+            <div class="kpi-card">
+              <div class="kpi-info-col">
+                <span class="kpi-title">Active Orders</span>
+                <span class="kpi-value" id="clientActiveOrders">2</span>
+                <span class="kpi-delta positive"><i class="fa-solid fa-fire"></i> Sizzling Now</span>
+              </div>
+              <div class="kpi-icon-wrap"><i class="fa-solid fa-receipt"></i></div>
+            </div>
+
+            <div class="kpi-card">
+              <div class="kpi-info-col">
+                <span class="kpi-title">Event Bookings</span>
+                <span class="kpi-value" id="clientEventBookings">1</span>
+                <span class="kpi-delta neutral">Confirmed</span>
+              </div>
+              <div class="kpi-icon-wrap"><i class="fa-solid fa-calendar-check"></i></div>
+            </div>
+          </div>
+
+          <!-- Live Order Tracking Preview -->
+          <div class="dash-panel" style="margin-bottom: 28px; border: 2px solid var(--color-accent); background: linear-gradient(180deg, #fff 0%, #fffcf5 100%);">
+            <div class="dash-panel-header">
+              <div>
+                <span class="badge badge-yellow" style="margin-bottom: 6px;">Live Status</span>
+                <h3 class="dash-panel-title">Order #STK-849201 · On The Grill</h3>
+              </div>
+              <a href="order-tracking.html" class="btn btn-dark btn-sm">Full Screen Tracker</a>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 20px; align-items: center;" class="grid-2-cols">
+              <div>
+                <p style="font-size: 0.92rem; color: #555; margin-bottom: 14px;">
+                  <strong>Pickup Station:</strong> Bengaluru - Koramangala Hub (Sony World Signal)<br>
+                  <strong>Items:</strong> The Beast Smash Burger, Loaded Cheese Fries, Craft Lemonade
+                </p>
+                <div style="background: rgba(23,23,23,0.06); height: 8px; border-radius: 4px; overflow: hidden; margin-bottom: 8px;">
+                  <div style="background: var(--color-accent); height: 100%; width: 70%;"></div>
+                </div>
+                <div style="display: flex; justify-content: space-between; font-size: 0.8rem; color: #777;">
+                  <span>Order Placed</span>
+                  <span>Sizzling On Grill</span>
+                  <span>Ready In ~6 Mins</span>
+                </div>
+              </div>
+
+              <div style="text-align: center; border-left: 1px dashed rgba(23,23,23,0.1); padding-left: 20px;">
+                <div style="font-size: 0.8rem; color: #888;">Express Window Passcode</div>
+                <div style="font-family: var(--font-heading); font-size: 2.2rem; color: #171717; letter-spacing: 2px;">
+                  #<span style="color: #F4B323;">9281</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Quick Reorder Favorites -->
+          <div class="dash-panel">
+            <div class="dash-panel-header">
+              <h3 class="dash-panel-title">Your Go-To Reorders</h3>
+              <a href="menu.html" class="special-label dark">Browse Menu</a>
+            </div>
+
+            <div class="grid-3-cols" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;">
+              <div style="background: var(--color-bg); padding: 18px; border-radius: 14px; display: flex; flex-direction: column; justify-content: space-between;">
+                <div>
+                  <h4 style="font-size: 1.3rem; margin-bottom: 4px;">The Beast Smash Burger</h4>
+                  <span style="font-size: 0.85rem; color: #666;">Ordered 8 times</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 16px;">
+                  <span style="font-family: var(--font-heading); font-size: 1.5rem;">₹349</span>
+                  <button class="btn btn-primary btn-sm" onclick="quickReorder('smash-beast')"><i class="fa-solid fa-rotate-right"></i> Reorder</button>
+                </div>
+              </div>
+
+              <div style="background: var(--color-bg); padding: 18px; border-radius: 14px; display: flex; flex-direction: column; justify-content: space-between;">
+                <div>
+                  <h4 style="font-size: 1.3rem; margin-bottom: 4px;">Volcano Loaded Fries</h4>
+                  <span style="font-size: 0.85rem; color: #666;">Ordered 6 times</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 16px;">
+                  <span style="font-family: var(--font-heading); font-size: 1.5rem;">₹199</span>
+                  <button class="btn btn-primary btn-sm" onclick="quickReorder('loaded-cheese-fries')"><i class="fa-solid fa-rotate-right"></i> Reorder</button>
+                </div>
+              </div>
+
+              <div style="background: var(--color-bg); padding: 18px; border-radius: 14px; display: flex; flex-direction: column; justify-content: space-between;">
+                <div>
+                  <h4 style="font-size: 1.3rem; margin-bottom: 4px;">Smoky BBQ Bacon Stacker</h4>
+                  <span style="font-size: 0.85rem; color: #666;">Ordered 4 times</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 16px;">
+                  <span style="font-family: var(--font-heading); font-size: 1.5rem;">₹379</span>
+                  <button class="btn btn-primary btn-sm" onclick="quickReorder('bbq-bacon-stack')"><i class="fa-solid fa-rotate-right"></i> Reorder</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </section>
+
+        <!-- ==========================================
+             TAB 2: MY ORDERS
+             ========================================== -->
+        <section class="dash-tab-pane" id="tab-client-orders">
+          <div style="margin-bottom: 24px;">
+            <span class="special-label dark" style="font-size: 0.78rem;">Order History</span>
+            <h1 style="font-size: 2.2rem; color: var(--color-primary); margin-top: 4px;">ALL PAST ORDERS</h1>
+          </div>
+
+          <div class="dash-panel">
+            <div class="dash-table-wrap">
+              <table class="dash-table">
+                <thead>
+                  <tr>
+                    <th>Date</th>
+                    <th>Order Code</th>
+                    <th>Items Purchased</th>
+                    <th>Total</th>
+                    <th>Pickup Hub</th>
+                    <th>Status</th>
+                    <th>Receipt</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Today, 11:30 AM</td>
+                    <td><strong>#STK-849201</strong></td>
+                    <td>The Beast Smash, Loaded Fries</td>
+                    <td>₹548</td>
+                    <td>Bengaluru - Koramangala</td>
+                    <td><span class="status-badge preparing">Grilling</span></td>
+                    <td><a href="order-tracking.html" class="special-label dark">Track</a></td>
+                  </tr>
+                  <tr>
+                    <td>28 Oct 2026</td>
+                    <td><strong>#STK-729104</strong></td>
+                    <td>Crispy Hot Bird, Belgian Shake</td>
+                    <td>₹488</td>
+                    <td>Bengaluru - Koramangala</td>
+                    <td><span class="status-badge delivered">Delivered</span></td>
+                    <td><a href="404.html" class="special-label dark">Invoice</a></td>
+                  </tr>
+                  <tr>
+                    <td>14 Oct 2026</td>
+                    <td><strong>#STK-610293</strong></td>
+                    <td>Street Mega Combo x1</td>
+                    <td>₹549</td>
+                    <td>Bengaluru - Koramangala</td>
+                    <td><span class="status-badge delivered">Delivered</span></td>
+                    <td><a href="404.html" class="special-label dark">Invoice</a></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- ==========================================
+             TAB 3: FAVOURITE FOODS
+             ========================================== -->
+        <section class="dash-tab-pane" id="tab-client-favs">
+          <div style="margin-bottom: 24px;">
+            <span class="special-label dark" style="font-size: 0.78rem;">Saved Dishes</span>
+            <h1 style="font-size: 2.2rem; color: var(--color-primary); margin-top: 4px;">YOUR FAVOURITE BITES</h1>
+          </div>
+
+          <div class="grid-3-cols" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;">
+            <div class="food-card">
+              <div class="food-card-thumb-wrap">
+                <img src="assets/images/burgers/signature-smash-burger.webp" alt="The Beast" class="food-card-img">
+              </div>
+              <div class="food-card-body">
+                <h3 class="food-card-title">The Beast Smash Burger</h3>
+                <div class="food-card-footer">
+                  <span class="food-card-price">₹349</span>
+                  <button class="add-cart-btn" onclick="quickReorder('smash-beast')"><i class="fa-solid fa-cart-plus"></i> Reorder</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="food-card">
+              <div class="food-card-thumb-wrap">
+                <img src="assets/images/sides/loaded-cheese-fries.webp" alt="Loaded Fries" class="food-card-img">
+              </div>
+              <div class="food-card-body">
+                <h3 class="food-card-title">Volcano Loaded Cheese Fries</h3>
+                <div class="food-card-footer">
+                  <span class="food-card-price">₹199</span>
+                  <button class="add-cart-btn" onclick="quickReorder('loaded-cheese-fries')"><i class="fa-solid fa-cart-plus"></i> Reorder</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="food-card">
+              <div class="food-card-thumb-wrap">
+                <img src="assets/images/drinks/chocolate-shake.webp" alt="Shake" class="food-card-img">
+              </div>
+              <div class="food-card-body">
+                <h3 class="food-card-title">Belgian Chocolate Shake</h3>
+                <div class="food-card-footer">
+                  <span class="food-card-price">₹189</span>
+                  <button class="add-cart-btn" onclick="quickReorder('chocolate-shake')"><i class="fa-solid fa-cart-plus"></i> Reorder</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ==========================================
+             TAB 4: EVENTS & BOOKINGS
+             ========================================== -->
+        <section class="dash-tab-pane" id="tab-client-events">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px;">
+            <div>
+              <span class="special-label dark" style="font-size: 0.78rem;">Private Catering</span>
+              <h1 style="font-size: 2.2rem; color: var(--color-primary); margin-top: 4px;">YOUR EVENT RESERVATIONS</h1>
+            </div>
+            <a href="event-booking.html" class="btn btn-primary btn-sm"><i class="fa-solid fa-plus"></i> New Event Booking</a>
+          </div>
+
+          <div class="dash-panel">
+            <div style="padding: 24px; border: 2px solid var(--color-accent); border-radius: 14px; background: rgba(244,179,35,0.05); margin-bottom: 20px;">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                <span class="badge badge-yellow">Confirmed Booking #EVT-481</span>
+                <span style="font-weight: 700; color: #171717;">₹49,500</span>
+              </div>
+              <h3 style="font-size: 1.6rem; color: #171717; margin-bottom: 6px;">John's 30th Birthday Street Feast</h3>
+              <p style="font-size: 0.9rem; color: #666; line-height: 1.6; margin-bottom: 16px;">
+                <strong>Date:</strong> 18 Nov 2026 (6:00 PM – 10:00 PM)<br>
+                <strong>Venue:</strong> Palm Meadows Club, Whitefield, Bengaluru<br>
+                <strong>Tier:</strong> Street Classic Package (100 Guests) · Assigned Truck 01
+              </p>
+              <div style="display: flex; gap: 12px;">
+                <button class="btn btn-dark btn-sm" onclick="showToast('Catering coordinator Marcus will call you.', 'phone')"><i class="fa-solid fa-phone"></i> Contact Chef Marcus</button>
+                <button class="btn btn-outline btn-sm" onclick="showToast('Menu modifications requested.', 'file-pen')">Edit Guest Notes</button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ==========================================
+             TAB 5: PROFILE & SUPPORT
+             ========================================== -->
+        <section class="dash-tab-pane" id="tab-client-profile">
+          <div style="margin-bottom: 24px;">
+            <span class="special-label dark" style="font-size: 0.78rem;">Customer Settings</span>
+            <h1 style="font-size: 2.2rem; color: var(--color-primary); margin-top: 4px;">PROFILE & CONCIERGE SUPPORT</h1>
+          </div>
+
+          <div class="grid-2-cols" style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px;">
+            <!-- Profile Details -->
+            <div class="dash-panel">
+              <h3 class="dash-panel-title" style="margin-bottom: 16px;">Saved Profile Info</h3>
+              <div class="form-group" style="margin-bottom: 14px;">
+                <label class="form-label">Full Name</label>
+                <input type="text" class="form-input" value="John Doe">
+              </div>
+              <div class="form-group" style="margin-bottom: 14px;">
+                <label class="form-label">Email Address</label>
+                <input type="email" class="form-input" value="user@example.com" disabled>
+              </div>
+              <div class="form-group" style="margin-bottom: 18px;">
+                <label class="form-label">Default Pickup Hub</label>
+                <select class="form-select">
+                  <option selected>Bengaluru - Koramangala Hub</option>
+                  <option>Hyderabad - Madhapur Tech Hub</option>
+                  <option>Chennai - Urapakkam Avenue</option>
+                  <option>Coimbatore - PN Palayam Stop</option>
+                </select>
+              </div>
+              <button class="btn btn-dark btn-sm" onclick="showToast('Profile preferences saved!', 'check')">Save Changes</button>
+            </div>
+
+            <!-- Support Ticket -->
+            <div class="dash-panel">
+              <h3 class="dash-panel-title" style="margin-bottom: 16px;">Concierge Support Message</h3>
+              <p style="font-size: 0.88rem; color: #666; margin-bottom: 14px;">Need help with an order refund, dietary verification or festival query?</p>
+              <form id="clientSupportForm">
+                <div class="form-group" style="margin-bottom: 14px;">
+                  <label class="form-label">Subject</label>
+                  <input type="text" class="form-input" placeholder="e.g. Question about allergy options" required>
+                </div>
+                <div class="form-group" style="margin-bottom: 16px;">
+                  <label class="form-label">Message</label>
+                  <textarea class="form-textarea" placeholder="How can our street team help you?" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary btn-sm"><i class="fa-solid fa-paper-plane"></i> Send Support Ticket</button>
+              </form>
+            </div>
+          </div>
+        </section>
+
+      </main>
+
+    </div>
+
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/main.js"></script>
+  <script src="js/client-dashboard.js"></script>
+</body>
+</html>
+

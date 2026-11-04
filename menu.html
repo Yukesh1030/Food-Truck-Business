@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Menu | STACKLY Food Truck - Built For Big Appetites</title>
+  <meta name="description" content="Explore the full STACKLY Food Truck menu: Gourmet smash burgers, crispy chicken, spicy peri peri wraps, loaded fries, artisan shakes and combo deals.">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/webp" href="assets/Brand-logo.webp">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/menu.css">
+
+  <link rel="preload" as="image" href="assets/images/hero/hero-menu.webp" type="image/webp">
+</head>
+<body>
+
+  <!-- Sticky Navbar -->
+  <header class="site-header hero-dark" id="mainHeader">
+    <div class="header-container">
+      <a href="index.html" class="brand-logo-link" aria-label="STACKLY Food Truck Home">
+        <img src="assets/Brand-logo.webp" alt="STACKLY Food Truck Logo" class="brand-logo-img">
+      </a>
+
+      <nav class="nav-menu-wrapper" aria-label="Primary Navigation">
+        <ul class="nav-links-list">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="about.html" class="nav-link">About</a></li>
+          <li><a href="menu.html" class="nav-link active">Menu</a></li>
+          <li><a href="locations.html" class="nav-link">Locations</a></li>
+          <li><a href="contact.html" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <a href="cart.html" class="cart-icon-btn" aria-label="View Cart">
+          <i class="fa-solid fa-basket-shopping"></i>
+          <span class="cart-badge-count" style="display: none;">0</span>
+        </a>
+        <a href="login.html" class="btn btn-primary login-nav-btn">Login</a>
+        <button class="hamburger-toggle" aria-label="Toggle Navigation Menu" aria-expanded="false">
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-nav-overlay" id="mobileOverlay"></div>
+  <aside class="mobile-nav-drawer" id="mobileDrawer">
+    <div>
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px;">
+        <img src="assets/Brand-logo.webp" alt="STACKLY" style="height: 38px;">
+      </div>
+      <ul class="mobile-links-list">
+        <li><a href="index.html" class="mobile-link"><span>01</span> Home</a></li>
+        <li><a href="about.html" class="mobile-link"><span>02</span> About</a></li>
+        <li><a href="menu.html" class="mobile-link active"><span>03</span> Menu</a></li>
+        <li><a href="locations.html" class="mobile-link"><span>04</span> Locations</a></li>
+        <li><a href="contact.html" class="mobile-link"><span>05</span> Contact</a></li>
+      </ul>
+    </div>
+    <div class="mobile-drawer-footer">
+      <div class="mobile-truck-status-badge">
+        <span class="status-dot-pulse"></span>
+        <div style="font-size: 0.82rem; color: #F5F0E6;">
+          <strong>Live Truck:</strong> Koramangala 5th Block, Bengaluru
+        </div>
+      </div>
+      <a href="login.html" class="btn btn-primary" style="width: 100%;">Login / Account</a>
+    </div>
+  </aside>
+
+  <!-- Menu Hero Section -->
+  <section class="menu-hero-section bg-dark" style="position: relative; padding-top: 160px; padding-bottom: 80px; overflow: hidden; text-align: center;">
+    <img src="assets/images/hero/hero-menu.webp" alt="STACKLY Food Menu Cover" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.28; z-index: 1;">
+    <div style="position: absolute; inset: 0; background: radial-gradient(circle at center, rgba(244, 179, 35, 0.12), rgba(23, 23, 23, 0.96) 80%); z-index: 2;"></div>
+
+    <div class="container" style="position: relative; z-index: 5;">
+      <span class="special-label" style="margin-bottom: 12px;">Craving The Best Bites?</span>
+      <h1 style="color: #F5F0E6; margin-bottom: 12px; font-size: clamp(3rem, 7vw, 5.8rem);">
+        THE MENU. <span style="color: #F4B323;">BUILT FOR BIG APPETITES.</span>
+      </h1>
+      <p style="color: rgba(245,240,230,0.8); max-width: 680px; margin: 0 auto 30px auto; font-size: 1.15rem; line-height: 1.7;">
+        Every patty smashed fresh to order, sauces whisked daily from scratch, and buns butter-toasted to gold. Filter, search and order your street feast.
+      </p>
+    </div>
+  </section>
+
+  <!-- SECTION 01: Menu Categories & Interactive Controls -->
+  <section class="section-padding-sm" style="background-color: var(--color-bg);" id="menuCategories">
+    <div class="container">
+      <div class="menu-controls-bar">
+        <!-- Live Search -->
+        <div class="menu-search-wrap">
+          <i class="fa-solid fa-magnifying-glass menu-search-icon"></i>
+          <input type="text" id="menuSearchInput" class="menu-search-input" placeholder="Search delicious burgers, wraps, loaded fries, shakes...">
+        </div>
+
+        <!-- Category Tabs -->
+        <div class="category-pills-row">
+          <button class="category-tab-btn active" data-category="all"><i class="fa-solid fa-fire"></i> All Eats</button>
+          <button class="category-tab-btn" data-category="burgers"><i class="fa-solid fa-burger"></i> Burgers</button>
+          <button class="category-tab-btn" data-category="wraps"><i class="fa-solid fa-scroll"></i> Wraps</button>
+          <button class="category-tab-btn" data-category="sides"><i class="fa-solid fa-bowl-food"></i> Sides & Snacks</button>
+          <button class="category-tab-btn" data-category="combos"><i class="fa-solid fa-box-open"></i> Combos</button>
+          <button class="category-tab-btn" data-category="drinks"><i class="fa-solid fa-glass-water"></i> Drinks & Shakes</button>
+        </div>
+
+        <!-- Dietary Filter Row -->
+        <div class="dietary-filters-row">
+          <span style="font-size: 0.85rem; color: rgba(245,240,230,0.6); font-weight: 500;">Filter Dietary:</span>
+          <button class="dietary-tag-btn active" data-dietary="all">All Items</button>
+          <button class="dietary-tag-btn" data-dietary="veg"><i class="fa-solid fa-circle" style="color: #2ecc71; font-size: 0.6rem;"></i> 100% Vegetarian</button>
+          <button class="dietary-tag-btn" data-dietary="nonveg"><i class="fa-solid fa-circle" style="color: #e74c3c; font-size: 0.6rem;"></i> Non-Veg & Prime Meat</button>
+          <button class="dietary-tag-btn" data-dietary="spicy"><i class="fa-solid fa-pepper-hot" style="color: #F4B323;"></i> Spicy Blends</button>
+        </div>
+      </div>
+
+      <!-- Dishes Grid Container -->
+      <div class="menu-grid-wrapper" id="menuDishesGrid">
+        <!-- Dynamically Populated by menu.js -->
+      </div>
+
+      <!-- No Results State -->
+      <div class="no-results-box" id="noResultsBox" style="display: none;">
+        <i class="fa-solid fa-magnifying-glass no-results-icon"></i>
+        <h3 style="font-size: 1.8rem; margin-bottom: 8px;">No Bites Found Matching Your Filter</h3>
+        <p style="color: #666; margin-bottom: 20px;">Try typing a different keyword or reset dietary options.</p>
+        <button class="btn btn-primary btn-sm" onclick="location.reload()">Reset Menu Filters</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 02: Signature Burgers Highlight -->
+  <section class="section-padding bg-dark" id="signatureBurgers">
+    <div class="container">
+      <div class="section-header text-left">
+        <span class="special-label">02. Handcrafted Buns</span>
+        <h2 class="section-title">SIGNATURE BURGERS</h2>
+        <p class="section-desc">Two smashed prime patties seared at 450°F to unlock deep maillard crust, draped in aged cheddar and served on warm brioche.</p>
+      </div>
+
+      <div class="grid-3-cols" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px;">
+        <div class="food-card">
+          <div class="food-card-thumb-wrap">
+            <span class="badge badge-yellow food-card-badge">Signature</span>
+            <img src="assets/images/burgers/signature-smash-burger.webp" alt="The Beast" class="food-card-img" loading="lazy">
+            <button class="food-card-quick-view" onclick="openQuickView('smash-beast')"><i class="fa-solid fa-eye"></i></button>
+          </div>
+          <div class="food-card-body">
+            <div class="food-card-tags"><span class="tag-pill nonveg">Non-Veg</span><span class="tag-pill spicy">Spicy</span></div>
+            <h3 class="food-card-title">The Beast Smash Burger</h3>
+            <p class="food-card-desc">Double beef smash patties, melted cheddar, grilled onions, secret house sauce on toasted brioche.</p>
+            <div class="food-card-footer">
+              <span class="food-card-price">₹349</span>
+              <button class="add-cart-btn" onclick="CartManager.addItem('smash-beast', 1)"><i class="fa-solid fa-cart-plus"></i> Add</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="food-card">
+          <div class="food-card-thumb-wrap">
+            <span class="badge badge-yellow food-card-badge">Spicy Hit</span>
+            <img src="assets/images/burgers/crispy-chicken-burger.webp" alt="Hot Bird" class="food-card-img" loading="lazy">
+            <button class="food-card-quick-view" onclick="openQuickView('crispy-hot-bird')"><i class="fa-solid fa-eye"></i></button>
+          </div>
+          <div class="food-card-body">
+            <div class="food-card-tags"><span class="tag-pill nonveg">Non-Veg</span><span class="tag-pill spicy">Spicy</span></div>
+            <h3 class="food-card-title">Crispy Hot Bird Burger</h3>
+            <p class="food-card-desc">Buttermilk fried chicken breast drenched in Nashville cayenne glaze with chipotle drizzle.</p>
+            <div class="food-card-footer">
+              <span class="food-card-price">₹299</span>
+              <button class="add-cart-btn" onclick="CartManager.addItem('crispy-hot-bird', 1)"><i class="fa-solid fa-cart-plus"></i> Add</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="food-card">
+          <div class="food-card-thumb-wrap">
+            <span class="badge badge-yellow food-card-badge">Chef Pick</span>
+            <img src="assets/images/burgers/bbq-bacon-stack.webp" alt="BBQ Stacker" class="food-card-img" loading="lazy">
+            <button class="food-card-quick-view" onclick="openQuickView('bbq-bacon-stack')"><i class="fa-solid fa-eye"></i></button>
+          </div>
+          <div class="food-card-body">
+            <div class="food-card-tags"><span class="tag-pill nonveg">Non-Veg</span></div>
+            <h3 class="food-card-title">Smoky BBQ Bacon Stacker</h3>
+            <p class="food-card-desc">Thick beef smash patty, crispy smoked bacon, crispy onion straws, hickory BBQ reduction.</p>
+            <div class="food-card-footer">
+              <span class="food-card-price">₹379</span>
+              <button class="add-cart-btn" onclick="CartManager.addItem('bbq-bacon-stack', 1)"><i class="fa-solid fa-cart-plus"></i> Add</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 03: Chicken & Wraps -->
+  <section class="section-padding" id="chickenWraps">
+    <div class="container">
+      <div class="section-header text-left">
+        <span class="special-label dark">03. Rolled Fresh</span>
+        <h2 class="section-title">CHICKEN & ARTISAN WRAPS</h2>
+        <p class="section-desc">Fluffy tortillas and toasted parathas loaded with succulent grilled meats, marinated paneer, and crunchy garden slaw.</p>
+      </div>
+
+      <div class="grid-2-cols" style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px;">
+        <div class="food-card" style="display: grid; grid-template-columns: 220px 1fr;">
+          <div class="food-card-thumb-wrap" style="height: 100%;">
+            <img src="assets/images/wraps/spicy-peri-peri-wrap.webp" alt="Peri Peri Wrap" class="food-card-img">
+          </div>
+          <div class="food-card-body">
+            <span class="badge badge-yellow" style="width: fit-content; margin-bottom: 8px;">Popular</span>
+            <h3 class="food-card-title">Peri Peri Grilled Chicken Wrap</h3>
+            <p class="food-card-desc">Charred peppers, zesty pico, and flame-grilled chicken tenders rolled in flatbread.</p>
+            <div class="food-card-footer">
+              <span class="food-card-price">₹269</span>
+              <button class="add-cart-btn" onclick="CartManager.addItem('peri-peri-wrap', 1)"><i class="fa-solid fa-cart-plus"></i> Add</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="food-card" style="display: grid; grid-template-columns: 220px 1fr;">
+          <div class="food-card-thumb-wrap" style="height: 100%;">
+            <img src="assets/images/wraps/smoky-paneer-wrap.webp" alt="Paneer Wrap" class="food-card-img">
+          </div>
+          <div class="food-card-body">
+            <span class="badge badge-outline" style="width: fit-content; margin-bottom: 8px;">Veg Hit</span>
+            <h3 class="food-card-title">Smoky Tandoori Paneer Wrap</h3>
+            <p class="food-card-desc">Charcoal-grilled cottage cheese cubes, mint yoghurt dip, pickled onions in toasted flatbread.</p>
+            <div class="food-card-footer">
+              <span class="food-card-price">₹249</span>
+              <button class="add-cart-btn" onclick="CartManager.addItem('smoky-paneer-wrap', 1)"><i class="fa-solid fa-cart-plus"></i> Add</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 04: Sides & Snacks -->
+  <section class="section-padding bg-dark" id="sidesSnacks">
+    <div class="container">
+      <div class="section-header text-left">
+        <span class="special-label">04. Crunchy Crunch</span>
+        <h2 class="section-title">SIDES & LOADED SNACKS</h2>
+        <p class="section-desc">No street meal is complete without crunchy golden sides drenched in warm melted cheese.</p>
+      </div>
+
+      <div class="grid-3-cols" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px;">
+        <div class="food-card">
+          <div class="food-card-thumb-wrap">
+            <img src="assets/images/sides/loaded-cheese-fries.webp" alt="Loaded Fries" class="food-card-img">
+          </div>
+          <div class="food-card-body">
+            <h3 class="food-card-title">Volcano Loaded Cheese Fries</h3>
+            <p class="food-card-desc">Golden skin-on fries, molten cheddar, pickled jalapenos, secret street spice shake.</p>
+            <div class="food-card-footer">
+              <span class="food-card-price">₹199</span>
+              <button class="add-cart-btn" onclick="CartManager.addItem('loaded-cheese-fries', 1)"><i class="fa-solid fa-cart-plus"></i> Add</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="food-card">
+          <div class="food-card-thumb-wrap">
+            <img src="assets/images/sides/crispy-onion-rings.webp" alt="Onion Rings" class="food-card-img">
+          </div>
+          <div class="food-card-body">
+            <h3 class="food-card-title">Beer-Battered Onion Rings</h3>
+            <p class="food-card-desc">Thick-cut sweet onions in light bubbly batter with house smoky ranch dip.</p>
+            <div class="food-card-footer">
+              <span class="food-card-price">₹169</span>
+              <button class="add-cart-btn" onclick="CartManager.addItem('crispy-onion-rings', 1)"><i class="fa-solid fa-cart-plus"></i> Add</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="food-card">
+          <div class="food-card-thumb-wrap">
+            <img src="assets/images/sides/chicken-popcorn.webp" alt="Chicken Popcorn" class="food-card-img">
+          </div>
+          <div class="food-card-body">
+            <h3 class="food-card-title">Sriracha Chicken Popcorn</h3>
+            <p class="food-card-desc">Bite-sized crispy chicken clusters tossed in spiced honey butter and toasted sesame.</p>
+            <div class="food-card-footer">
+              <span class="food-card-price">₹219</span>
+              <button class="add-cart-btn" onclick="CartManager.addItem('loaded-cheese-fries', 1)"><i class="fa-solid fa-cart-plus"></i> Add</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 05: Combos & Meals -->
+  <section class="section-padding" id="combosMeals">
+    <div class="container">
+      <div class="section-header">
+        <span class="special-label dark">05. Bundled Right</span>
+        <h2 class="section-title">COMBOS & FULL MEALS</h2>
+        <p class="section-desc">Bundled combinations engineered for serious appetites with massive value.</p>
+      </div>
+
+      <div class="grid-3-cols" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px;">
+        <div class="combo-deal-card" style="background: #fff; border-radius: 18px; overflow: hidden; border: 2px solid rgba(23,23,23,0.1); padding: 24px;">
+          <div style="height: 180px; border-radius: 12px; overflow: hidden; margin-bottom: 18px;">
+            <img src="assets/images/combos/street-mega-combo.webp" alt="Mega Combo" style="width: 100%; height: 100%; object-fit: cover;">
+          </div>
+          <span class="badge badge-yellow" style="margin-bottom: 10px;">Solo Feast</span>
+          <h3 style="font-size: 1.5rem; margin-bottom: 8px;">The Street Boss Mega Combo</h3>
+          <p style="font-size: 0.9rem; color: #666; margin-bottom: 20px;">The Beast Smash Burger + Loaded Cheese Fries + Craft Lemonade + Caramel Churro.</p>
+          <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px dashed rgba(23,23,23,0.15); padding-top: 14px;">
+            <span style="font-family: var(--font-heading); font-size: 2rem; color: #171717;">₹549</span>
+            <button class="btn btn-primary btn-sm" onclick="CartManager.addItem('street-mega-combo', 1)"><i class="fa-solid fa-cart-plus"></i> Add Combo</button>
+          </div>
+        </div>
+
+        <div class="combo-deal-card" style="background: #fff; border-radius: 18px; overflow: hidden; border: 2px solid rgba(23,23,23,0.1); padding: 24px;">
+          <div style="height: 180px; border-radius: 12px; overflow: hidden; margin-bottom: 18px;">
+            <img src="assets/images/combos/duo-snack-pack.webp" alt="Duo Combo" style="width: 100%; height: 100%; object-fit: cover;">
+          </div>
+          <span class="badge badge-yellow" style="margin-bottom: 10px;">Duo Stacker</span>
+          <h3 style="font-size: 1.5rem; margin-bottom: 8px;">Duo Street Stacker</h3>
+          <p style="font-size: 0.9rem; color: #666; margin-bottom: 20px;">2 Crispy Hot Bird Burgers + Onion Rings + 2 Chilled Craft Lemonades.</p>
+          <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px dashed rgba(23,23,23,0.15); padding-top: 14px;">
+            <span style="font-family: var(--font-heading); font-size: 2rem; color: #171717;">₹629</span>
+            <button class="btn btn-primary btn-sm" onclick="CartManager.addItem('crispy-hot-bird', 2)"><i class="fa-solid fa-cart-plus"></i> Add Combo</button>
+          </div>
+        </div>
+
+        <div class="combo-deal-card" style="background: #fff; border-radius: 18px; overflow: hidden; border: 2px solid rgba(23,23,23,0.1); padding: 24px;">
+          <div style="height: 180px; border-radius: 12px; overflow: hidden; margin-bottom: 18px;">
+            <img src="assets/images/combos/party-feast-box.webp" alt="Party Feast" style="width: 100%; height: 100%; object-fit: cover;">
+          </div>
+          <span class="badge badge-yellow" style="margin-bottom: 10px;">Group Box</span>
+          <h3 style="font-size: 1.5rem; margin-bottom: 8px;">The Party Crew Feast Box</h3>
+          <p style="font-size: 0.9rem; color: #666; margin-bottom: 20px;">4 Signature Burgers + 2 Loaded Fries + 4 Chilled Drinks + Dessert Churro Box.</p>
+          <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px dashed rgba(23,23,23,0.15); padding-top: 14px;">
+            <span style="font-family: var(--font-heading); font-size: 2rem; color: #171717;">₹1,299</span>
+            <button class="btn btn-primary btn-sm" onclick="CartManager.addItem('smash-beast', 4)"><i class="fa-solid fa-cart-plus"></i> Add Combo</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 06: Drinks & Desserts -->
+  <section class="section-padding bg-dark" id="drinksDesserts">
+    <div class="container">
+      <div class="section-header text-left">
+        <span class="special-label">06. Sips & Sweet Bites</span>
+        <h2 class="section-title">DRINKS & ARTISAN DESSERTS</h2>
+        <p class="section-desc">Chill your palate with artisanal soda coolers, thick gelato shakes, and hot cinnamon churros.</p>
+      </div>
+
+      <div class="grid-3-cols" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px;">
+        <div class="food-card">
+          <div class="food-card-thumb-wrap">
+            <img src="assets/images/drinks/craft-lemonade.webp" alt="Craft Lemonade" class="food-card-img">
+          </div>
+          <div class="food-card-body">
+            <h3 class="food-card-title">Smoked Mint Craft Lemonade</h3>
+            <p class="food-card-desc">Cold-pressed lemon juice, fresh bruised mint, dash of black salt, sparkling fizz.</p>
+            <div class="food-card-footer">
+              <span class="food-card-price">₹119</span>
+              <button class="add-cart-btn" onclick="CartManager.addItem('craft-lemonade', 1)"><i class="fa-solid fa-cart-plus"></i> Add</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="food-card">
+          <div class="food-card-thumb-wrap">
+            <img src="assets/images/drinks/chocolate-shake.webp" alt="Chocolate Shake" class="food-card-img">
+          </div>
+          <div class="food-card-body">
+            <h3 class="food-card-title">Belgian Chocolate Fudge Shake</h3>
+            <p class="food-card-desc">Dark chocolate gelato churned thick with fudge swirls and toasted brownie crumbles.</p>
+            <div class="food-card-footer">
+              <span class="food-card-price">₹189</span>
+              <button class="add-cart-btn" onclick="CartManager.addItem('chocolate-shake', 1)"><i class="fa-solid fa-cart-plus"></i> Add</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="food-card">
+          <div class="food-card-thumb-wrap">
+            <img src="assets/images/drinks/churros-caramel.webp" alt="Churros" class="food-card-img">
+          </div>
+          <div class="food-card-body">
+            <h3 class="food-card-title">Golden Cinnamon Churros</h3>
+            <p class="food-card-desc">Crispy fried Spanish dough rolled in cinnamon sugar with warm salted caramel dip.</p>
+            <div class="food-card-footer">
+              <span class="food-card-price">₹179</span>
+              <button class="add-cart-btn" onclick="CartManager.addItem('churros-caramel', 1)"><i class="fa-solid fa-cart-plus"></i> Add</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 07: Today's Specials -->
+  <section class="section-padding" id="todaysSpecials">
+    <div class="container">
+      <div style="background: var(--color-accent); border-radius: 24px; padding: clamp(30px, 5vw, 60px); color: var(--color-primary); display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 30px; align-items: center;" class="grid-2-cols">
+        <div>
+          <span class="special-label dark" style="margin-bottom: 8px;">Limited-Time Truck Feature</span>
+          <h2 style="font-size: clamp(2.4rem, 4.5vw, 4rem); margin-bottom: 12px; color: #171717;">FIRECRACKER TRUFFLE SMASH</h2>
+          <p style="font-size: 1.05rem; font-weight: 500; line-height: 1.7; margin-bottom: 24px;">
+            Triple smashed beef, smoked ghost pepper jack cheese, black truffle garlic drizzle, crispy onion nest and fermented sriracha pickles on charcoal sesame brioche. Only 50 batches per truck stop!
+          </p>
+          <div style="display: flex; gap: 16px; align-items: center; flex-wrap: wrap;">
+            <span style="font-family: var(--font-heading); font-size: 2.8rem; color: #171717;">₹399</span>
+            <button class="btn btn-dark btn-lg" onclick="CartManager.addItem('smash-beast', 1)"><i class="fa-solid fa-fire"></i> Order Today's Special</button>
+          </div>
+        </div>
+        <div style="border-radius: 18px; overflow: hidden; height: 320px; box-shadow: 0 15px 40px rgba(0,0,0,0.25);">
+          <img src="assets/images/burgers/double-cheese-beast.webp" alt="Firecracker Truffle Smash" style="width: 100%; height: 100%; object-fit: cover;">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 08: Order CTA -->
+  <section class="section-padding bg-dark" style="text-align: center;">
+    <div class="container">
+      <span class="special-label">Ready For The Crunch?</span>
+      <h2 style="font-size: clamp(2.6rem, 5vw, 4.5rem); color: #F5F0E6; margin: 12px 0 20px 0;">ORDER ONLINE OR VISIT OUR TRUCK</h2>
+      <p style="color: rgba(245,240,230,0.75); max-width: 600px; margin: 0 auto 32px auto; font-size: 1.1rem;">
+        Skip the street queue with instant mobile ordering or head straight to our live parking spots across town.
+      </p>
+      <div style="display: flex; gap: 18px; justify-content: center; flex-wrap: wrap;">
+        <a href="cart.html" class="btn btn-primary btn-lg"><i class="fa-solid fa-bag-shopping"></i> Review Your Cart</a>
+        <a href="locations.html" class="btn btn-outline-white btn-lg"><i class="fa-solid fa-map-pin"></i> View Truck GPS Map</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Common Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top-grid">
+        <div class="footer-brand-col">
+          <a href="index.html">
+            <img src="assets/Brand-logo.webp" alt="STACKLY Food Truck" class="footer-logo-img">
+          </a>
+          <div class="footer-tagline">Big Flavours. Fresh Moves. Street Food Reimagined.</div>
+          <p class="footer-brand-desc">
+            Redefining urban street food with culinary precision, unapologetic flavours, and an iconic mobile kitchen experience across South India.
+          </p>
+          <div class="footer-social-row">
+            <a href="404.html" class="social-icon-btn" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="404.html" class="social-icon-btn" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="404.html" class="social-icon-btn" aria-label="Twitter / X"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="404.html" class="social-icon-btn" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="footer-heading">Quick Links</h4>
+          <ul class="footer-links-list">
+            <li class="footer-link-item"><a href="index.html"><i class="fa-solid fa-chevron-right"></i> Home</a></li>
+            <li class="footer-link-item"><a href="about.html"><i class="fa-solid fa-chevron-right"></i> About</a></li>
+            <li class="footer-link-item"><a href="menu.html"><i class="fa-solid fa-chevron-right"></i> Menu</a></li>
+            <li class="footer-link-item"><a href="locations.html"><i class="fa-solid fa-chevron-right"></i> Locations</a></li>
+            <li class="footer-link-item"><a href="contact.html"><i class="fa-solid fa-chevron-right"></i> Contact</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-heading">Branch Offices</h4>
+          <div class="branch-offices-list">
+            <div class="branch-office-item">
+              <div class="branch-office-name"><i class="fa-solid fa-building"></i> Bengaluru Branch Office</div>
+              <div class="branch-office-address">Evolve Studio, 4th Floor, Khata No 10, Begur - Koppa Rd, in front of SNN Raj Serenity, Suraksha Nagar, Yelenahalli, Begur, Bengaluru, Karnataka – 560068</div>
+            </div>
+            <div class="branch-office-item">
+              <div class="branch-office-name"><i class="fa-solid fa-building"></i> Hyderabad Branch Office</div>
+              <div class="branch-office-address">STACKLY, 4th floor, Jayasudha heights, Plot no 459, 100 feet road, Ayyappa society, Madhapur, Beside YSR statue, Hyderabad, Telangana – 500081</div>
+            </div>
+            <div class="branch-office-item">
+              <div class="branch-office-name"><i class="fa-solid fa-building"></i> Chennai Branch Office</div>
+              <div class="branch-office-address">No.9, Ambika Complex, 1st Floor, Gokulam Colony, Karanaipudhuchery main road, Urapakkam, Chennai, Tamil Nadu, India – 603202</div>
+            </div>
+            <div class="branch-office-item">
+              <div class="branch-office-name"><i class="fa-solid fa-building"></i> Coimbatore Branch Office</div>
+              <div class="branch-office-address">Stackly, 79 Aiswarya Complex, Nethaji Road, PN Palayam, Coimbatore, Tamil Nadu, India – 641037</div>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="footer-heading">Truck Hubs & Support</h4>
+          <ul class="footer-links-list">
+            <li class="footer-link-item"><a href="404.html"><i class="fa-solid fa-chevron-right"></i> Franchise & Fleet Partnerships</a></li>
+            <li class="footer-link-item"><a href="404.html"><i class="fa-solid fa-chevron-right"></i> Nutrition & Allergen Guide</a></li>
+            <li class="footer-link-item"><a href="404.html"><i class="fa-solid fa-chevron-right"></i> Street Chef Academy</a></li>
+            <li class="footer-link-item"><a href="404.html"><i class="fa-solid fa-chevron-right"></i> Food Truck Licensing</a></li>
+            <li class="footer-link-item"><a href="404.html"><i class="fa-solid fa-chevron-right"></i> Careers & Crew Auditions</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>© 2026 STACKLY Food Truck. All rights reserved. Big Flavours. Fresh Moves. Street Food Reimagined.</div>
+        <div class="footer-bottom-links">
+          <a href="404.html">Privacy Policy</a>
+          <a href="404.html">Terms of Service</a>
+          <a href="404.html">Cookie Preferences</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.14.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.14.2/ScrollTrigger.min.js"></script>
+  <script src="https://unpkg.com/lenis@1.3.11/dist/lenis.min.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/navigation.js"></script>
+  <script src="js/lenis.js"></script>
+  <script src="js/animations.js"></script>
+  <script src="js/menu.js"></script>
+</body>
+</html>
+

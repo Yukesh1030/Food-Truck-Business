@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Express Checkout | STACKLY Food Truck</title>
+  <meta name="description" content="Finalize your pickup truck location, customer details, and payment method for quick street pickup at STACKLY.">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/webp" href="assets/Brand-logo.webp">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/checkout.css">
+</head>
+<body>
+
+  <!-- Sticky Navbar -->
+  <header class="site-header scrolled" id="mainHeader">
+    <div class="header-container">
+      <a href="index.html" class="brand-logo-link" aria-label="STACKLY Food Truck Home">
+        <img src="assets/Brand-logo.webp" alt="STACKLY Food Truck Logo" class="brand-logo-img">
+      </a>
+
+      <nav class="nav-menu-wrapper" aria-label="Primary Navigation">
+        <ul class="nav-links-list">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="about.html" class="nav-link">About</a></li>
+          <li><a href="menu.html" class="nav-link">Menu</a></li>
+          <li><a href="locations.html" class="nav-link">Locations</a></li>
+          <li><a href="contact.html" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <a href="cart.html" class="cart-icon-btn" aria-label="View Cart">
+          <i class="fa-solid fa-basket-shopping"></i>
+          <span class="cart-badge-count" style="display: none;">0</span>
+        </a>
+        <a href="login.html" class="btn btn-primary login-nav-btn">Login</a>
+        <button class="hamburger-toggle" aria-label="Toggle Navigation Menu" aria-expanded="false">
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-nav-overlay" id="mobileOverlay"></div>
+  <aside class="mobile-nav-drawer" id="mobileDrawer">
+    <div>
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px;">
+        <img src="assets/Brand-logo.webp" alt="STACKLY" style="height: 38px;">
+      </div>
+      <ul class="mobile-links-list">
+        <li><a href="index.html" class="mobile-link"><span>01</span> Home</a></li>
+        <li><a href="about.html" class="mobile-link"><span>02</span> About</a></li>
+        <li><a href="menu.html" class="mobile-link"><span>03</span> Menu</a></li>
+        <li><a href="locations.html" class="mobile-link"><span>04</span> Locations</a></li>
+        <li><a href="contact.html" class="mobile-link"><span>05</span> Contact</a></li>
+      </ul>
+    </div>
+    <div class="mobile-drawer-footer">
+      <a href="login.html" class="btn btn-primary" style="width: 100%;">Login / Account</a>
+    </div>
+  </aside>
+
+  <!-- Main Checkout Content -->
+  <main class="section-padding" style="padding-top: 140px; background-color: var(--color-bg);">
+    <div class="container">
+      
+      <div class="section-header text-left" style="margin-bottom: 30px;">
+        <span class="special-label dark">Final Step</span>
+        <h1 style="font-size: clamp(2.5rem, 5vw, 4rem);">EXPRESS CHECKOUT</h1>
+      </div>
+
+      <div class="checkout-layout-grid">
+        
+        <!-- Left: Form Steps -->
+        <div>
+          
+          <!-- Step 1: Customer Details -->
+          <div class="checkout-step-panel">
+            <div class="checkout-step-header">
+              <span class="step-num-badge">1</span>
+              <div>
+                <h3 style="font-size: 1.4rem; color: var(--color-primary); margin-bottom: 2px;">Your Contact Details</h3>
+                <p style="font-size: 0.85rem; color: #666;">We will send your order pickup token via SMS/WhatsApp.</p>
+              </div>
+            </div>
+
+            <div style="display: flex; flex-direction: column; gap: 16px;">
+              <div class="form-group">
+                <label class="form-label" for="custName">Full Name *</label>
+                <input type="text" id="custName" class="form-input" placeholder="e.g. Aditi Rao" value="Aditi Rao" required>
+              </div>
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;" class="grid-2-cols">
+                <div class="form-group">
+                  <label class="form-label" for="custPhone">Mobile Number (for pickup SMS) *</label>
+                  <input type="tel" id="custPhone" class="form-input" placeholder="9876543210" value="9876543210" required>
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="custEmail">Email Address *</label>
+                  <input type="email" id="custEmail" class="form-input" placeholder="aditi@example.com" value="aditi@example.com" required>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 2: Pickup Truck Location -->
+          <div class="checkout-step-panel">
+            <div class="checkout-step-header">
+              <span class="step-num-badge">2</span>
+              <div>
+                <h3 style="font-size: 1.4rem; color: var(--color-primary); margin-bottom: 2px;">Select Pickup Truck Hub</h3>
+                <p style="font-size: 0.85rem; color: #666;">Choose the active truck stop where you'll collect your hot bites.</p>
+              </div>
+            </div>
+
+            <div class="truck-radio-options">
+              <label class="truck-radio-card selected">
+                <input type="radio" name="pickupTruck" value="Bengaluru - Koramangala Hub" class="truck-radio-input" checked>
+                <div class="truck-card-info">
+                  <h4>Bengaluru - Koramangala Hub (Active Now)</h4>
+                  <p>Sony World Signal, 80 Feet Road, Koramangala 5th Block · Ready in 10-12 mins</p>
+                </div>
+              </label>
+
+              <label class="truck-radio-card">
+                <input type="radio" name="pickupTruck" value="Hyderabad - Madhapur Tech Hub" class="truck-radio-input">
+                <div class="truck-card-info">
+                  <h4>Hyderabad - Madhapur Tech Hub</h4>
+                  <p>Plot 459, 100 Feet Road, Ayyappa Society, Beside YSR Statue · Ready in 15 mins</p>
+                </div>
+              </label>
+
+              <label class="truck-radio-card">
+                <input type="radio" name="pickupTruck" value="Chennai - Urapakkam Avenue" class="truck-radio-input">
+                <div class="truck-card-info">
+                  <h4>Chennai - Urapakkam Avenue</h4>
+                  <p>No.9 Ambika Complex, Gokulam Colony, Karanaipudhuchery Main Rd · Ready in 15 mins</p>
+                </div>
+              </label>
+
+              <label class="truck-radio-card">
+                <input type="radio" name="pickupTruck" value="Coimbatore - PN Palayam Stop" class="truck-radio-input">
+                <div class="truck-card-info">
+                  <h4>Coimbatore - PN Palayam Stop</h4>
+                  <p>Stackly, 79 Aiswarya Complex, Nethaji Road · Ready in 12 mins</p>
+                </div>
+              </label>
+            </div>
+          </div>
+
+          <!-- Step 3: Payment Demo -->
+          <div class="checkout-step-panel">
+            <div class="checkout-step-header">
+              <span class="step-num-badge">3</span>
+              <div>
+                <h3 style="font-size: 1.4rem; color: var(--color-primary); margin-bottom: 2px;">Payment Method</h3>
+                <p style="font-size: 0.85rem; color: #666;">Select your preferred payment mode for this demo order.</p>
+              </div>
+            </div>
+
+            <div class="payment-methods-grid">
+              <div class="payment-method-card selected">
+                <i class="fa-solid fa-qrcode payment-method-icon" style="color: #F4B323;"></i>
+                <strong>Instant UPI</strong>
+                <span style="font-size: 0.75rem; color: #777;">GPay, PhonePe, Paytm</span>
+              </div>
+              <div class="payment-method-card">
+                <i class="fa-regular fa-credit-card payment-method-icon"></i>
+                <strong>Card Payment</strong>
+                <span style="font-size: 0.75rem; color: #777;">Visa, Master, RuPay</span>
+              </div>
+              <div class="payment-method-card">
+                <i class="fa-solid fa-money-bill-wave payment-method-icon"></i>
+                <strong>Cash at Truck</strong>
+                <span style="font-size: 0.75rem; color: #777;">Pay at window</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Right: Order Summary Sidebar -->
+        <div style="background: var(--color-primary); color: var(--color-text-light); border-radius: 20px; padding: 32px; border: 2px solid var(--color-accent); position: sticky; top: 100px;">
+          <h3 style="font-size: 1.6rem; color: var(--color-accent); margin-bottom: 20px; padding-bottom: 12px; border-bottom: 1px solid rgba(255,255,255,0.15);">
+            BAG SUMMARY
+          </h3>
+
+          <div id="checkoutItemsList" style="margin-bottom: 20px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 14px;">
+            <!-- Rendered by checkout.js -->
+          </div>
+
+          <div style="display: flex; justify-content: space-between; margin-bottom: 10px; font-size: 0.95rem; color: rgba(245,240,230,0.8);">
+            <span>Subtotal:</span>
+            <span id="checkoutSubtotal">₹0</span>
+          </div>
+
+          <div style="display: flex; justify-content: space-between; margin-bottom: 10px; font-size: 0.95rem; color: rgba(245,240,230,0.8);">
+            <span>Taxes & Packaging (5%):</span>
+            <span>Included</span>
+          </div>
+
+          <div style="display: flex; justify-content: space-between; align-items: baseline; border-top: 1px dashed rgba(255,255,255,0.2); padding-top: 16px; margin-top: 16px;">
+            <span style="font-size: 1.15rem; font-weight: 700;">Total Payable:</span>
+            <span id="checkoutTotal" style="font-family: var(--font-heading); font-size: 2.2rem; color: var(--color-accent);">₹0</span>
+          </div>
+
+          <button id="placeOrderBtn" class="btn btn-primary btn-lg" style="width: 100%; margin-top: 24px;">
+            <i class="fa-solid fa-check"></i> Place & Confirm Order
+          </button>
+
+          <p style="font-size: 0.78rem; color: rgba(245,240,230,0.6); text-align: center; margin-top: 14px;">
+            By placing order you confirm pickup from selected food truck window.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Common Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top-grid">
+        <div class="footer-brand-col">
+          <a href="index.html">
+            <img src="assets/Brand-logo.webp" alt="STACKLY Food Truck" class="footer-logo-img">
+          </a>
+          <div class="footer-tagline">Big Flavours. Fresh Moves. Street Food Reimagined.</div>
+          <p class="footer-brand-desc">
+            Redefining urban street food with culinary precision, unapologetic flavours, and an iconic mobile kitchen experience across South India.
+          </p>
+          <div class="footer-social-row">
+            <a href="404.html" class="social-icon-btn" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="404.html" class="social-icon-btn" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="404.html" class="social-icon-btn" aria-label="Twitter / X"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="404.html" class="social-icon-btn" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="footer-heading">Quick Links</h4>
+          <ul class="footer-links-list">
+            <li class="footer-link-item"><a href="index.html"><i class="fa-solid fa-chevron-right"></i> Home</a></li>
+            <li class="footer-link-item"><a href="about.html"><i class="fa-solid fa-chevron-right"></i> About</a></li>
+            <li class="footer-link-item"><a href="menu.html"><i class="fa-solid fa-chevron-right"></i> Menu</a></li>
+            <li class="footer-link-item"><a href="locations.html"><i class="fa-solid fa-chevron-right"></i> Locations</a></li>
+            <li class="footer-link-item"><a href="contact.html"><i class="fa-solid fa-chevron-right"></i> Contact</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-heading">Branch Offices</h4>
+          <div class="branch-offices-list">
+            <div class="branch-office-item">
+              <div class="branch-office-name"><i class="fa-solid fa-building"></i> Bengaluru Branch Office</div>
+              <div class="branch-office-address">Evolve Studio, 4th Floor, Khata No 10, Begur - Koppa Rd, in front of SNN Raj Serenity, Suraksha Nagar, Yelenahalli, Begur, Bengaluru, Karnataka – 560068</div>
+            </div>
+            <div class="branch-office-item">
+              <div class="branch-office-name"><i class="fa-solid fa-building"></i> Hyderabad Branch Office</div>
+              <div class="branch-office-address">STACKLY, 4th floor, Jayasudha heights, Plot no 459, 100 feet road, Ayyappa society, Madhapur, Beside YSR statue, Hyderabad, Telangana – 500081</div>
+            </div>
+            <div class="branch-office-item">
+              <div class="branch-office-name"><i class="fa-solid fa-building"></i> Chennai Branch Office</div>
+              <div class="branch-office-address">No.9, Ambika Complex, 1st Floor, Gokulam Colony, Karanaipudhuchery main road, Urapakkam, Chennai, Tamil Nadu, India – 603202</div>
+            </div>
+            <div class="branch-office-item">
+              <div class="branch-office-name"><i class="fa-solid fa-building"></i> Coimbatore Branch Office</div>
+              <div class="branch-office-address">Stackly, 79 Aiswarya Complex, Nethaji Road, PN Palayam, Coimbatore, Tamil Nadu, India – 641037</div>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="footer-heading">Truck Hubs & Support</h4>
+          <ul class="footer-links-list">
+            <li class="footer-link-item"><a href="404.html"><i class="fa-solid fa-chevron-right"></i> Franchise & Fleet Partnerships</a></li>
+            <li class="footer-link-item"><a href="404.html"><i class="fa-solid fa-chevron-right"></i> Nutrition & Allergen Guide</a></li>
+            <li class="footer-link-item"><a href="404.html"><i class="fa-solid fa-chevron-right"></i> Street Chef Academy</a></li>
+            <li class="footer-link-item"><a href="404.html"><i class="fa-solid fa-chevron-right"></i> Food Truck Licensing</a></li>
+            <li class="footer-link-item"><a href="404.html"><i class="fa-solid fa-chevron-right"></i> Careers & Crew Auditions</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>© 2026 STACKLY Food Truck. All rights reserved. Big Flavours. Fresh Moves. Street Food Reimagined.</div>
+        <div class="footer-bottom-links">
+          <a href="404.html">Privacy Policy</a>
+          <a href="404.html">Terms of Service</a>
+          <a href="404.html">Cookie Preferences</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.14.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.14.2/ScrollTrigger.min.js"></script>
+  <script src="https://unpkg.com/lenis@1.3.11/dist/lenis.min.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/navigation.js"></script>
+  <script src="js/lenis.js"></script>
+  <script src="js/checkout.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,308 @@
+/* ==========================================================================
+   STACKLY Food Truck - Responsive Breakpoints & Overflow Prevention
+   Breakpoints explicitly targeted:
+   - 375px  (Small mobile - iPhone SE / older devices)
+   - 390px  (Standard mobile - iPhone 12/13/14)
+   - 414px  (Large mobile - iPhone Plus/Pro Max, Samsung Galaxy)
+   - 768px  (Tablets portrait - iPad mini / Air)
+   - 1024px (Tablets landscape / small laptops)
+   - 1280px (Standard Desktop)
+   - 1440px (High-res Desktop)
+   - 1920px (Full HD / Ultra-wide)
+   ========================================================================== */
+
+/* Strict Horizontal Overflow Prevention Across All Devices */
+*, *::before, *::after {
+  max-width: 100%;
+}
+
+html, body {
+  overflow-x: hidden !important;
+  width: 100%;
+  position: relative;
+}
+
+/* ==========================================================================
+   Large Desktops & Ultra-wide (1920px+)
+   ========================================================================== */
+@media screen and (min-width: 1920px) {
+  :root {
+    --container-max: 1600px;
+  }
+
+  h1 { font-size: 6.5rem; }
+  h2 { font-size: 4.8rem; }
+  h3 { font-size: 3rem; }
+  
+  .section-padding {
+    padding-top: 140px;
+    padding-bottom: 140px;
+  }
+}
+
+/* ==========================================================================
+   Desktop / Standard Wide (1280px to 1440px)
+   ========================================================================== */
+@media screen and (min-width: 1280px) and (max-width: 1439px) {
+  :root {
+    --container-max: 1240px;
+  }
+}
+
+/* ==========================================================================
+   Laptops & Small Desktop (1024px to 1279px)
+   ========================================================================== */
+@media screen and (max-width: 1279px) {
+  .footer-top-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+  }
+
+  .nav-links-list {
+    gap: 20px;
+  }
+  
+  .hero-headline {
+    font-size: clamp(3rem, 6vw, 4.5rem);
+  }
+}
+
+/* ==========================================================================
+   Tablets (768px to 1023px)
+   ========================================================================== */
+@media screen and (max-width: 1023px) {
+  .nav-menu-wrapper {
+    display: none; /* Mobile Drawer Activated */
+  }
+
+  .hamburger-toggle {
+    display: flex;
+  }
+
+  .header-actions .login-nav-btn {
+    display: none; /* Available in mobile drawer */
+  }
+
+  .footer-top-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 36px;
+  }
+
+  .section-padding {
+    padding-top: 80px;
+    padding-bottom: 80px;
+  }
+
+  /* Two-column Product Grids on Tablet */
+  .grid-4-cols,
+  .grid-3-cols {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+
+  .hero-split-grid {
+    grid-template-columns: 1fr !important;
+    text-align: center;
+    gap: 40px;
+  }
+
+  .hero-actions-group {
+    justify-content: center;
+  }
+
+  .hero-floating-elements {
+    display: none; /* Clean presentation on mobile/tablet */
+  }
+}
+
+/* ==========================================================================
+   Phablets & Tablets Portrait (Up to 768px)
+   ========================================================================== */
+@media screen and (max-width: 768px) {
+  :root {
+    --nav-height: 70px;
+  }
+
+  .site-header.scrolled {
+    height: 64px;
+  }
+
+  .brand-logo-img {
+    height: 38px;
+  }
+
+  .footer-top-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    text-align: center;
+    gap: 16px;
+  }
+
+  .footer-bottom-links {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  /* Single Column Food & Features on Mobile */
+  .grid-4-cols,
+  .grid-3-cols,
+  .grid-2-cols {
+    grid-template-columns: 1fr !important;
+  }
+
+  .food-card-thumb-wrap {
+    height: 220px;
+  }
+
+  .modal-content-card {
+    padding: 16px;
+    max-height: 94vh;
+  }
+
+  .modal-split-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .btn {
+    padding: 12px 22px;
+    font-size: 0.88rem;
+  }
+
+  .btn-lg {
+    padding: 14px 28px;
+    font-size: 0.95rem;
+  }
+
+  /* Sticky Mobile Order Now Bar */
+  .mobile-sticky-order-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(23, 23, 23, 0.96);
+    backdrop-filter: blur(10px);
+    border-top: 2px solid var(--color-accent);
+    padding: 12px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 998;
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.3);
+  }
+}
+
+/* ==========================================================================
+   Large Phones (414px - e.g. iPhone 11 Pro Max, XR, Plus models)
+   ========================================================================== */
+@media screen and (max-width: 414px) {
+  h1 { font-size: 2.6rem; }
+  h2 { font-size: 2.1rem; }
+  h3 { font-size: 1.5rem; }
+
+  .hero-actions-group {
+    flex-direction: column;
+    width: 100%;
+    gap: 12px;
+  }
+
+  .hero-actions-group .btn {
+    width: 100%;
+  }
+
+  .food-card-footer {
+    flex-direction: row;
+    gap: 10px;
+  }
+
+  .cart-icon-btn {
+    width: 38px;
+    height: 38px;
+    font-size: 1rem;
+  }
+
+  .hamburger-toggle {
+    width: 38px;
+    height: 38px;
+    padding: 7px;
+  }
+}
+
+/* ==========================================================================
+   Standard Phones (390px - e.g. iPhone 12 / 13 / 14 / 15)
+   ========================================================================== */
+@media screen and (max-width: 390px) {
+  .container {
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+
+  .section-padding {
+    padding-top: 55px;
+    padding-bottom: 55px;
+  }
+
+  .food-card-body {
+    padding: 16px;
+  }
+
+  .food-card-title {
+    font-size: 1.35rem;
+  }
+
+  .branch-office-item {
+    padding: 12px;
+  }
+}
+
+/* ==========================================================================
+   Small Mobile Phones (375px - e.g. iPhone SE, mini)
+   ========================================================================== */
+@media screen and (max-width: 375px) {
+  h1 { font-size: 2.3rem; }
+  h2 { font-size: 1.9rem; }
+  h3 { font-size: 1.35rem; }
+
+  .brand-logo-img {
+    height: 32px;
+  }
+
+  .btn {
+    padding: 10px 18px;
+    font-size: 0.82rem;
+  }
+
+  .live-truck-badge {
+    font-size: 0.75rem;
+    padding: 6px 12px;
+  }
+
+  .mobile-nav-drawer {
+    padding: 80px 20px 30px 20px;
+  }
+
+  .mobile-link {
+    font-size: 1.8rem;
+  }
+
+  .cart-badge-count {
+    width: 18px;
+    height: 18px;
+    font-size: 0.65rem;
+  }
+}
+
+/* ==========================================================================
+   Reduced Motion Accessibility
+   ========================================================================== */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+

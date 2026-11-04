@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shopping Cart | STACKLY Food Truck</title>
+  <meta name="description" content="Review your order bag of smash burgers, loaded fries, wraps and drinks. Quick express pickup from STACKLY Food Truck.">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/webp" href="assets/Brand-logo.webp">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/cart.css">
+</head>
+<body>
+
+  <!-- Sticky Navbar -->
+  <header class="site-header scrolled" id="mainHeader">
+    <div class="header-container">
+      <a href="index.html" class="brand-logo-link" aria-label="STACKLY Food Truck Home">
+        <img src="assets/Brand-logo.webp" alt="STACKLY Food Truck Logo" class="brand-logo-img">
+      </a>
+
+      <nav class="nav-menu-wrapper" aria-label="Primary Navigation">
+        <ul class="nav-links-list">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="about.html" class="nav-link">About</a></li>
+          <li><a href="menu.html" class="nav-link">Menu</a></li>
+          <li><a href="locations.html" class="nav-link">Locations</a></li>
+          <li><a href="contact.html" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <a href="cart.html" class="cart-icon-btn active" aria-label="View Cart">
+          <i class="fa-solid fa-basket-shopping"></i>
+          <span class="cart-badge-count" style="display: none;">0</span>
+        </a>
+        <a href="login.html" class="btn btn-primary login-nav-btn">Login</a>
+        <button class="hamburger-toggle" aria-label="Toggle Navigation Menu" aria-expanded="false">
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-nav-overlay" id="mobileOverlay"></div>
+  <aside class="mobile-nav-drawer" id="mobileDrawer">
+    <div>
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px;">
+        <img src="assets/Brand-logo.webp" alt="STACKLY" style="height: 38px;">
+      </div>
+      <ul class="mobile-links-list">
+        <li><a href="index.html" class="mobile-link"><span>01</span> Home</a></li>
+        <li><a href="about.html" class="mobile-link"><span>02</span> About</a></li>
+        <li><a href="menu.html" class="mobile-link"><span>03</span> Menu</a></li>
+        <li><a href="locations.html" class="mobile-link"><span>04</span> Locations</a></li>
+        <li><a href="contact.html" class="mobile-link"><span>05</span> Contact</a></li>
+      </ul>
+    </div>
+    <div class="mobile-drawer-footer">
+      <a href="login.html" class="btn btn-primary" style="width: 100%;">Login / Account</a>
+    </div>
+  </aside>
+
+  <!-- Main Cart Section -->
+  <main class="section-padding" style="padding-top: 140px; background-color: var(--color-bg); min-height: 80vh;">
+    <div class="container">
+      
+      <div class="section-header text-left" style="margin-bottom: 30px;">
+        <span class="special-label dark">Your Street Bites</span>
+        <h1 style="font-size: clamp(2.5rem, 5vw, 4rem);">SHOPPING BAG</h1>
+      </div>
+
+      <!-- Empty State -->
+      <div class="cart-empty-view" id="emptyCartState" style="display: none;">
+        <i class="fa-solid fa-basket-shopping cart-empty-icon"></i>
+        <h2 style="font-size: 2.2rem; margin-bottom: 8px;">YOUR BAG IS HUNGRY!</h2>
+        <p style="color: #666; max-width: 480px; margin: 0 auto 24px auto;">
+          Looks like you haven't added any sizzling smash burgers or loaded fries yet. Follow the flavour to our menu!
+        </p>
+        <a href="menu.html" class="btn btn-primary btn-lg"><i class="fa-solid fa-burger"></i> Explore The Menu</a>
+      </div>
+
+      <!-- Cart Active Grid -->
+      <div class="cart-layout-grid" id="cartLayoutGrid">
+        
+        <!-- Cart Items List -->
+        <div class="cart-items-container">
+          <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid rgba(23,23,23,0.08); padding-bottom: 14px; margin-bottom: 10px;">
+            <h3 style="font-size: 1.4rem;">Order Items</h3>
+            <button onclick="localStorage.removeItem('stackly_cart'); CartManager.updateBadges(); renderCart();" style="font-size: 0.85rem; color: #e74c3c; cursor: pointer; text-decoration: underline;">
+              Clear All Items
+            </button>
+          </div>
+
+          <div id="cartItemsList">
+            <!-- Rendered by cart.js -->
+          </div>
+        </div>
+
+        <!-- Order Summary & Checkout Box -->
+        <div class="cart-summary-box">
+          <h3 class="summary-title">ORDER SUMMARY</h3>
+
+          <div class="summary-line">
+            <span>Subtotal:</span>
+            <strong id="cartSubtotal">₹0</strong>
+          </div>
+
+          <div class="summary-line">
+            <span>GST & Kitchen Packaging (5%):</span>
+            <strong id="cartTax">₹0</strong>
+          </div>
+
+          <div class="summary-line">
+            <span>Promo Discount:</span>
+            <strong id="cartDiscount" style="color: #2ecc71;">₹0</strong>
+          </div>
+
+          <!-- Promo Input -->
+          <div class="promo-code-wrap">
+            <input type="text" id="promoCodeInput" class="promo-input" placeholder="CODE: STACKLY15">
+            <button class="btn btn-primary btn-sm" id="applyPromoBtn">Apply</button>
+          </div>
+
+          <div class="summary-line total-line">
+            <span>Estimated Total:</span>
+            <span class="summary-total-price" id="cartTotal">₹0</span>
+          </div>
+
+          <a href="checkout.html" class="btn btn-primary btn-lg" style="width: 100%; margin-top: 24px;">
+            <i class="fa-solid fa-arrow-right"></i> Proceed to Checkout
+          </a>
+
+          <div style="font-size: 0.8rem; color: rgba(245,240,230,0.6); text-align: center; margin-top: 14px;">
+            <i class="fa-solid fa-lock" style="color: #F4B323;"></i> Secure SSL Checkout · Express Mobile Pickup
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Common Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top-grid">
+        <div class="footer-brand-col">
+          <a href="index.html">
+            <img src="assets/Brand-logo.webp" alt="STACKLY Food Truck" class="footer-logo-img">
+          </a>
+          <div class="footer-tagline">Big Flavours. Fresh Moves. Street Food Reimagined.</div>
+          <p class="footer-brand-desc">
+            Redefining urban street food with culinary precision, unapologetic flavours, and an iconic mobile kitchen experience across South India.
+          </p>
+          <div class="footer-social-row">
+            <a href="404.html" class="social-icon-btn" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="404.html" class="social-icon-btn" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="404.html" class="social-icon-btn" aria-label="Twitter / X"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="404.html" class="social-icon-btn" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="footer-heading">Quick Links</h4>
+          <ul class="footer-links-list">
+            <li class="footer-link-item"><a href="index.html"><i class="fa-solid fa-chevron-right"></i> Home</a></li>
+            <li class="footer-link-item"><a href="about.html"><i class="fa-solid fa-chevron-right"></i> About</a></li>
+            <li class="footer-link-item"><a href="menu.html"><i class="fa-solid fa-chevron-right"></i> Menu</a></li>
+            <li class="footer-link-item"><a href="locations.html"><i class="fa-solid fa-chevron-right"></i> Locations</a></li>
+            <li class="footer-link-item"><a href="contact.html"><i class="fa-solid fa-chevron-right"></i> Contact</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-heading">Branch Offices</h4>
+          <div class="branch-offices-list">
+            <div class="branch-office-item">
+              <div class="branch-office-name"><i class="fa-solid fa-building"></i> Bengaluru Branch Office</div>
+              <div class="branch-office-address">Evolve Studio, 4th Floor, Khata No 10, Begur - Koppa Rd, in front of SNN Raj Serenity, Suraksha Nagar, Yelenahalli, Begur, Bengaluru, Karnataka – 560068</div>
+            </div>
+            <div class="branch-office-item">
+              <div class="branch-office-name"><i class="fa-solid fa-building"></i> Hyderabad Branch Office</div>
+              <div class="branch-office-address">STACKLY, 4th floor, Jayasudha heights, Plot no 459, 100 feet road, Ayyappa society, Madhapur, Beside YSR statue, Hyderabad, Telangana – 500081</div>
+            </div>
+            <div class="branch-office-item">
+              <div class="branch-office-name"><i class="fa-solid fa-building"></i> Chennai Branch Office</div>
+              <div class="branch-office-address">No.9, Ambika Complex, 1st Floor, Gokulam Colony, Karanaipudhuchery main road, Urapakkam, Chennai, Tamil Nadu, India – 603202</div>
+            </div>
+            <div class="branch-office-item">
+              <div class="branch-office-name"><i class="fa-solid fa-building"></i> Coimbatore Branch Office</div>
+              <div class="branch-office-address">Stackly, 79 Aiswarya Complex, Nethaji Road, PN Palayam, Coimbatore, Tamil Nadu, India – 641037</div>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="footer-heading">Truck Hubs & Support</h4>
+          <ul class="footer-links-list">
+            <li class="footer-link-item"><a href="404.html"><i class="fa-solid fa-chevron-right"></i> Franchise & Fleet Partnerships</a></li>
+            <li class="footer-link-item"><a href="404.html"><i class="fa-solid fa-chevron-right"></i> Nutrition & Allergen Guide</a></li>
+            <li class="footer-link-item"><a href="404.html"><i class="fa-solid fa-chevron-right"></i> Street Chef Academy</a></li>
+            <li class="footer-link-item"><a href="404.html"><i class="fa-solid fa-chevron-right"></i> Food Truck Licensing</a></li>
+            <li class="footer-link-item"><a href="404.html"><i class="fa-solid fa-chevron-right"></i> Careers & Crew Auditions</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>© 2026 STACKLY Food Truck. All rights reserved. Big Flavours. Fresh Moves. Street Food Reimagined.</div>
+        <div class="footer-bottom-links">
+          <a href="404.html">Privacy Policy</a>
+          <a href="404.html">Terms of Service</a>
+          <a href="404.html">Cookie Preferences</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.14.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.14.2/ScrollTrigger.min.js"></script>
+  <script src="https://unpkg.com/lenis@1.3.11/dist/lenis.min.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/navigation.js"></script>
+  <script src="js/lenis.js"></script>
+  <script src="js/cart.js"></script>
+</body>
+</html>
+

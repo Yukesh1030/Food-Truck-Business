@@ -1,0 +1,182 @@
+/* ==========================================================================
+   STACKLY Food Truck - Animation Keyframes & GSAP Helpers
+   ========================================================================== */
+
+/* Hero Floating Animation */
+@keyframes floatSlow {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-16px) rotate(2deg);
+  }
+}
+
+@keyframes floatReverse {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(14px) rotate(-2deg);
+  }
+}
+
+.floating-food-item {
+  animation: floatSlow 6s ease-in-out infinite;
+  will-change: transform;
+}
+
+.floating-food-item-alt {
+  animation: floatReverse 7s ease-in-out infinite;
+  will-change: transform;
+}
+
+/* Scroll Down Indicator */
+.scroll-indicator-wrap {
+  position: absolute;
+  bottom: 28px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  color: var(--color-accent);
+  z-index: 10;
+  cursor: pointer;
+  transition: opacity var(--transition-fast);
+}
+
+.scroll-mouse-icon {
+  width: 26px;
+  height: 42px;
+  border: 2px solid var(--color-accent);
+  border-radius: 20px;
+  position: relative;
+}
+
+.scroll-wheel-dot {
+  width: 4px;
+  height: 8px;
+  background-color: var(--color-accent);
+  border-radius: 2px;
+  position: absolute;
+  top: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: scrollWheel 2s infinite ease;
+}
+
+@keyframes scrollWheel {
+  0% {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+  80% {
+    opacity: 0;
+    transform: translateX(-50%) translateY(14px);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+.scroll-text-label {
+  font-size: 0.72rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--color-accent);
+}
+
+/* Headline Reveal Masks */
+.headline-reveal-wrap {
+  overflow: hidden;
+  display: block;
+}
+
+.headline-reveal-line {
+  display: inline-block;
+  transform: translateY(105%);
+  opacity: 0;
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.8s ease;
+}
+
+.headline-reveal-line.revealed {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* GSAP Pre-animation Initial States (Will be animated cleanly via GSAP) */
+[data-animate="fade-up"] {
+  opacity: 0;
+  transform: translateY(40px);
+}
+
+[data-animate="fade-in"] {
+  opacity: 0;
+}
+
+[data-animate="scale-up"] {
+  opacity: 0;
+  transform: scale(0.92);
+}
+
+[data-animate="slide-right"] {
+  opacity: 0;
+  transform: translateX(-40px);
+}
+
+[data-animate="slide-left"] {
+  opacity: 0;
+  transform: translateX(40px);
+}
+
+/* Interactive Card Shimmer on Hover */
+.shimmer-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.shimmer-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.15),
+    transparent
+  );
+  transform: skewX(-20deg);
+  transition: none;
+  pointer-events: none;
+}
+
+.shimmer-card:hover::before {
+  left: 150%;
+  transition: left 0.9s ease-in-out;
+}
+
+/* Pulse Glow Effect for Accent CTAs */
+.pulse-glow {
+  box-shadow: 0 0 0 0 rgba(244, 179, 35, 0.6);
+  animation: pulseGlow 2.5s infinite cubic-bezier(0.66, 0, 0, 1);
+}
+
+@keyframes pulseGlow {
+  0% {
+    box-shadow: 0 0 0 0 rgba(244, 179, 35, 0.6);
+  }
+  70% {
+    box-shadow: 0 0 0 16px rgba(244, 179, 35, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(244, 179, 35, 0);
+  }
+}
+

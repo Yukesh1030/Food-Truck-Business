@@ -1,0 +1,790 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>STACKLY Food Truck | Big Flavours. Fresh Moves. Street Food Reimagined.</title>
+  <meta name="description" content="STACKLY Food Truck serves bold gourmet burgers, loaded fries, artisan wraps and chilled craft drinks. Find our truck locations or order online.">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/webp" href="assets/Brand-logo.webp">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/menu.css">
+
+  <!-- Main Hero Preload -->
+  <link rel="preload" as="image" href="assets/images/hero/hero-main.webp" type="image/webp">
+</head>
+<body>
+
+  <!-- Sticky Navbar -->
+  <header class="site-header hero-dark" id="mainHeader">
+    <div class="header-container">
+      <!-- Brand Logo on Left End -->
+      <a href="index.html" class="brand-logo-link" aria-label="STACKLY Food Truck Home">
+        <img src="assets/Brand-logo.webp" alt="STACKLY Food Truck Logo" class="brand-logo-img">
+      </a>
+
+      <!-- 5 Center Nav Links -->
+      <nav class="nav-menu-wrapper" aria-label="Primary Navigation">
+        <ul class="nav-links-list">
+          <li><a href="index.html" class="nav-link active">Home</a></li>
+          <li><a href="about.html" class="nav-link">About</a></li>
+          <li><a href="menu.html" class="nav-link">Menu</a></li>
+          <li><a href="locations.html" class="nav-link">Locations</a></li>
+          <li><a href="contact.html" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <!-- Right End Actions -->
+      <div class="header-actions">
+        <a href="cart.html" class="cart-icon-btn" aria-label="View Cart">
+          <i class="fa-solid fa-basket-shopping"></i>
+          <span class="cart-badge-count" style="display: none;">0</span>
+        </a>
+        <a href="login.html" class="btn btn-primary login-nav-btn">Login</a>
+        <button class="hamburger-toggle" aria-label="Toggle Navigation Menu" aria-expanded="false">
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-nav-overlay" id="mobileOverlay"></div>
+  <aside class="mobile-nav-drawer" id="mobileDrawer">
+    <div>
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px;">
+        <img src="assets/Brand-logo.webp" alt="STACKLY" style="height: 38px;">
+      </div>
+      <ul class="mobile-links-list">
+        <li><a href="index.html" class="mobile-link active"><span>01</span> Home</a></li>
+        <li><a href="about.html" class="mobile-link"><span>02</span> About</a></li>
+        <li><a href="menu.html" class="mobile-link"><span>03</span> Menu</a></li>
+        <li><a href="locations.html" class="mobile-link"><span>04</span> Locations</a></li>
+        <li><a href="contact.html" class="mobile-link"><span>05</span> Contact</a></li>
+      </ul>
+    </div>
+    <div class="mobile-drawer-footer">
+      <div class="mobile-truck-status-badge">
+        <span class="status-dot-pulse"></span>
+        <div style="font-size: 0.82rem; color: #F5F0E6;">
+          <strong>Live Truck:</strong> Koramangala 5th Block, Bengaluru
+        </div>
+      </div>
+      <a href="login.html" class="btn btn-primary" style="width: 100%;">Login / Account</a>
+    </div>
+  </aside>
+
+  <!-- Main Hero Section -->
+  <section class="hero-section bg-dark" style="position: relative; min-height: 100vh; display: flex; align-items: center; overflow: hidden; padding-top: 100px; padding-bottom: 60px;">
+    <!-- Hero Background Cover -->
+    <img src="assets/images/hero/hero-main.webp" alt="STACKLY Street Food Truck Hero" class="hero-bg-cover" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.32; z-index: 1;">
+    <div style="position: absolute; inset: 0; background: radial-gradient(circle at 60% 40%, rgba(244, 179, 35, 0.12), rgba(23, 23, 23, 0.95) 75%); z-index: 2;"></div>
+
+    <div class="container" style="position: relative; z-index: 5;">
+      <div class="hero-split-grid" style="display: grid; grid-template-columns: 1.15fr 0.85fr; gap: clamp(30px, 4vw, 60px); align-items: center;">
+        
+        <!-- Left Hero Content -->
+        <div class="hero-text-content">
+          <div style="display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 18px; align-items: center;">
+            <div class="live-truck-badge">
+              <span class="live-beacon-dot"></span>
+              <span>LIVE TRUCK: Koramangala, Bengaluru</span>
+            </div>
+            <span class="badge badge-yellow"><i class="fa-solid fa-clock"></i> Open Today: 12 PM – 11:30 PM</span>
+          </div>
+
+          <div class="headline-reveal-wrap">
+            <h1 class="hero-headline headline-reveal-line" style="color: #F5F0E6; margin-bottom: 4px;">
+              BIG FLAVOUR.
+            </h1>
+          </div>
+          <div class="headline-reveal-wrap">
+            <h1 class="hero-headline headline-reveal-line" style="color: #F4B323; margin-bottom: 18px;">
+              ON FOUR WHEELS.
+            </h1>
+          </div>
+
+          <p class="hero-subtext" style="font-size: clamp(1rem, 1.3vw, 1.2rem); color: rgba(245, 240, 230, 0.8); max-width: 580px; margin-bottom: 32px; line-height: 1.7;">
+            Freshly prepared street food, bold flavours and unforgettable bites. Find our truck, explore our menu and follow the flavour wherever we go.
+          </p>
+
+          <div class="hero-actions-group" style="display: flex; gap: 16px; flex-wrap: wrap;">
+            <a href="menu.html" class="btn btn-primary btn-lg pulse-glow">
+              <i class="fa-solid fa-burger"></i> Explore Our Menu
+            </a>
+            <a href="locations.html" class="btn btn-outline-white btn-lg">
+              <i class="fa-solid fa-location-crosshairs"></i> Find Our Truck
+            </a>
+          </div>
+        </div>
+
+        <!-- Right Hero Floating Cutout Presentation -->
+        <div class="hero-visual-presentation" style="position: relative; display: flex; justify-content: center;">
+          <div class="hero-food-plate-wrap" style="position: relative; width: 100%; max-width: 440px; border-radius: 24px; overflow: hidden; box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6); border: 2px solid rgba(244, 179, 35, 0.4);">
+            <img src="assets/images/burgers/signature-smash-burger.webp" alt="Signature Beast Burger" style="width: 100%; height: auto; transform: scale(1.03);">
+            <div style="position: absolute; bottom: 18px; left: 18px; background: rgba(23, 23, 23, 0.9); backdrop-filter: blur(8px); padding: 10px 18px; border-radius: 12px; border: 1px solid var(--color-accent);">
+              <span class="special-label" style="font-size: 0.72rem;">Signature Smash</span>
+              <div style="font-family: var(--font-heading); font-size: 1.5rem; color: #F5F0E6;">THE BEAST BURGER · ₹349</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Scroll Down Indicator -->
+    <a href="#signatureEats" class="scroll-indicator-wrap" aria-label="Scroll to Content">
+      <div class="scroll-mouse-icon">
+        <div class="scroll-wheel-dot"></div>
+      </div>
+      <span class="scroll-text-label">Scroll Down</span>
+    </a>
+  </section>
+
+  <!-- SECTION 01: Signature Street Eats -->
+  <section class="section-padding signature-eats-section" id="signatureEats">
+    <div class="container">
+      <div class="section-header">
+        <span class="special-label dark">01. Street Hawker Favourites</span>
+        <h2 class="section-title">SIGNATURE STREET EATS</h2>
+        <p class="section-desc">Handcrafted gourmet patties, sizzling grilled chicken, and loaded crispy sides prepped fresh to order inside our mobile kitchen.</p>
+      </div>
+
+      <div class="grid-3-cols" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px;">
+        <!-- Card 1 -->
+        <div class="food-card">
+          <div class="food-card-thumb-wrap">
+            <span class="badge badge-yellow food-card-badge">Bestseller</span>
+            <img src="assets/images/burgers/signature-smash-burger.webp" alt="The Beast Smash Burger" class="food-card-img" loading="lazy">
+            <button class="food-card-quick-view" onclick="openQuickView('smash-beast')"><i class="fa-solid fa-eye"></i></button>
+          </div>
+          <div class="food-card-body">
+            <div class="food-card-tags">
+              <span class="tag-pill nonveg">Non-Veg</span>
+              <span class="tag-pill spicy"><i class="fa-solid fa-pepper-hot"></i> Spicy</span>
+              <span>• 680 kcal</span>
+            </div>
+            <h3 class="food-card-title">The Beast Smash Burger</h3>
+            <p class="food-card-desc">Double prime smashed patties, melted cheddar, grilled onions, secret house sauce on toasted brioche.</p>
+            <div class="food-card-footer">
+              <span class="food-card-price">₹349</span>
+              <button class="add-cart-btn" onclick="CartManager.addItem('smash-beast', 1)"><i class="fa-solid fa-cart-plus"></i> Add</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="food-card">
+          <div class="food-card-thumb-wrap">
+            <span class="badge badge-yellow food-card-badge">Spicy Hit</span>
+            <img src="assets/images/burgers/crispy-chicken-burger.webp" alt="Crispy Hot Bird Burger" class="food-card-img" loading="lazy">
+            <button class="food-card-quick-view" onclick="openQuickView('crispy-hot-bird')"><i class="fa-solid fa-eye"></i></button>
+          </div>
+          <div class="food-card-body">
+            <div class="food-card-tags">
+              <span class="tag-pill nonveg">Non-Veg</span>
+              <span class="tag-pill spicy"><i class="fa-solid fa-pepper-hot"></i> Spicy</span>
+              <span>• 620 kcal</span>
+            </div>
+            <h3 class="food-card-title">Crispy Hot Bird Burger</h3>
+            <p class="food-card-desc">Buttermilk fried chicken breast drenched in Nashville cayenne glaze with chipotle drizzle.</p>
+            <div class="food-card-footer">
+              <span class="food-card-price">₹299</span>
+              <button class="add-cart-btn" onclick="CartManager.addItem('crispy-hot-bird', 1)"><i class="fa-solid fa-cart-plus"></i> Add</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="food-card">
+          <div class="food-card-thumb-wrap">
+            <span class="badge badge-yellow food-card-badge">Must Try</span>
+            <img src="assets/images/sides/loaded-cheese-fries.webp" alt="Volcano Loaded Cheese Fries" class="food-card-img" loading="lazy">
+            <button class="food-card-quick-view" onclick="openQuickView('loaded-cheese-fries')"><i class="fa-solid fa-eye"></i></button>
+          </div>
+          <div class="food-card-body">
+            <div class="food-card-tags">
+              <span class="tag-pill veg">Veg</span>
+              <span class="tag-pill spicy"><i class="fa-solid fa-pepper-hot"></i> Spicy</span>
+              <span>• 420 kcal</span>
+            </div>
+            <h3 class="food-card-title">Volcano Loaded Fries</h3>
+            <p class="food-card-desc">Skin-on golden fries, molten cheddar flood, jalapeno crunch, scallions & street rub.</p>
+            <div class="food-card-footer">
+              <span class="food-card-price">₹199</span>
+              <button class="add-cart-btn" onclick="CartManager.addItem('loaded-cheese-fries', 1)"><i class="fa-solid fa-cart-plus"></i> Add</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="food-card">
+          <div class="food-card-thumb-wrap">
+            <span class="badge badge-yellow food-card-badge">Chef Pick</span>
+            <img src="assets/images/burgers/bbq-bacon-stack.webp" alt="Smoky BBQ Bacon Stacker" class="food-card-img" loading="lazy">
+            <button class="food-card-quick-view" onclick="openQuickView('bbq-bacon-stack')"><i class="fa-solid fa-eye"></i></button>
+          </div>
+          <div class="food-card-body">
+            <div class="food-card-tags">
+              <span class="tag-pill nonveg">Non-Veg</span>
+              <span>• 740 kcal</span>
+            </div>
+            <h3 class="food-card-title">Smoky BBQ Bacon Stacker</h3>
+            <p class="food-card-desc">Thick beef smash patty, crispy smoked bacon, crispy onion straws, hickory BBQ reduction.</p>
+            <div class="food-card-footer">
+              <span class="food-card-price">₹379</span>
+              <button class="add-cart-btn" onclick="CartManager.addItem('bbq-bacon-stack', 1)"><i class="fa-solid fa-cart-plus"></i> Add</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 5 -->
+        <div class="food-card">
+          <div class="food-card-thumb-wrap">
+            <span class="badge badge-yellow food-card-badge">Gourmet Veg</span>
+            <img src="assets/images/burgers/truffle-mushroom-melt.webp" alt="Truffle Mushroom Melt" class="food-card-img" loading="lazy">
+            <button class="food-card-quick-view" onclick="openQuickView('truffle-mushroom-melt')"><i class="fa-solid fa-eye"></i></button>
+          </div>
+          <div class="food-card-body">
+            <div class="food-card-tags">
+              <span class="tag-pill veg">Veg</span>
+              <span>• 540 kcal</span>
+            </div>
+            <h3 class="food-card-title">Truffle Mushroom Melt</h3>
+            <p class="food-card-desc">Pan-seared portobello, truffle garlic aioli, Swiss melt, arugula on buttered potato roll.</p>
+            <div class="food-card-footer">
+              <span class="food-card-price">₹329</span>
+              <button class="add-cart-btn" onclick="CartManager.addItem('truffle-mushroom-melt', 1)"><i class="fa-solid fa-cart-plus"></i> Add</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 6 -->
+        <div class="food-card">
+          <div class="food-card-thumb-wrap">
+            <span class="badge badge-yellow food-card-badge">Fresh Roll</span>
+            <img src="assets/images/wraps/spicy-peri-peri-wrap.webp" alt="Peri Peri Grilled Chicken Wrap" class="food-card-img" loading="lazy">
+            <button class="food-card-quick-view" onclick="openQuickView('peri-peri-wrap')"><i class="fa-solid fa-eye"></i></button>
+          </div>
+          <div class="food-card-body">
+            <div class="food-card-tags">
+              <span class="tag-pill nonveg">Non-Veg</span>
+              <span class="tag-pill spicy"><i class="fa-solid fa-pepper-hot"></i> Spicy</span>
+              <span>• 490 kcal</span>
+            </div>
+            <h3 class="food-card-title">Peri Peri Chicken Wrap</h3>
+            <p class="food-card-desc">Flame-grilled chicken tenders, charred bell peppers, sour cream & tangy pico in artisan wrap.</p>
+            <div class="food-card-footer">
+              <span class="food-card-price">₹269</span>
+              <button class="add-cart-btn" onclick="CartManager.addItem('peri-peri-wrap', 1)"><i class="fa-solid fa-cart-plus"></i> Add</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 02: Explore Our Menu -->
+  <section class="section-padding bg-dark" id="exploreMenu">
+    <div class="container">
+      <div class="section-header">
+        <span class="special-label">02. Street Food Categories</span>
+        <h2 class="section-title">EXPLORE OUR MENU</h2>
+        <p class="section-desc">From colossal double smash burgers to crunchy loaded fries and refreshing artisan mocktails, browse our complete street repertoire.</p>
+      </div>
+
+      <div class="grid-3-cols" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-bottom: 40px;">
+        <a href="menu.html?cat=burgers" class="category-block-card" style="background: #222; border-radius: 16px; overflow: hidden; border: 1px solid rgba(255,255,255,0.08); transition: all 0.3s ease; display: block;">
+          <div style="height: 180px; overflow: hidden;"><img src="assets/images/burgers/signature-smash-burger.webp" alt="Burgers" style="width: 100%; height: 100%; object-fit: cover;"></div>
+          <div style="padding: 20px; display: flex; justify-content: space-between; align-items: center;">
+            <div>
+              <h3 style="font-size: 1.6rem; color: #F5F0E6; margin-bottom: 4px;">Burgers</h3>
+              <span style="font-size: 0.85rem; color: #F4B323;">8 Varieties</span>
+            </div>
+            <i class="fa-solid fa-arrow-right" style="color: #F4B323; font-size: 1.2rem;"></i>
+          </div>
+        </a>
+
+        <a href="menu.html?cat=wraps" class="category-block-card" style="background: #222; border-radius: 16px; overflow: hidden; border: 1px solid rgba(255,255,255,0.08); transition: all 0.3s ease; display: block;">
+          <div style="height: 180px; overflow: hidden;"><img src="assets/images/wraps/spicy-peri-peri-wrap.webp" alt="Wraps" style="width: 100%; height: 100%; object-fit: cover;"></div>
+          <div style="padding: 20px; display: flex; justify-content: space-between; align-items: center;">
+            <div>
+              <h3 style="font-size: 1.6rem; color: #F5F0E6; margin-bottom: 4px;">Wraps</h3>
+              <span style="font-size: 0.85rem; color: #F4B323;">6 Varieties</span>
+            </div>
+            <i class="fa-solid fa-arrow-right" style="color: #F4B323; font-size: 1.2rem;"></i>
+          </div>
+        </a>
+
+        <a href="menu.html?cat=sides" class="category-block-card" style="background: #222; border-radius: 16px; overflow: hidden; border: 1px solid rgba(255,255,255,0.08); transition: all 0.3s ease; display: block;">
+          <div style="height: 180px; overflow: hidden;"><img src="assets/images/sides/loaded-cheese-fries.webp" alt="Sides" style="width: 100%; height: 100%; object-fit: cover;"></div>
+          <div style="padding: 20px; display: flex; justify-content: space-between; align-items: center;">
+            <div>
+              <h3 style="font-size: 1.6rem; color: #F5F0E6; margin-bottom: 4px;">Sides & Fries</h3>
+              <span style="font-size: 0.85rem; color: #F4B323;">6 Varieties</span>
+            </div>
+            <i class="fa-solid fa-arrow-right" style="color: #F4B323; font-size: 1.2rem;"></i>
+          </div>
+        </a>
+      </div>
+
+      <div style="text-align: center;">
+        <a href="menu.html" class="btn btn-primary btn-lg">
+          <i class="fa-solid fa-utensils"></i> View Full Food Menu
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 03: Fresh Ingredients. Real Flavour. -->
+  <section class="section-padding ingredients-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="special-label dark">03. Quality First</span>
+        <h2 class="section-title">FRESH INGREDIENTS. REAL FLAVOUR.</h2>
+        <p class="section-desc">We refuse shortcuts. No frozen patties, no artificial fillers. Just locally sourced brioche, farm-crisp produce, and signature sauces prepared daily from scratch.</p>
+      </div>
+
+      <div class="grid-4-cols" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px;">
+        <div class="ingredient-feature-card" style="background: #fff; padding: 28px; border-radius: 16px; border: 1px solid rgba(23,23,23,0.08); text-align: center;">
+          <div style="width: 60px; height: 60px; border-radius: 50%; background: #171717; color: #F4B323; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; margin: 0 auto 16px auto;">
+            <i class="fa-solid fa-bread-slice"></i>
+          </div>
+          <h3 style="font-size: 1.35rem; margin-bottom: 8px;">Artisan Brioche</h3>
+          <p style="font-size: 0.9rem; color: #666;">Baked fresh every morning by local bakeries, toasted with creamy butter on our flat-top.</p>
+        </div>
+
+        <div class="ingredient-feature-card" style="background: #fff; padding: 28px; border-radius: 16px; border: 1px solid rgba(23,23,23,0.08); text-align: center;">
+          <div style="width: 60px; height: 60px; border-radius: 50%; background: #171717; color: #F4B323; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; margin: 0 auto 16px auto;">
+            <i class="fa-solid fa-drumstick-bite"></i>
+          </div>
+          <h3 style="font-size: 1.35rem; margin-bottom: 8px;">100% Prime Cuts</h3>
+          <p style="font-size: 0.9rem; color: #666;">Never frozen, hormone-free meats smashed at searing 450°F heat for maximum caramelized crust.</p>
+        </div>
+
+        <div class="ingredient-feature-card" style="background: #fff; padding: 28px; border-radius: 16px; border: 1px solid rgba(23,23,23,0.08); text-align: center;">
+          <div style="width: 60px; height: 60px; border-radius: 50%; background: #171717; color: #F4B323; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; margin: 0 auto 16px auto;">
+            <i class="fa-solid fa-bottle-droplet"></i>
+          </div>
+          <h3 style="font-size: 1.35rem; margin-bottom: 8px;">House Secret Sauces</h3>
+          <p style="font-size: 0.9rem; color: #666;">Hand-whisked small batches of truffle aioli, smoky chipotle, and signature STACKLY glaze.</p>
+        </div>
+
+        <div class="ingredient-feature-card" style="background: #fff; padding: 28px; border-radius: 16px; border: 1px solid rgba(23,23,23,0.08); text-align: center;">
+          <div style="width: 60px; height: 60px; border-radius: 50%; background: #171717; color: #F4B323; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; margin: 0 auto 16px auto;">
+            <i class="fa-solid fa-leaf"></i>
+          </div>
+          <h3 style="font-size: 1.35rem; margin-bottom: 8px;">Hydroponic Greens</h3>
+          <p style="font-size: 0.9rem; color: #666;">Crisp iceberg lettuce, vine-ripened tomatoes, and house-brined dill pickles for the ultimate bite.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 04: Find Our Truck -->
+  <section class="section-padding bg-dark" id="findTruckSection">
+    <div class="container">
+      <div class="section-header">
+        <span class="special-label">04. Real-time Wheels</span>
+        <h2 class="section-title">FIND OUR TRUCK</h2>
+        <p class="section-desc">Our vibrant yellow-and-charcoal beast rolls across key business parks, university hubs, and cultural avenues. Check our active coordinates today.</p>
+      </div>
+
+      <div class="live-truck-hero-card" style="margin-bottom: 30px;">
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px;" class="grid-2-cols">
+          <div>
+            <div style="display: flex; gap: 12px; align-items: center; margin-bottom: 16px;">
+              <span class="live-badge-glow"><i class="fa-solid fa-circle-dot"></i> ACTIVE RIGHT NOW</span>
+              <span class="badge badge-yellow">TRUCK 01 - BENGALURU</span>
+            </div>
+            <h3 style="font-size: 2.2rem; color: #F5F0E6; margin-bottom: 12px;">KORAMANGALA 5TH BLOCK</h3>
+            <p style="color: rgba(245,240,230,0.8); line-height: 1.7; margin-bottom: 20px;">
+              Opposite Sony World Signal, 80 Feet Road, Koramangala 5th Block, Bengaluru, Karnataka 560095.<br>
+              <strong>Today's Timings:</strong> 12:00 PM – 11:30 PM (Grill Sizzling Now!)
+            </p>
+            <div style="display: flex; gap: 14px; flex-wrap: wrap;">
+              <a href="locations.html" class="btn btn-primary"><i class="fa-solid fa-location-arrow"></i> Find Directions</a>
+              <a href="menu.html" class="btn btn-outline-white"><i class="fa-solid fa-mobile-screen"></i> Order Ahead</a>
+            </div>
+          </div>
+          <div style="border-radius: 14px; overflow: hidden; height: 260px; position: relative; border: 2px solid rgba(244,179,35,0.3);">
+            <img src="assets/images/food-truck/truck-location.webp" alt="STACKLY Food Truck Location" style="width: 100%; height: 100%; object-fit: cover;">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 05: Made Fresh, Served Hot -->
+  <section class="section-padding cooking-steps-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="special-label dark">05. The Cooking Journey</span>
+        <h2 class="section-title">MADE FRESH, SERVED HOT</h2>
+        <p class="section-desc">Experience the rapid symphony of our mobile street kitchen. From preparation to table, every bite is cooked on-the-spot in under 10 minutes.</p>
+      </div>
+
+      <div class="grid-4-cols" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px;">
+        <div class="prep-step-card" style="background: #fff; border-radius: 16px; overflow: hidden; border: 1px solid rgba(23,23,23,0.08);">
+          <div style="height: 190px;"><img src="assets/images/gallery/fresh-prep.webp" alt="Fresh Prep" style="width: 100%; height: 100%; object-fit: cover;"></div>
+          <div style="padding: 20px;">
+            <span class="badge badge-yellow" style="margin-bottom: 8px;">Step 01</span>
+            <h3 style="font-size: 1.35rem; margin-bottom: 6px;">Fresh Prep</h3>
+            <p style="font-size: 0.88rem; color: #666;">Fresh patties hand-weighed, brioche buttered, and seasonings blended.</p>
+          </div>
+        </div>
+
+        <div class="prep-step-card" style="background: #fff; border-radius: 16px; overflow: hidden; border: 1px solid rgba(23,23,23,0.08);">
+          <div style="height: 190px;"><img src="assets/images/gallery/grill-action.webp" alt="Searing Grill" style="width: 100%; height: 100%; object-fit: cover;"></div>
+          <div style="padding: 20px;">
+            <span class="badge badge-yellow" style="margin-bottom: 8px;">Step 02</span>
+            <h3 style="font-size: 1.35rem; margin-bottom: 6px;">Searing Grill</h3>
+            <p style="font-size: 0.88rem; color: #666;">Smashed paper-thin on custom cast iron for deep caramelization and juicy center.</p>
+          </div>
+        </div>
+
+        <div class="prep-step-card" style="background: #fff; border-radius: 16px; overflow: hidden; border: 1px solid rgba(23,23,23,0.08);">
+          <div style="height: 190px;"><img src="assets/images/gallery/sauce-finishing.webp" alt="Sauce Finishing" style="width: 100%; height: 100%; object-fit: cover;"></div>
+          <div style="padding: 20px;">
+            <span class="badge badge-yellow" style="margin-bottom: 8px;">Step 03</span>
+            <h3 style="font-size: 1.35rem; margin-bottom: 6px;">Sauce & Stacking</h3>
+            <p style="font-size: 0.88rem; color: #666;">Molten cheese draping, house secret sauce drench, and crisp garden pickles.</p>
+          </div>
+        </div>
+
+        <div class="prep-step-card" style="background: #fff; border-radius: 16px; overflow: hidden; border: 1px solid rgba(23,23,23,0.08);">
+          <div style="height: 190px;"><img src="assets/images/gallery/serving-hot.webp" alt="Serving Hot" style="width: 100%; height: 100%; object-fit: cover;"></div>
+          <div style="padding: 20px;">
+            <span class="badge badge-yellow" style="margin-bottom: 8px;">Step 04</span>
+            <h3 style="font-size: 1.35rem; margin-bottom: 6px;">Serving Hot</h3>
+            <p style="font-size: 0.88rem; color: #666;">Packed in eco-friendly steam-vented kraft boxes, served sizzling to your hands.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 06: Combos & Special Deals -->
+  <section class="section-padding bg-dark combos-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="special-label">06. Value Bundles</span>
+        <h2 class="section-title">COMBOS & SPECIAL DEALS</h2>
+        <p class="section-desc">More flavour, more savings. Discover our top-selling street combinations built for solo foodies, duos, and late-night party crews.</p>
+      </div>
+
+      <div class="grid-3-cols" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px;">
+        <!-- Combo 1 -->
+        <div class="combo-deal-card" style="background: #222; border-radius: 18px; overflow: hidden; border: 2px solid rgba(244,179,35,0.4); display: flex; flex-direction: column;">
+          <div style="height: 220px; position: relative;">
+            <span class="badge badge-yellow" style="position: absolute; top: 14px; left: 14px; z-index: 2;">Save 25%</span>
+            <img src="assets/images/combos/street-mega-combo.webp" alt="The Street Boss Mega Combo" style="width: 100%; height: 100%; object-fit: cover;">
+          </div>
+          <div style="padding: 24px; display: flex; flex-direction: column; flex: 1;">
+            <h3 style="font-size: 1.6rem; color: #F5F0E6; margin-bottom: 8px;">The Street Boss Mega Combo</h3>
+            <p style="font-size: 0.9rem; color: rgba(245,240,230,0.7); margin-bottom: 18px;">The Beast Smash Burger + Loaded Cheese Fries + Craft Lemonade + Caramel Churro.</p>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 14px; border-top: 1px solid rgba(255,255,255,0.1);">
+              <div>
+                <span style="font-size: 0.85rem; text-decoration: line-through; color: #888;">₹720</span>
+                <div style="font-family: var(--font-heading); font-size: 2rem; color: #F4B323;">₹549</div>
+              </div>
+              <button class="btn btn-primary btn-sm" onclick="CartManager.addItem('street-mega-combo', 1)"><i class="fa-solid fa-cart-plus"></i> Order Deal</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Combo 2 -->
+        <div class="combo-deal-card" style="background: #222; border-radius: 18px; overflow: hidden; border: 1px solid rgba(255,255,255,0.1); display: flex; flex-direction: column;">
+          <div style="height: 220px; position: relative;">
+            <span class="badge badge-yellow" style="position: absolute; top: 14px; left: 14px; z-index: 2;">Duo Special</span>
+            <img src="assets/images/combos/duo-snack-pack.webp" alt="Duo Snack Pack" style="width: 100%; height: 100%; object-fit: cover;">
+          </div>
+          <div style="padding: 24px; display: flex; flex-direction: column; flex: 1;">
+            <h3 style="font-size: 1.6rem; color: #F5F0E6; margin-bottom: 8px;">Duo Street Stacker</h3>
+            <p style="font-size: 0.9rem; color: rgba(245,240,230,0.7); margin-bottom: 18px;">2 Crispy Hot Bird Burgers + Onion Rings + 2 Chilled Lemonades.</p>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 14px; border-top: 1px solid rgba(255,255,255,0.1);">
+              <div>
+                <span style="font-size: 0.85rem; text-decoration: line-through; color: #888;">₹810</span>
+                <div style="font-family: var(--font-heading); font-size: 2rem; color: #F4B323;">₹629</div>
+              </div>
+              <button class="btn btn-primary btn-sm" onclick="CartManager.addItem('crispy-hot-bird', 2)"><i class="fa-solid fa-cart-plus"></i> Order Deal</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Combo 3 -->
+        <div class="combo-deal-card" style="background: #222; border-radius: 18px; overflow: hidden; border: 1px solid rgba(255,255,255,0.1); display: flex; flex-direction: column;">
+          <div style="height: 220px; position: relative;">
+            <span class="badge badge-yellow" style="position: absolute; top: 14px; left: 14px; z-index: 2;">Party Feast</span>
+            <img src="assets/images/combos/party-feast-box.webp" alt="Party Feast Box" style="width: 100%; height: 100%; object-fit: cover;">
+          </div>
+          <div style="padding: 24px; display: flex; flex-direction: column; flex: 1;">
+            <h3 style="font-size: 1.6rem; color: #F5F0E6; margin-bottom: 8px;">The Party Crew Feast Box</h3>
+            <p style="font-size: 0.9rem; color: rgba(245,240,230,0.7); margin-bottom: 18px;">4 Signature Burgers + 2 Loaded Fries + 4 Drinks + Dessert Box.</p>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 14px; border-top: 1px solid rgba(255,255,255,0.1);">
+              <div>
+                <span style="font-size: 0.85rem; text-decoration: line-through; color: #888;">₹1,650</span>
+                <div style="font-family: var(--font-heading); font-size: 2rem; color: #F4B323;">₹1,299</div>
+              </div>
+              <button class="btn btn-primary btn-sm" onclick="CartManager.addItem('smash-beast', 4)"><i class="fa-solid fa-cart-plus"></i> Order Deal</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 07: Bring the Truck to Your Event -->
+  <section class="section-padding catering-section">
+    <div class="container">
+      <div style="background: #171717; border-radius: 24px; overflow: hidden; border: 2px solid var(--color-accent); display: grid; grid-template-columns: 1.1fr 0.9fr; align-items: center;" class="grid-2-cols">
+        <div style="padding: clamp(30px, 5vw, 60px);">
+          <span class="special-label">07. Mobile Catering</span>
+          <h2 style="font-size: clamp(2rem, 4vw, 3.5rem); color: #F5F0E6; margin: 10px 0 16px 0;">BRING THE TRUCK TO YOUR EVENT</h2>
+          <p style="color: rgba(245,240,230,0.75); line-height: 1.8; margin-bottom: 26px;">
+            Planning a wedding afterparty, corporate milestone, college fest, or weekend celebration? STACKLY rolls directly to your venue with a fully equipped kitchen team, hot grills, and unforgettable street food energy.
+          </p>
+          <div style="display: flex; gap: 14px; flex-wrap: wrap;">
+            <a href="event-booking.html" class="btn btn-primary btn-lg"><i class="fa-solid fa-calendar-check"></i> Book The Food Truck</a>
+            <a href="contact.html" class="btn btn-outline-white btn-lg"><i class="fa-solid fa-phone"></i> Inquire Catering</a>
+          </div>
+        </div>
+        <div style="height: 100%; min-height: 380px;">
+          <img src="assets/images/events/festival-truck.webp" alt="STACKLY Food Truck Catering" style="width: 100%; height: 100%; object-fit: cover;">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 08: What Our Customers Say -->
+  <section class="section-padding bg-dark reviews-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="special-label">08. Street Talk</span>
+        <h2 class="section-title">WHAT OUR CUSTOMERS SAY</h2>
+        <p class="section-desc">Over 150,000 burgers served across South India. Here is why foodies and street food fans keep following our wheels.</p>
+      </div>
+
+      <div class="grid-3-cols" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px;">
+        <div class="review-slide-card" style="background: #222; padding: 30px; border-radius: 18px; border: 1px solid rgba(255,255,255,0.08);">
+          <div style="color: #F4B323; font-size: 1.1rem; margin-bottom: 14px;">
+            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+          </div>
+          <p style="font-size: 0.95rem; color: rgba(245,240,230,0.85); line-height: 1.7; margin-bottom: 20px;">
+            "Hands down the best smash burger in Bengaluru! The crust is ridiculously crisp and the secret sauce is pure addiction. We hired them for our tech meetup too!"
+          </p>
+          <div style="display: flex; align-items: center; gap: 14px;">
+            <div style="width: 44px; height: 44px; border-radius: 50%; background: #F4B323; color: #171717; font-weight: 700; display: flex; align-items: center; justify-content: center;">RK</div>
+            <div>
+              <h4 style="font-size: 1.1rem; color: #F5F0E6; margin-bottom: 2px;">Rohan Kulkarni</h4>
+              <span style="font-size: 0.78rem; color: #888;">Koramangala, Bengaluru</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="review-slide-card" style="background: #222; padding: 30px; border-radius: 18px; border: 1px solid rgba(255,255,255,0.08);">
+          <div style="color: #F4B323; font-size: 1.1rem; margin-bottom: 14px;">
+            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+          </div>
+          <p style="font-size: 0.95rem; color: rgba(245,240,230,0.85); line-height: 1.7; margin-bottom: 20px;">
+            "The Hot Bird chicken sandwich has genuine heat and the loaded cheese fries are magnificent. You can literally taste the fresh ingredients in every bite."
+          </p>
+          <div style="display: flex; align-items: center; gap: 14px;">
+            <div style="width: 44px; height: 44px; border-radius: 50%; background: #F4B323; color: #171717; font-weight: 700; display: flex; align-items: center; justify-content: center;">SP</div>
+            <div>
+              <h4 style="font-size: 1.1rem; color: #F5F0E6; margin-bottom: 2px;">Sneha Patel</h4>
+              <span style="font-size: 0.78rem; color: #888;">Madhapur, Hyderabad</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="review-slide-card" style="background: #222; padding: 30px; border-radius: 18px; border: 1px solid rgba(255,255,255,0.08);">
+          <div style="color: #F4B323; font-size: 1.1rem; margin-bottom: 14px;">
+            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+          </div>
+          <p style="font-size: 0.95rem; color: rgba(245,240,230,0.85); line-height: 1.7; margin-bottom: 20px;">
+            "STACKLY catered our anniversary carnival. The truck looked stunning, the staff was lightning fast, and everyone kept talking about the caramel churros!"
+          </p>
+          <div style="display: flex; align-items: center; gap: 14px;">
+            <div style="width: 44px; height: 44px; border-radius: 50%; background: #F4B323; color: #171717; font-weight: 700; display: flex; align-items: center; justify-content: center;">AJ</div>
+            <div>
+              <h4 style="font-size: 1.1rem; color: #F5F0E6; margin-bottom: 2px;">Arvind Joseph</h4>
+              <span style="font-size: 0.78rem; color: #888;">Urapakkam, Chennai</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 09: Meet the Street Food Crew -->
+  <section class="section-padding crew-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="special-label dark">09. Behind The Grill</span>
+        <h2 class="section-title">MEET THE STREET FOOD CREW</h2>
+        <p class="section-desc">The passionate culinary misfits, grill champions, and mobile food pioneers dedicated to perfecting every single bun and patty.</p>
+      </div>
+
+      <div class="grid-3-cols" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px;">
+        <div class="crew-member-card" style="background: #fff; border-radius: 16px; overflow: hidden; border: 1px solid rgba(23,23,23,0.08); text-align: center;">
+          <div style="height: 300px; overflow: hidden;"><img src="assets/images/team/chef-founder.webp" alt="Chef Marcus Vance" style="width: 100%; height: 100%; object-fit: cover;"></div>
+          <div style="padding: 24px;">
+            <h3 style="font-size: 1.5rem; margin-bottom: 4px;">Chef Marcus Vance</h3>
+            <span class="special-label dark" style="font-size: 0.75rem; margin-bottom: 12px;">Founder & Culinary Director</span>
+            <p style="font-size: 0.88rem; color: #666;">Trained in modern street gastronomy across London and Mumbai before hitting the road with STACKLY.</p>
+          </div>
+        </div>
+
+        <div class="crew-member-card" style="background: #fff; border-radius: 16px; overflow: hidden; border: 1px solid rgba(23,23,23,0.08); text-align: center;">
+          <div style="height: 300px; overflow: hidden;"><img src="assets/images/gallery/grill-action.webp" alt="Arjun Nair" style="width: 100%; height: 100%; object-fit: cover;"></div>
+          <div style="padding: 24px;">
+            <h3 style="font-size: 1.5rem; margin-bottom: 4px;">Arjun Nair</h3>
+            <span class="special-label dark" style="font-size: 0.75rem; margin-bottom: 12px;">Head Grill Master</span>
+            <p style="font-size: 0.88rem; color: #666;">Master of high-heat smash dynamics and precision seasoning with over 8 years of kitchen command.</p>
+          </div>
+        </div>
+
+        <div class="crew-member-card" style="background: #fff; border-radius: 16px; overflow: hidden; border: 1px solid rgba(23,23,23,0.08); text-align: center;">
+          <div style="height: 300px; overflow: hidden;"><img src="assets/images/gallery/customer-review.webp" alt="Maya Sundaram" style="width: 100%; height: 100%; object-fit: cover;"></div>
+          <div style="padding: 24px;">
+            <h3 style="font-size: 1.5rem; margin-bottom: 4px;">Maya Sundaram</h3>
+            <span class="special-label dark" style="font-size: 0.75rem; margin-bottom: 12px;">Operations & Logistics Chief</span>
+            <p style="font-size: 0.88rem; color: #666;">Orchestrates city fleet permits, multi-hub supply pipelines, and high-volume festival deployments.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 10: Final CTA & Newsletter -->
+  <section class="section-padding bg-dark" style="position: relative; overflow: hidden;">
+    <div class="container" style="position: relative; z-index: 2;">
+      <div style="max-width: 800px; margin: 0 auto; text-align: center;">
+        <span class="special-label">10. Join The Movement</span>
+        <h2 style="font-size: clamp(2.5rem, 5vw, 4.2rem); color: #F5F0E6; margin: 12px 0 16px 0;">YOUR NEXT FAVOURITE BITE IS WAITING.</h2>
+        <p style="font-size: 1.1rem; color: rgba(245,240,230,0.8); line-height: 1.8; margin-bottom: 34px;">
+          Find our truck near you, order online for fast mobile pickup, or subscribe to receive weekly route drops and VIP tasting discounts.
+        </p>
+
+        <form id="newsletterForm" style="display: flex; gap: 12px; max-width: 540px; margin: 0 auto 30px auto; flex-wrap: wrap;">
+          <input type="email" placeholder="Enter your email address..." required style="flex: 1; min-width: 260px; padding: 16px 22px; border-radius: var(--radius-full); background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.2); color: #F5F0E6;">
+          <button type="submit" class="btn btn-primary" style="padding: 16px 28px;">Subscribe</button>
+        </form>
+
+        <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
+          <a href="menu.html" class="btn btn-primary btn-lg"><i class="fa-solid fa-utensils"></i> Order Now</a>
+          <a href="locations.html" class="btn btn-outline-white btn-lg"><i class="fa-solid fa-map-location-dot"></i> Find Our Truck</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Common Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top-grid">
+        <!-- Brand Col -->
+        <div class="footer-brand-col">
+          <a href="index.html">
+            <img src="assets/Brand-logo.webp" alt="STACKLY Food Truck" class="footer-logo-img">
+          </a>
+          <div class="footer-tagline">Big Flavours. Fresh Moves. Street Food Reimagined.</div>
+          <p class="footer-brand-desc">
+            Redefining urban street food with culinary precision, unapologetic flavours, and an iconic mobile kitchen experience across South India.
+          </p>
+          <div class="footer-social-row">
+            <a href="404.html" class="social-icon-btn" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="404.html" class="social-icon-btn" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="404.html" class="social-icon-btn" aria-label="Twitter / X"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="404.html" class="social-icon-btn" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+          </div>
+        </div>
+
+        <!-- Quick Links (matching nav-links) -->
+        <div>
+          <h4 class="footer-heading">Quick Links</h4>
+          <ul class="footer-links-list">
+            <li class="footer-link-item"><a href="index.html"><i class="fa-solid fa-chevron-right"></i> Home</a></li>
+            <li class="footer-link-item"><a href="about.html"><i class="fa-solid fa-chevron-right"></i> About</a></li>
+            <li class="footer-link-item"><a href="menu.html"><i class="fa-solid fa-chevron-right"></i> Menu</a></li>
+            <li class="footer-link-item"><a href="locations.html"><i class="fa-solid fa-chevron-right"></i> Locations</a></li>
+            <li class="footer-link-item"><a href="contact.html"><i class="fa-solid fa-chevron-right"></i> Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- Section 1: Branch Offices (Exact addresses from user's screenshot) -->
+        <div>
+          <h4 class="footer-heading">Branch Offices</h4>
+          <div class="branch-offices-list">
+            <div class="branch-office-item">
+              <div class="branch-office-name"><i class="fa-solid fa-building"></i> Bengaluru Branch Office</div>
+              <div class="branch-office-address">Evolve Studio, 4th Floor, Khata No 10, Begur - Koppa Rd, in front of SNN Raj Serenity, Suraksha Nagar, Yelenahalli, Begur, Bengaluru, Karnataka – 560068</div>
+            </div>
+            <div class="branch-office-item">
+              <div class="branch-office-name"><i class="fa-solid fa-building"></i> Hyderabad Branch Office</div>
+              <div class="branch-office-address">STACKLY, 4th floor, Jayasudha heights, Plot no 459, 100 feet road, Ayyappa society, Madhapur, Beside YSR statue, Hyderabad, Telangana – 500081</div>
+            </div>
+            <div class="branch-office-item">
+              <div class="branch-office-name"><i class="fa-solid fa-building"></i> Chennai Branch Office</div>
+              <div class="branch-office-address">No.9, Ambika Complex, 1st Floor, Gokulam Colony, Karanaipudhuchery main road, Urapakkam, Chennai, Tamil Nadu, India – 603202</div>
+            </div>
+            <div class="branch-office-item">
+              <div class="branch-office-name"><i class="fa-solid fa-building"></i> Coimbatore Branch Office</div>
+              <div class="branch-office-address">Stackly, 79 Aiswarya Complex, Nethaji Road, PN Palayam, Coimbatore, Tamil Nadu, India – 641037</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Section 2: Food Truck Hubs & Support (Other links go to 404.html) -->
+        <div>
+          <h4 class="footer-heading">Truck Hubs & Support</h4>
+          <ul class="footer-links-list">
+            <li class="footer-link-item"><a href="404.html"><i class="fa-solid fa-chevron-right"></i> Franchise & Fleet Partnerships</a></li>
+            <li class="footer-link-item"><a href="404.html"><i class="fa-solid fa-chevron-right"></i> Nutrition & Allergen Guide</a></li>
+            <li class="footer-link-item"><a href="404.html"><i class="fa-solid fa-chevron-right"></i> Street Chef Academy</a></li>
+            <li class="footer-link-item"><a href="404.html"><i class="fa-solid fa-chevron-right"></i> Food Truck Licensing</a></li>
+            <li class="footer-link-item"><a href="404.html"><i class="fa-solid fa-chevron-right"></i> Careers & Crew Auditions</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Footer Bottom -->
+      <div class="footer-bottom">
+        <div>© 2026 STACKLY Food Truck. All rights reserved. Big Flavours. Fresh Moves. Street Food Reimagined.</div>
+        <div class="footer-bottom-links">
+          <a href="404.html">Privacy Policy</a>
+          <a href="404.html">Terms of Service</a>
+          <a href="404.html">Cookie Preferences</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.14.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.14.2/ScrollTrigger.min.js"></script>
+  <script src="https://unpkg.com/lenis@1.3.11/dist/lenis.min.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/navigation.js"></script>
+  <script src="js/lenis.js"></script>
+  <script src="js/animations.js"></script>
+  <script src="js/validation.js"></script>
+</body>
+</html>
+

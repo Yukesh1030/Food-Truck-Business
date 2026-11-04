@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us | STACKLY Food Truck - Let's Talk Food</title>
+  <meta name="description" content="Get in touch with the STACKLY Food Truck crew. Inquire about private catering, fleet bookings, vendor partnerships, or truck locations in Bengaluru, Hyderabad, Chennai & Coimbatore.">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/webp" href="assets/Brand-logo.webp">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/contact.css">
+
+  <link rel="preload" as="image" href="assets/images/hero/hero-contact.webp" type="image/webp">
+</head>
+<body>
+
+  <!-- Sticky Navbar -->
+  <header class="site-header hero-dark" id="mainHeader">
+    <div class="header-container">
+      <a href="index.html" class="brand-logo-link" aria-label="STACKLY Food Truck Home">
+        <img src="assets/Brand-logo.webp" alt="STACKLY Food Truck Logo" class="brand-logo-img">
+      </a>
+
+      <nav class="nav-menu-wrapper" aria-label="Primary Navigation">
+        <ul class="nav-links-list">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="about.html" class="nav-link">About</a></li>
+          <li><a href="menu.html" class="nav-link">Menu</a></li>
+          <li><a href="locations.html" class="nav-link">Locations</a></li>
+          <li><a href="contact.html" class="nav-link active">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <a href="cart.html" class="cart-icon-btn" aria-label="View Cart">
+          <i class="fa-solid fa-basket-shopping"></i>
+          <span class="cart-badge-count" style="display: none;">0</span>
+        </a>
+        <a href="login.html" class="btn btn-primary login-nav-btn">Login</a>
+        <button class="hamburger-toggle" aria-label="Toggle Navigation Menu" aria-expanded="false">
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-nav-overlay" id="mobileOverlay"></div>
+  <aside class="mobile-nav-drawer" id="mobileDrawer">
+    <div>
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px;">
+        <img src="assets/Brand-logo.webp" alt="STACKLY" style="height: 38px;">
+      </div>
+      <ul class="mobile-links-list">
+        <li><a href="index.html" class="mobile-link"><span>01</span> Home</a></li>
+        <li><a href="about.html" class="mobile-link"><span>02</span> About</a></li>
+        <li><a href="menu.html" class="mobile-link"><span>03</span> Menu</a></li>
+        <li><a href="locations.html" class="mobile-link"><span>04</span> Locations</a></li>
+        <li><a href="contact.html" class="mobile-link active"><span>05</span> Contact</a></li>
+      </ul>
+    </div>
+    <div class="mobile-drawer-footer">
+      <div class="mobile-truck-status-badge">
+        <span class="status-dot-pulse"></span>
+        <div style="font-size: 0.82rem; color: #F5F0E6;">
+          <strong>Live Truck:</strong> Koramangala 5th Block, Bengaluru
+        </div>
+      </div>
+      <a href="login.html" class="btn btn-primary" style="width: 100%;">Login / Account</a>
+    </div>
+  </aside>
+
+  <!-- Contact Hero Section -->
+  <section class="contact-hero-section bg-dark" style="position: relative; padding-top: 160px; padding-bottom: 80px; overflow: hidden; text-align: center;">
+    <img src="assets/images/hero/hero-contact.webp" alt="Contact STACKLY Team" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.28; z-index: 1;">
+    <div style="position: absolute; inset: 0; background: radial-gradient(circle at center, rgba(244, 179, 35, 0.12), rgba(23, 23, 23, 0.96) 80%); z-index: 2;"></div>
+
+    <div class="container" style="position: relative; z-index: 5;">
+      <span class="special-label" style="margin-bottom: 12px;">We're All Ears</span>
+      <h1 style="color: #F5F0E6; margin-bottom: 12px; font-size: clamp(3rem, 7vw, 5.8rem);">
+        LET'S TALK <span style="color: #F4B323;">FOOD.</span>
+      </h1>
+      <p style="color: rgba(245,240,230,0.8); max-width: 660px; margin: 0 auto 30px auto; font-size: 1.15rem; line-height: 1.7;">
+        Got a question about today's truck location, catering your next private party, or dietary requirements? Send us a message or reach out to our regional offices.
+      </p>
+    </div>
+  </section>
+
+  <!-- SECTION 01 & 02: Contact Information & General Enquiry Form -->
+  <section class="section-padding" id="generalContact">
+    <div class="container">
+      <div class="contact-layout-grid">
+        
+        <!-- SECTION 01: Contact Information Cards -->
+        <div class="contact-info-col">
+          <div>
+            <span class="special-label dark">01. Direct Lines</span>
+            <h2 style="font-size: 2.2rem; margin: 8px 0 20px 0;">REACH OUR STREET DESK</h2>
+          </div>
+
+          <div class="contact-card-box">
+            <div class="contact-icon-bubble"><i class="fa-solid fa-phone"></i></div>
+            <div>
+              <h3 class="contact-box-title">Truck Hotline</h3>
+              <p class="contact-box-text">+91 98400 12345 / +91 80 4123 5678</p>
+              <span style="font-size: 0.8rem; color: #888;">Mon–Sun: 11:00 AM – 11:30 PM</span>
+            </div>
+          </div>
+
+          <div class="contact-card-box">
+            <div class="contact-icon-bubble"><i class="fa-solid fa-envelope"></i></div>
+            <div>
+              <h3 class="contact-box-title">General Inquiries</h3>
+              <p class="contact-box-text">hello@stacklyfoodtruck.com</p>
+              <span style="font-size: 0.8rem; color: #888;">Response within 2 hours</span>
+            </div>
+          </div>
+
+          <div class="contact-card-box">
+            <div class="contact-icon-bubble"><i class="fa-solid fa-truck"></i></div>
+            <div>
+              <h3 class="contact-box-title">Fleet Dispatch Operations</h3>
+              <p class="contact-box-text">fleet@stacklyfoodtruck.com</p>
+              <span style="font-size: 0.8rem; color: #888;">Permits, City Routing & Festivals</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- SECTION 02: General Enquiry Form -->
+        <div class="contact-form-panel">
+          <span class="special-label dark">02. Quick Dispatch</span>
+          <h2 style="font-size: 2.2rem; margin: 8px 0 20px 0;">SEND US A MESSAGE</h2>
+          
+          <form id="generalContactForm" novalidate>
+            <div class="form-group">
+              <label class="form-label" for="contactName">Full Name *</label>
+              <input type="text" id="contactName" class="form-input" placeholder="e.g. Rahul Sharma" required>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;" class="grid-2-cols">
+              <div class="form-group">
+                <label class="form-label" for="contactEmail">Email Address *</label>
+                <input type="email" id="contactEmail" class="form-input" placeholder="name@example.com" required>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="contactPhone">Phone Number *</label>
+                <input type="tel" id="contactPhone" class="form-input" placeholder="10-digit mobile" required>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="contactType">Enquiry Type</label>
+              <select id="contactType" class="form-select">
+                <option value="general">General Question</option>
+                <option value="catering">Event Catering Inquiry</option>
+                <option value="feedback">Food & Service Feedback</option>
+                <option value="partnership">Fleet & Brand Partnership</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="contactMessage">Message *</label>
+              <textarea id="contactMessage" class="form-textarea" placeholder="How can our street team help you?" required></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-dark btn-lg" style="width: 100%; margin-top: 10px;">
+              <i class="fa-solid fa-paper-plane"></i> Send Message
+            </button>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 03: Event Booking Enquiry Quick Box -->
+  <section class="section-padding bg-dark" id="eventBookingEnquiry">
+    <div class="container">
+      <div style="background: #222; border-radius: 20px; padding: clamp(30px, 5vw, 50px); border: 2px solid var(--color-accent); display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 30px; align-items: center;" class="grid-2-cols">
+        <div>
+          <span class="special-label">03. Fast Event Quotes</span>
+          <h2 style="font-size: clamp(2.2rem, 4vw, 3.5rem); color: #F5F0E6; margin: 8px 0 14px 0;">NEED THE TRUCK FOR A SPECIAL DATE?</h2>
+          <p style="color: rgba(245,240,230,0.8); line-height: 1.7; margin-bottom: 22px;">
+            Tell us your proposed date, expected guest count, and city venue. We calculate customized packages starting from 50 to 500+ attendees.
+          </p>
+          <a href="event-booking.html" class="btn btn-primary btn-lg"><i class="fa-solid fa-calculator"></i> Launch Instant Catering Calculator</a>
+        </div>
+        <div style="border-radius: 14px; overflow: hidden; height: 260px;">
+          <img src="assets/images/events/corporate-catering.webp" alt="Corporate Catering" style="width: 100%; height: 100%; object-fit: cover;">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 04: Catering Services Overview -->
+  <section class="section-padding" id="cateringServices">
+    <div class="container">
+      <div class="section-header">
+        <span class="special-label dark">04. Catering Tiers</span>
+        <h2 class="section-title">MOBILE CATERING TIERS</h2>
+        <p class="section-desc">From corporate product launches to midnight wedding snack windows, we have a setup ready to roll.</p>
+      </div>
+
+      <div class="grid-3-cols" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px;">
+        <div style="background: #fff; padding: 30px; border-radius: 16px; border: 1px solid rgba(23,23,23,0.08);">
+          <div style="font-family: var(--font-heading); font-size: 1.8rem; color: #171717; margin-bottom: 6px;">Private Parties</div>
+          <p style="font-size: 0.9rem; color: #666; margin-bottom: 16px;">Birthdays, backyard anniversaries, and graduations with hot smash burgers and fries.</p>
+          <span class="badge badge-yellow">50–150 Guests</span>
+        </div>
+
+        <div style="background: #fff; padding: 30px; border-radius: 16px; border: 1px solid rgba(23,23,23,0.08);">
+          <div style="font-family: var(--font-heading); font-size: 1.8rem; color: #171717; margin-bottom: 6px;">Corporate Milestones</div>
+          <p style="font-size: 0.9rem; color: #666; margin-bottom: 16px;">Tech park employee celebrations, hackathons, and company annual days with rapid badge scanning.</p>
+          <span class="badge badge-yellow">150–500+ Guests</span>
+        </div>
+
+        <div style="background: #fff; padding: 30px; border-radius: 16px; border: 1px solid rgba(23,23,23,0.08);">
+          <div style="font-family: var(--font-heading); font-size: 1.8rem; color: #171717; margin-bottom: 6px;">Festivals & Weddings</div>
+          <p style="font-size: 0.9rem; color: #666; margin-bottom: 16px;">Late-night street food truck serving midnight sangeet cravings and multi-day music carnivals.</p>
+          <span class="badge badge-yellow">All Night Service</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 05: Location Support & Truck Dispatch -->
+  <section class="section-padding bg-dark" id="locationSupport">
+    <div class="container">
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: clamp(30px, 5vw, 60px); align-items: center;" class="grid-2-cols">
+        <div>
+          <span class="special-label">05. Live Coordination</span>
+          <h2 style="font-size: clamp(2.2rem, 4vw, 3.6rem); color: #F5F0E6; margin: 8px 0 16px 0;">TRUCK DISPATCH & LIVE SUPPORT</h2>
+          <p style="color: rgba(245,240,230,0.8); line-height: 1.8; margin-bottom: 20px;">
+            Need to confirm whether our truck has arrived at today's scheduled parking bay or want to request a temporary road popup near your office?
+          </p>
+          <div style="background: #222; padding: 20px; border-radius: 14px; border-left: 4px solid var(--color-accent); margin-bottom: 24px;">
+            <div style="font-weight: 600; color: #F5F0E6; margin-bottom: 4px;"><i class="fa-solid fa-headset" style="color: #F4B323;"></i> Fleet Dispatch Control Room</div>
+            <div style="color: rgba(245,240,230,0.7); font-size: 0.9rem;">Direct hotline: +91 80 4123 5678 (Available daily 10 AM – Midnight)</div>
+          </div>
+          <a href="locations.html" class="btn btn-primary"><i class="fa-solid fa-satellite-dish"></i> Check Live Fleet Map</a>
+        </div>
+        <div style="border-radius: 20px; overflow: hidden; height: 360px;">
+          <img src="assets/images/food-truck/truck-location.webp" alt="Fleet Dispatch" style="width: 100%; height: 100%; object-fit: cover;">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 06: Frequently Asked Questions -->
+  <section class="section-padding" id="faqSection">
+    <div class="container">
+      <div class="section-header">
+        <span class="special-label dark">06. Got Questions?</span>
+        <h2 class="section-title">FREQUENTLY ASKED QUESTIONS</h2>
+        <p class="section-desc">Clear answers on how we cook, where we park, payment options, and catering requirements.</p>
+      </div>
+
+      <div class="faq-accordion-wrap">
+        <div class="faq-item active">
+          <button class="faq-trigger">
+            <span>How fresh are your ingredients cooked?</span>
+            <i class="fa-solid fa-chevron-down faq-icon-arrow"></i>
+          </button>
+          <div class="faq-body">
+            <p>100% of our patties are seared fresh to order on our high-temperature cast iron grill right after you place your ticket. We never use microwaves or warming heat lamps.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-trigger">
+            <span>What payment methods do you accept at the truck?</span>
+            <i class="fa-solid fa-chevron-down faq-icon-arrow"></i>
+          </button>
+          <div class="faq-body">
+            <p>We accept all UPI payments (Google Pay, PhonePe, Paytm), Visa/Mastercard credit and debit cards, and cash. You can also order and pay online right through this website.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-trigger">
+            <span>Can I book the food truck for my wedding or corporate event?</span>
+            <i class="fa-solid fa-chevron-down faq-icon-arrow"></i>
+          </button>
+          <div class="faq-body">
+            <p>Yes! We specialize in private catering from 50 to 500+ guests. We arrive with our full mobile kitchen team and handle all cooking, serving, and cleanup.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-trigger">
+            <span>Do you have vegetarian and spicy options?</span>
+            <i class="fa-solid fa-chevron-down faq-icon-arrow"></i>
+          </button>
+          <div class="faq-body">
+            <p>Absolutely. We have dedicated vegetarian items including the Truffle Portobello Melt, Smoky Tandoori Paneer Wrap, Volcano Loaded Fries, and sweet cinnamon churros cooked in dedicated fryer vats.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 07: Branch Offices & Hubs (Exact user screenshot addresses) -->
+  <section class="section-padding bg-dark" id="branchOffices">
+    <div class="container">
+      <div class="section-header">
+        <span class="special-label">07. Regional Hubs</span>
+        <h2 class="section-title">OUR BRANCH OFFICES</h2>
+        <p class="section-desc">Our administrative headquarters and culinary preparation hubs across key South Indian metros.</p>
+      </div>
+
+      <div class="branch-cards-grid">
+        <!-- Bengaluru Branch Office -->
+        <div class="branch-card">
+          <div class="branch-card-header">
+            <h3 class="branch-card-title">Bengaluru Branch Office</h3>
+            <span class="badge badge-yellow">Headquarters</span>
+          </div>
+          <div class="branch-card-address">
+            Evolve Studio, 4th Floor,<br>
+            Khata No 10, Begur – Koppa Rd,<br>
+            in front of SNN Raj Serenity,<br>
+            Suraksha Nagar, Yelenahalli, Begur,<br>
+            Bengaluru, Karnataka – 560068
+          </div>
+        </div>
+
+        <!-- Hyderabad Branch Office -->
+        <div class="branch-card">
+          <div class="branch-card-header">
+            <h3 class="branch-card-title">Hyderabad Branch Office</h3>
+            <span class="badge badge-yellow">Regional Hub</span>
+          </div>
+          <div class="branch-card-address">
+            STACKLY, 4th floor, Jayasudha heights,<br>
+            Plot no 459, 100 feet road,<br>
+            Ayyappa society, Madhapur,<br>
+            Beside YSR statue,<br>
+            Hyderabad, Telangana – 500081
+          </div>
+        </div>
+
+        <!-- Chennai Branch Office -->
+        <div class="branch-card">
+          <div class="branch-card-header">
+            <h3 class="branch-card-title">Chennai Branch Office</h3>
+            <span class="badge badge-yellow">Coastal Fleet</span>
+          </div>
+          <div class="branch-card-address">
+            No.9, Ambika Complex, 1st Floor,<br>
+            Gokulam Colony,<br>
+            Karanaipudhuchery main road,<br>
+            Urapakkam, Chennai,<br>
+            Tamil Nadu, India – 603202
+          </div>
+        </div>
+
+        <!-- Coimbatore Branch Office -->
+        <div class="branch-card">
+          <div class="branch-card-header">
+            <h3 class="branch-card-title">Coimbatore Branch Office</h3>
+            <span class="badge badge-yellow">Western Hub</span>
+          </div>
+          <div class="branch-card-address">
+            Stackly, 79 Aiswarya Complex,<br>
+            Nethaji Road, PN Palayam,<br>
+            Coimbatore,<br>
+            Tamil Nadu, India – 641037
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 08: Final CTA -->
+  <section class="section-padding" style="text-align: center;">
+    <div class="container">
+      <span class="special-label dark">Taste Awaits</span>
+      <h2 style="font-size: clamp(2.4rem, 5vw, 4.2rem); margin: 10px 0 16px 0;">EXPLORE OUR MENU & BOOK THE TRUCK</h2>
+      <p style="color: #666; max-width: 600px; margin: 0 auto 30px auto; font-size: 1.1rem;">
+        Order directly from your phone or coordinate a food truck visit to your college, company or neighborhood.
+      </p>
+      <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
+        <a href="menu.html" class="btn btn-primary btn-lg"><i class="fa-solid fa-burger"></i> Explore The Menu</a>
+        <a href="event-booking.html" class="btn btn-dark btn-lg"><i class="fa-solid fa-calendar-check"></i> Book Event Catering</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Common Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top-grid">
+        <div class="footer-brand-col">
+          <a href="index.html">
+            <img src="assets/Brand-logo.webp" alt="STACKLY Food Truck" class="footer-logo-img">
+          </a>
+          <div class="footer-tagline">Big Flavours. Fresh Moves. Street Food Reimagined.</div>
+          <p class="footer-brand-desc">
+            Redefining urban street food with culinary precision, unapologetic flavours, and an iconic mobile kitchen experience across South India.
+          </p>
+          <div class="footer-social-row">
+            <a href="404.html" class="social-icon-btn" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="404.html" class="social-icon-btn" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="404.html" class="social-icon-btn" aria-label="Twitter / X"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="404.html" class="social-icon-btn" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="footer-heading">Quick Links</h4>
+          <ul class="footer-links-list">
+            <li class="footer-link-item"><a href="index.html"><i class="fa-solid fa-chevron-right"></i> Home</a></li>
+            <li class="footer-link-item"><a href="about.html"><i class="fa-solid fa-chevron-right"></i> About</a></li>
+            <li class="footer-link-item"><a href="menu.html"><i class="fa-solid fa-chevron-right"></i> Menu</a></li>
+            <li class="footer-link-item"><a href="locations.html"><i class="fa-solid fa-chevron-right"></i> Locations</a></li>
+            <li class="footer-link-item"><a href="contact.html"><i class="fa-solid fa-chevron-right"></i> Contact</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-heading">Branch Offices</h4>
+          <div class="branch-offices-list">
+            <div class="branch-office-item">
+              <div class="branch-office-name"><i class="fa-solid fa-building"></i> Bengaluru Branch Office</div>
+              <div class="branch-office-address">Evolve Studio, 4th Floor, Khata No 10, Begur - Koppa Rd, in front of SNN Raj Serenity, Suraksha Nagar, Yelenahalli, Begur, Bengaluru, Karnataka – 560068</div>
+            </div>
+            <div class="branch-office-item">
+              <div class="branch-office-name"><i class="fa-solid fa-building"></i> Hyderabad Branch Office</div>
+              <div class="branch-office-address">STACKLY, 4th floor, Jayasudha heights, Plot no 459, 100 feet road, Ayyappa society, Madhapur, Beside YSR statue, Hyderabad, Telangana – 500081</div>
+            </div>
+            <div class="branch-office-item">
+              <div class="branch-office-name"><i class="fa-solid fa-building"></i> Chennai Branch Office</div>
+              <div class="branch-office-address">No.9, Ambika Complex, 1st Floor, Gokulam Colony, Karanaipudhuchery main road, Urapakkam, Chennai, Tamil Nadu, India – 603202</div>
+            </div>
+            <div class="branch-office-item">
+              <div class="branch-office-name"><i class="fa-solid fa-building"></i> Coimbatore Branch Office</div>
+              <div class="branch-office-address">Stackly, 79 Aiswarya Complex, Nethaji Road, PN Palayam, Coimbatore, Tamil Nadu, India – 641037</div>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="footer-heading">Truck Hubs & Support</h4>
+          <ul class="footer-links-list">
+            <li class="footer-link-item"><a href="404.html"><i class="fa-solid fa-chevron-right"></i> Franchise & Fleet Partnerships</a></li>
+            <li class="footer-link-item"><a href="404.html"><i class="fa-solid fa-chevron-right"></i> Nutrition & Allergen Guide</a></li>
+            <li class="footer-link-item"><a href="404.html"><i class="fa-solid fa-chevron-right"></i> Street Chef Academy</a></li>
+            <li class="footer-link-item"><a href="404.html"><i class="fa-solid fa-chevron-right"></i> Food Truck Licensing</a></li>
+            <li class="footer-link-item"><a href="404.html"><i class="fa-solid fa-chevron-right"></i> Careers & Crew Auditions</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>© 2026 STACKLY Food Truck. All rights reserved. Big Flavours. Fresh Moves. Street Food Reimagined.</div>
+        <div class="footer-bottom-links">
+          <a href="404.html">Privacy Policy</a>
+          <a href="404.html">Terms of Service</a>
+          <a href="404.html">Cookie Preferences</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.14.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.14.2/ScrollTrigger.min.js"></script>
+  <script src="https://unpkg.com/lenis@1.3.11/dist/lenis.min.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/navigation.js"></script>
+  <script src="js/lenis.js"></script>
+  <script src="js/animations.js"></script>
+  <script src="js/validation.js"></script>
+  <script>
+    // FAQ Accordion Toggle
+    document.querySelectorAll('.faq-trigger').forEach(trigger => {
+      trigger.addEventListener('click', function() {
+        const item = this.parentElement;
+        item.classList.toggle('active');
+      });
+    });
+  </script>
+</body>
+</html>
+

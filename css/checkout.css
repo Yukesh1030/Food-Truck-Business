@@ -1,0 +1,120 @@
+/* ==========================================================================
+   STACKLY Food Truck - Checkout Page Styles
+   ========================================================================== */
+
+.checkout-layout-grid {
+  display: grid;
+  grid-template-columns: 1.3fr 0.8fr;
+  gap: clamp(30px, 5vw, 60px);
+  align-items: start;
+}
+
+.checkout-step-panel {
+  background: var(--color-card-bg);
+  border-radius: var(--radius-lg);
+  padding: 34px;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--color-card-border);
+  margin-bottom: 24px;
+}
+
+.checkout-step-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 24px;
+  padding-bottom: 14px;
+  border-bottom: 2px solid rgba(23, 23, 23, 0.08);
+}
+
+.step-num-badge {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: var(--color-primary);
+  color: var(--color-accent);
+  font-family: var(--font-heading);
+  font-size: 1.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Pickup Truck Selection Cards */
+.truck-radio-options {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.truck-radio-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 18px;
+  border-radius: var(--radius-md);
+  border: 2px solid rgba(23, 23, 23, 0.1);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.truck-radio-card:hover {
+  border-color: rgba(244, 179, 35, 0.6);
+  background: rgba(244, 179, 35, 0.03);
+}
+
+.truck-radio-card.selected {
+  border-color: var(--color-accent);
+  background: rgba(244, 179, 35, 0.08);
+}
+
+.truck-radio-input {
+  accent-color: var(--color-accent);
+  margin-top: 4px;
+}
+
+.truck-card-info h4 {
+  font-size: 1.25rem;
+  margin-bottom: 4px;
+}
+
+.truck-card-info p {
+  font-size: 0.88rem;
+  color: var(--color-text-muted);
+}
+
+/* Payment Method Cards */
+.payment-methods-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  margin-top: 14px;
+}
+
+.payment-method-card {
+  padding: 16px;
+  border-radius: var(--radius-md);
+  border: 2px solid rgba(23, 23, 23, 0.12);
+  text-align: center;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.payment-method-card:hover {
+  border-color: var(--color-accent);
+}
+
+.payment-method-card.selected {
+  border-color: var(--color-accent);
+  background: rgba(244, 179, 35, 0.08);
+}
+
+.payment-method-icon {
+  font-size: 1.8rem;
+  color: var(--color-primary);
+}
+
