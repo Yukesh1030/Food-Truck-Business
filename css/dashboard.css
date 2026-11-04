@@ -428,7 +428,46 @@
 .status-badge.preparing { background: rgba(244, 179, 35, 0.15); color: #d99c15; }
 .status-badge.pending { background: rgba(52, 152, 219, 0.15); color: #2980b9; }
 
-/* Responsive Dashboard Styles */
+/* Dashboard Overlay for Mobile */
+.dash-sidebar-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  z-index: 95;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity var(--transition-fast), visibility var(--transition-fast);
+}
+
+.dash-sidebar-overlay.open {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Client Dashboard Grids */
+.client-order-tracker-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 20px;
+  align-items: center;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.client-reorders-grid,
+.client-favs-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* ==========================================================================
+   Responsive Dashboard Styles (Fully Optimized for Mobile & Android)
+   ========================================================================== */
 @media screen and (max-width: 1100px) {
   .kpi-cards-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -436,15 +475,22 @@
   .charts-split-grid {
     grid-template-columns: 1fr;
   }
+  .client-reorders-grid,
+  .client-favs-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 @media screen and (max-width: 860px) {
   .dash-sidebar {
     position: fixed;
     top: 0;
-    left: -290px;
+    left: -310px;
     height: 100vh;
-    box-shadow: 10px 0 30px rgba(0, 0, 0, 0.4);
+    width: 280px;
+    max-width: 84vw;
+    z-index: 100;
+    box-shadow: 10px 0 30px rgba(0, 0, 0, 0.45);
   }
 
   .dash-sidebar.open {
@@ -459,8 +505,120 @@
     display: block;
   }
 
-  .kpi-cards-grid {
-    grid-template-columns: 1fr;
+  .dash-topbar {
+    height: 64px;
+    padding: 0 16px;
+  }
+
+  .dash-search-box {
+    display: none;
+  }
+
+  .date-filter-pill {
+    display: none;
+  }
+
+  .dash-content-container {
+    padding: 20px 16px;
   }
 }
 
+@media screen and (max-width: 640px) {
+  .dash-topbar {
+    padding: 0 12px;
+  }
+
+  .dash-topbar-right {
+    gap: 8px;
+  }
+
+  .user-name-text,
+  .user-role-label {
+    display: none;
+  }
+
+  .dash-notif-btn {
+    width: 36px;
+    height: 36px;
+    font-size: 0.95rem;
+  }
+
+  .user-avatar-circle {
+    width: 36px;
+    height: 36px;
+    font-size: 0.95rem;
+  }
+
+  .kpi-cards-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .kpi-card {
+    padding: 18px 16px;
+  }
+
+  .kpi-value {
+    font-size: 2rem;
+  }
+
+  .client-order-tracker-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .client-order-tracker-grid > div:last-child {
+    border-left: none !important;
+    border-top: 1px dashed rgba(23, 23, 23, 0.12);
+    padding-left: 0 !important;
+    padding-top: 16px;
+  }
+
+  .client-reorders-grid,
+  .client-favs-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .dash-panel {
+    padding: 18px 14px;
+    border-radius: var(--radius-sm);
+  }
+
+  .dash-panel-title {
+    font-size: 1.25rem;
+  }
+
+  .dash-table-wrap {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .dash-table {
+    min-width: 560px;
+    width: 100%;
+  }
+
+  .dash-table th,
+  .dash-table td {
+    padding: 10px 12px;
+    font-size: 0.85rem;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .dash-content-container {
+    padding: 14px 10px;
+  }
+
+  .dash-panel {
+    padding: 14px 10px;
+  }
+
+  .dash-topbar-right .btn-sm {
+    padding: 6px 10px;
+    font-size: 0.78rem;
+  }
+}

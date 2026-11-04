@@ -25,19 +25,29 @@ document.addEventListener('DOMContentLoaded', () => {
       // Close mobile sidebar if open
       if (sidebar && sidebar.classList.contains('open')) {
         sidebar.classList.remove('open');
+        if (sidebarOverlay) sidebarOverlay.classList.remove('open');
       }
     });
   });
 
   // Mobile sidebar controls
+  const sidebarOverlay = document.getElementById('dashSidebarOverlay');
   if (menuToggle) {
     menuToggle.addEventListener('click', () => {
       if (sidebar) sidebar.classList.add('open');
+      if (sidebarOverlay) sidebarOverlay.classList.add('open');
     });
   }
   if (sidebarClose) {
     sidebarClose.addEventListener('click', () => {
       if (sidebar) sidebar.classList.remove('open');
+      if (sidebarOverlay) sidebarOverlay.classList.remove('open');
+    });
+  }
+  if (sidebarOverlay) {
+    sidebarOverlay.addEventListener('click', () => {
+      if (sidebar) sidebar.classList.remove('open');
+      sidebarOverlay.classList.remove('open');
     });
   }
 

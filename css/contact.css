@@ -234,3 +234,150 @@
   line-height: 1.7;
 }
 
+
+
+/* ==========================================================================
+   Responsive Grid & Component Styles for Contact Page
+   ========================================================================== */
+.contact-inputs-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.catering-quote-card {
+  background: #222;
+  border-radius: 20px;
+  padding: clamp(24px, 5vw, 50px);
+  border: 2px solid var(--color-accent);
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 30px;
+  align-items: center;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.catering-tiers-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.truck-dispatch-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(30px, 5vw, 60px);
+  align-items: center;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+@media (max-width: 992px) {
+  .contact-layout-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .catering-tiers-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .catering-quote-card,
+  .truck-dispatch-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+}
+
+@media (max-width: 768px) {
+  .branch-cards-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .contact-form-panel {
+    padding: 24px 18px;
+  }
+
+  .contact-card-box {
+    padding: 20px 16px;
+    gap: 16px;
+  }
+
+  .contact-icon-bubble {
+    width: 44px;
+    height: 44px;
+    font-size: 1.25rem;
+  }
+
+  .truck-dispatch-grid > div:last-child {
+    height: 240px !important;
+  }
+
+  .catering-quote-card > div:last-child {
+    height: 220px !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .contact-inputs-row {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .catering-tiers-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .catering-quote-card {
+    padding: 20px 16px;
+    border-radius: 16px;
+  }
+
+  .faq-trigger {
+    padding: 16px 18px;
+    font-size: 1.15rem;
+  }
+
+  .faq-item.active .faq-body {
+    padding: 0 18px 20px 18px;
+  }
+
+  .branch-card {
+    padding: 22px 18px;
+  }
+
+  .branch-card-title {
+    font-size: 1.35rem;
+  }
+
+  .branch-card-address {
+    font-size: 0.88rem;
+  }
+}
+
+@media (max-width: 380px) {
+  .contact-card-box {
+    padding: 16px 12px;
+    gap: 12px;
+  }
+
+  .contact-box-title {
+    font-size: 1.15rem;
+  }
+
+  .contact-box-text {
+    font-size: 0.85rem;
+  }
+
+  .contact-form-panel {
+    padding: 18px 12px;
+  }
+}
