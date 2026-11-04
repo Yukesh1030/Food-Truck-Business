@@ -49,7 +49,7 @@ food-truck-business/
 ├── locations.html            # Locations Page (Hero + 8 Sections + Live Schedule & Map)
 ├── about.html                # About Page (Hero + 8 Sections + Origin Story & Philosophy)
 ├── contact.html              # Contact Page (Hero + 8 Sections + 4 Branch Offices & FAQ)
-├── event-booking.html        # Event Booking & Live Catering Calculator
+├── 404.html        # Event Booking & Live Catering Calculator
 ├── cart.html                 # Shopping Cart with LocalStorage sync
 ├── checkout.html             # Multi-step Express Checkout & Truck Selection
 ├── order-tracking.html       # Real-time Order Progress Timeline & Digital Passcode
