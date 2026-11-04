@@ -92,7 +92,7 @@
         </div>
 
         <div class="dash-topbar-right">
-          <a href="menu.html" class="btn btn-primary btn-sm" style="display: inline-flex;"><i class="fa-solid fa-plus"></i> Order New Bites</a>
+          <a href="menu.html" class="btn btn-primary btn-sm" style="display: inline-flex;"><i class="fa-solid fa-plus"></i> <span class="hide-on-mobile">Order New Bites</span></a>
 
           <div class="dash-notif-btn" title="Notifications">
             <i class="fa-regular fa-bell"></i>
@@ -117,10 +117,12 @@
              ========================================== -->
         <section class="dash-tab-pane active" id="tab-client-dash">
           
-          <div style="margin-bottom: 24px;">
-            <span class="special-label dark" style="font-size: 0.78rem;">Welcome Back</span>
-            <h1 style="font-size: 2.2rem; color: var(--color-primary); margin-top: 4px;">HELLO, STREET FOOD LOVER!</h1>
-            <p style="color: #666; font-size: 0.95rem;">Track your sizzling order status, view favorite snacks, and manage your street rewards.</p>
+          <div class="dash-header-row">
+            <div>
+              <span class="special-label dark" style="font-size: 0.78rem;">Welcome Back</span>
+              <h1 style="font-size: clamp(1.6rem, 5vw, 2.2rem); color: var(--color-primary); margin-top: 4px;">HELLO, STREET FOOD LOVER!</h1>
+              <p style="color: #666; font-size: 0.95rem;">Track your sizzling order status, view favorite snacks, and manage your street rewards.</p>
+            </div>
           </div>
 
           <!-- Customer KPI Cards -->
@@ -246,9 +248,11 @@
              TAB 2: MY ORDERS
              ========================================== -->
         <section class="dash-tab-pane" id="tab-client-orders">
-          <div style="margin-bottom: 24px;">
-            <span class="special-label dark" style="font-size: 0.78rem;">Order History</span>
-            <h1 style="font-size: 2.2rem; color: var(--color-primary); margin-top: 4px;">ALL PAST ORDERS</h1>
+          <div class="dash-header-row">
+            <div>
+              <span class="special-label dark" style="font-size: 0.78rem;">Order History</span>
+              <h1 style="font-size: clamp(1.6rem, 5vw, 2.2rem); color: var(--color-primary); margin-top: 4px;">ALL PAST ORDERS</h1>
+            </div>
           </div>
 
           <div class="dash-panel">
@@ -303,9 +307,11 @@
              TAB 3: FAVOURITE FOODS
              ========================================== -->
         <section class="dash-tab-pane" id="tab-client-favs">
-          <div style="margin-bottom: 24px;">
-            <span class="special-label dark" style="font-size: 0.78rem;">Saved Dishes</span>
-            <h1 style="font-size: 2.2rem; color: var(--color-primary); margin-top: 4px;">YOUR FAVOURITE BITES</h1>
+          <div class="dash-header-row">
+            <div>
+              <span class="special-label dark" style="font-size: 0.78rem;">Saved Dishes</span>
+              <h1 style="font-size: clamp(1.6rem, 5vw, 2.2rem); color: var(--color-primary); margin-top: 4px;">YOUR FAVOURITE BITES</h1>
+            </div>
           </div>
 
           <div class="client-favs-grid">
@@ -354,12 +360,14 @@
              TAB 4: EVENTS & BOOKINGS
              ========================================== -->
         <section class="dash-tab-pane" id="tab-client-events">
-          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px;">
+          <div class="dash-header-row">
             <div>
               <span class="special-label dark" style="font-size: 0.78rem;">Private Catering</span>
-              <h1 style="font-size: 2.2rem; color: var(--color-primary); margin-top: 4px;">YOUR EVENT RESERVATIONS</h1>
+              <h1 style="font-size: clamp(1.6rem, 5vw, 2.2rem); color: var(--color-primary); margin-top: 4px;">YOUR EVENT RESERVATIONS</h1>
             </div>
-            <a href="404.html" class="btn btn-primary btn-sm"><i class="fa-solid fa-plus"></i> New Event Booking</a>
+            <div class="dash-header-actions">
+              <a href="404.html" class="btn btn-primary btn-sm"><i class="fa-solid fa-plus"></i> New Event Booking</a>
+            </div>
           </div>
 
           <div class="dash-panel">
@@ -374,7 +382,7 @@
                 <strong>Venue:</strong> Palm Meadows Club, Whitefield, Bengaluru<br>
                 <strong>Tier:</strong> Street Classic Package (100 Guests) · Assigned Truck 01
               </p>
-              <div style="display: flex; gap: 12px;">
+              <div class="dash-card-actions">
                 <button class="btn btn-dark btn-sm" onclick="showToast('Catering coordinator Marcus will call you.', 'phone')"><i class="fa-solid fa-phone"></i> Contact Chef Marcus</button>
                 <button class="btn btn-outline btn-sm" onclick="showToast('Menu modifications requested.', 'file-pen')">Edit Guest Notes</button>
               </div>
@@ -386,12 +394,14 @@
              TAB 5: PROFILE & SUPPORT
              ========================================== -->
         <section class="dash-tab-pane" id="tab-client-profile">
-          <div style="margin-bottom: 24px;">
-            <span class="special-label dark" style="font-size: 0.78rem;">Customer Settings</span>
-            <h1 style="font-size: 2.2rem; color: var(--color-primary); margin-top: 4px;">PROFILE & CONCIERGE SUPPORT</h1>
+          <div class="dash-header-row">
+            <div>
+              <span class="special-label dark" style="font-size: 0.78rem;">Customer Settings</span>
+              <h1 style="font-size: clamp(1.6rem, 5vw, 2.2rem); color: var(--color-primary); margin-top: 4px;">PROFILE & CONCIERGE SUPPORT</h1>
+            </div>
           </div>
 
-          <div class="grid-2-cols" style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px;">
+          <div class="dash-grid-2-cols">
             <!-- Profile Details -->
             <div class="dash-panel">
               <h3 class="dash-panel-title" style="margin-bottom: 16px;">Saved Profile Info</h3>

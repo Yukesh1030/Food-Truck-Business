@@ -120,12 +120,12 @@
              ========================================== -->
         <section class="dash-tab-pane active" id="tab-overview">
           
-          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; flex-wrap: wrap; gap: 14px;">
+          <div class="dash-header-row">
             <div>
               <span class="special-label dark" style="font-size: 0.78rem;">Command Center</span>
-              <h1 style="font-size: 2.2rem; color: var(--color-primary); margin-top: 4px;">OPERATIONS OVERVIEW</h1>
+              <h1 style="font-size: clamp(1.6rem, 5vw, 2.2rem); color: var(--color-primary); margin-top: 4px;">OPERATIONS OVERVIEW</h1>
             </div>
-            <div style="display: flex; gap: 10px;">
+            <div class="dash-header-actions">
               <button class="btn btn-primary btn-sm" onclick="openAddFoodModal()"><i class="fa-solid fa-plus"></i> Add Food Item</button>
               <button class="btn btn-dark btn-sm" onclick="openUpdateLocationModal()"><i class="fa-solid fa-location-dot"></i> Update Location</button>
             </div>
@@ -178,7 +178,7 @@
                 <h3 class="dash-panel-title">Weekly Sales Performance</h3>
                 <span class="badge badge-outline">Last 7 Days</span>
               </div>
-              <div style="height: 280px; position: relative;">
+              <div class="dash-chart-wrap">
                 <canvas id="adminSalesChart"></canvas>
               </div>
             </div>
@@ -189,7 +189,7 @@
                 <h3 class="dash-panel-title">Order Status Distribution</h3>
                 <span class="badge badge-yellow">Live Stream</span>
               </div>
-              <div style="height: 280px; position: relative;">
+              <div class="dash-chart-wrap">
                 <canvas id="adminStatusChart"></canvas>
               </div>
             </div>
@@ -313,12 +313,14 @@
              TAB 2: MENU & INVENTORY
              ========================================== -->
         <section class="dash-tab-pane" id="tab-menu">
-          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px;">
+          <div class="dash-header-row">
             <div>
               <span class="special-label dark" style="font-size: 0.78rem;">Catalogue Management</span>
-              <h1 style="font-size: 2.2rem; color: var(--color-primary); margin-top: 4px;">MENU & INVENTORY</h1>
+              <h1 style="font-size: clamp(1.6rem, 5vw, 2.2rem); color: var(--color-primary); margin-top: 4px;">MENU & INVENTORY</h1>
             </div>
-            <button class="btn btn-primary btn-sm" onclick="showToast('New dish modal opened.', 'plus')"><i class="fa-solid fa-plus"></i> New Dish</button>
+            <div class="dash-header-actions">
+              <button class="btn btn-primary btn-sm" onclick="showToast('New dish modal opened.', 'plus')"><i class="fa-solid fa-plus"></i> New Dish</button>
+            </div>
           </div>
 
           <div class="dash-panel">
@@ -385,9 +387,11 @@
              TAB 3: ORDERS & CUSTOMERS
              ========================================== -->
         <section class="dash-tab-pane" id="tab-orders">
-          <div style="margin-bottom: 24px;">
-            <span class="special-label dark" style="font-size: 0.78rem;">Live Queue</span>
-            <h1 style="font-size: 2.2rem; color: var(--color-primary); margin-top: 4px;">ALL ORDERS & CUSTOMERS</h1>
+          <div class="dash-header-row">
+            <div>
+              <span class="special-label dark" style="font-size: 0.78rem;">Live Queue</span>
+              <h1 style="font-size: clamp(1.6rem, 5vw, 2.2rem); color: var(--color-primary); margin-top: 4px;">ALL ORDERS & CUSTOMERS</h1>
+            </div>
           </div>
 
           <div class="dash-panel">
@@ -442,14 +446,16 @@
              TAB 4: LOCATIONS & EVENTS
              ========================================== -->
         <section class="dash-tab-pane" id="tab-locations">
-          <div style="margin-bottom: 24px;">
-            <span class="special-label dark" style="font-size: 0.78rem;">Fleet Coordinates</span>
-            <h1 style="font-size: 2.2rem; color: var(--color-primary); margin-top: 4px;">FLEET SCHEDULES & CATERING</h1>
+          <div class="dash-header-row">
+            <div>
+              <span class="special-label dark" style="font-size: 0.78rem;">Fleet Coordinates</span>
+              <h1 style="font-size: clamp(1.6rem, 5vw, 2.2rem); color: var(--color-primary); margin-top: 4px;">FLEET SCHEDULES & CATERING</h1>
+            </div>
           </div>
 
           <div class="dash-panel" style="margin-bottom: 24px;">
             <h3 class="dash-panel-title" style="margin-bottom: 16px;">Active Food Trucks</h3>
-            <div class="grid-2-cols" style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+            <div class="dash-grid-2-cols">
               <div style="padding: 18px; border: 1.5px solid var(--color-accent); border-radius: 12px; background: rgba(244,179,35,0.05);">
                 <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
                   <strong>Truck 01 - Bengaluru</strong>
@@ -473,9 +479,11 @@
              TAB 5: MARKETING & SETTINGS
              ========================================== -->
         <section class="dash-tab-pane" id="tab-settings">
-          <div style="margin-bottom: 24px;">
-            <span class="special-label dark" style="font-size: 0.78rem;">System Configuration</span>
-            <h1 style="font-size: 2.2rem; color: var(--color-primary); margin-top: 4px;">MARKETING & SETTINGS</h1>
+          <div class="dash-header-row">
+            <div>
+              <span class="special-label dark" style="font-size: 0.78rem;">System Configuration</span>
+              <h1 style="font-size: clamp(1.6rem, 5vw, 2.2rem); color: var(--color-primary); margin-top: 4px;">MARKETING & SETTINGS</h1>
+            </div>
           </div>
 
           <div class="dash-panel">
