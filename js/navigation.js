@@ -62,8 +62,15 @@ document.addEventListener('DOMContentLoaded', () => {
     document.body.style.overflow = '';
   };
 
+  // Close button inside the drawer
+  const closeBtns = document.querySelectorAll('.mobile-drawer-close-btn, #mobileDrawerClose');
+  closeBtns.forEach(btn => {
+    btn.addEventListener('click', closeMobileNav);
+  });
+
   if (hamburgerBtn) {
-    hamburgerBtn.addEventListener('click', () => {
+    hamburgerBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
       const isOpen = mobileDrawer && mobileDrawer.classList.contains('open');
       if (isOpen) {
         closeMobileNav();

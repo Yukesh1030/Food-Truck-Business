@@ -59,45 +59,68 @@
     </div>
   </header>
 
-  <!-- Mobile Drawer -->
-  <div class="mobile-nav-overlay" id="mobileOverlay"></div>
-  <aside class="mobile-nav-drawer" id="mobileDrawer">
+    <!-- Mobile & Off-Canvas Navigation Drawer -->
+  <div class="mobile-nav-overlay" id="mobileOverlay" aria-hidden="true"></div>
+  <aside class="mobile-nav-drawer" id="mobileDrawer" aria-label="Mobile Navigation">
     <div>
-      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px;">
-        <img src="assets/Brand-logo.webp" alt="STACKLY" style="height: 38px;">
+      <div class="mobile-drawer-header">
+        <a href="index.html" class="brand-logo-link">
+          <img src="assets/Brand-logo.webp" alt="STACKLY Food Truck" style="height: 40px; width: auto;">
+        </a>
+        <button class="mobile-drawer-close-btn" id="mobileDrawerClose" aria-label="Close Navigation Menu">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
       </div>
+
       <ul class="mobile-links-list">
-        <li><a href="index.html" class="mobile-link"><span>01</span> Home</a></li>
-        <li><a href="about.html" class="mobile-link"><span>02</span> About</a></li>
-        <li><a href="menu.html" class="mobile-link"><span>03</span> Menu</a></li>
-        <li><a href="locations.html" class="mobile-link active"><span>04</span> Locations</a></li>
-        <li><a href="contact.html" class="mobile-link"><span>05</span> Contact</a></li>
+        <li><a href="index.html" class="mobile-link"><span class="link-num">01</span> Home <i class="fa-solid fa-chevron-right" style="font-size: 0.9rem; opacity: 0.6;"></i></a></li>
+        <li><a href="about.html" class="mobile-link"><span class="link-num">02</span> About <i class="fa-solid fa-chevron-right" style="font-size: 0.9rem; opacity: 0.6;"></i></a></li>
+        <li><a href="menu.html" class="mobile-link"><span class="link-num">03</span> Menu <i class="fa-solid fa-chevron-right" style="font-size: 0.9rem; opacity: 0.6;"></i></a></li>
+        <li><a href="locations.html" class="mobile-link"><span class="link-num">04</span> Locations <i class="fa-solid fa-chevron-right" style="font-size: 0.9rem; opacity: 0.6;"></i></a></li>
+        <li><a href="contact.html" class="mobile-link"><span class="link-num">05</span> Contact <i class="fa-solid fa-chevron-right" style="font-size: 0.9rem; opacity: 0.6;"></i></a></li>
       </ul>
     </div>
+
     <div class="mobile-drawer-footer">
       <div class="mobile-truck-status-badge">
         <span class="status-dot-pulse"></span>
-        <div style="font-size: 0.82rem; color: #F5F0E6;">
-          <strong>Live Truck:</strong> Koramangala 5th Block, Bengaluru
+        <div style="font-size: 0.82rem; color: #F5F0E6; line-height: 1.4;">
+          <strong style="color: var(--color-accent);">Live Truck Active:</strong> Koramangala 5th Block, Bengaluru · Open Till 11:30 PM
         </div>
       </div>
-      <a href="login.html" class="btn btn-primary" style="width: 100%;">Login / Account</a>
+      <div style="display: flex; gap: 10px;">
+        <a href="login.html" class="btn btn-primary btn-sm" style="flex: 1;"><i class="fa-regular fa-user"></i> Login</a>
+        <a href="cart.html" class="btn btn-outline-white btn-sm" style="flex: 1;"><i class="fa-solid fa-bag-shopping"></i> My Cart</a>
+      </div>
     </div>
   </aside>
 
   <!-- Locations Hero Section -->
-  <section class="locations-hero-section bg-dark" style="position: relative; padding-top: 160px; padding-bottom: 80px; overflow: hidden; text-align: center;">
-    <img src="assets/images/hero/hero-locations.webp" alt="STACKLY Locations Map Cover" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.3; z-index: 1;">
+  <section class="page-hero-section locations-hero-section bg-dark" style="position: relative; padding-top: 160px; padding-bottom: 80px; overflow: hidden; text-align: center;">
+    <img src="assets/images/hero/hero-locations.webp" alt="STACKLY Locations Map Cover" class="hero-bg-cover" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.3; z-index: 1;">
     <div style="position: absolute; inset: 0; background: radial-gradient(circle at center, rgba(244, 179, 35, 0.12), rgba(23, 23, 23, 0.96) 80%); z-index: 2;"></div>
 
     <div class="container" style="position: relative; z-index: 5;">
-      <span class="special-label" style="margin-bottom: 12px;">Live Fleet Tracker</span>
-      <h1 style="color: #F5F0E6; margin-bottom: 12px; font-size: clamp(3rem, 7vw, 5.8rem);">
-        WHERE THE <span style="color: #F4B323;">FLAVOUR TAKES YOU.</span>
-      </h1>
-      <p style="color: rgba(245,240,230,0.8); max-width: 660px; margin: 0 auto 30px auto; font-size: 1.15rem; line-height: 1.7;">
+      <div class="hero-badge-wrap" style="margin-bottom: 14px;">
+        <span class="hero-badge special-label"><i class="fa-solid fa-satellite-dish" style="color: var(--color-accent); margin-right: 6px;"></i> Live Fleet Tracker</span>
+      </div>
+      <div class="headline-reveal-wrap">
+        <h1 class="hero-headline headline-reveal-line" style="color: #F5F0E6; margin-bottom: 4px; font-size: clamp(2.8rem, 6.5vw, 5.5rem);">
+          WHERE THE
+        </h1>
+      </div>
+      <div class="headline-reveal-wrap">
+        <h1 class="hero-headline headline-reveal-line" style="color: #F4B323; margin-bottom: 16px; font-size: clamp(2.8rem, 6.5vw, 5.5rem);">
+          FLAVOUR TAKES YOU.
+        </h1>
+      </div>
+      <p class="hero-subtext" style="color: rgba(245,240,230,0.8); max-width: 660px; margin: 0 auto 28px auto; font-size: 1.15rem; line-height: 1.7;">
         Follow our wheels in real time. Track today's serving coordinates, upcoming weekend festival routes, and weekly operating hours across South India.
       </p>
+      <div class="hero-actions-group" style="display: flex; gap: 14px; justify-content: center; flex-wrap: wrap;">
+        <a href="#currentLocation" class="btn btn-primary btn-sm"><i class="fa-solid fa-location-crosshairs"></i> Today's Live Spot</a>
+        <a href="#interactiveMap" class="btn btn-outline-white btn-sm"><i class="fa-solid fa-map"></i> Fleet Map</a>
+      </div>
     </div>
   </section>
 
@@ -438,23 +461,17 @@
         </div>
 
         <div>
-          <h4 class="footer-heading">Branch Offices</h4>
+          <h4 class="footer-heading">Branch Office</h4>
           <div class="branch-offices-list">
             <div class="branch-office-item">
-              <div class="branch-office-name"><i class="fa-solid fa-building"></i> Bengaluru Branch Office</div>
-              <div class="branch-office-address">Evolve Studio, 4th Floor, Khata No 10, Begur - Koppa Rd, in front of SNN Raj Serenity, Suraksha Nagar, Yelenahalli, Begur, Bengaluru, Karnataka – 560068</div>
-            </div>
-            <div class="branch-office-item">
-              <div class="branch-office-name"><i class="fa-solid fa-building"></i> Hyderabad Branch Office</div>
-              <div class="branch-office-address">STACKLY, 4th floor, Jayasudha heights, Plot no 459, 100 feet road, Ayyappa society, Madhapur, Beside YSR statue, Hyderabad, Telangana – 500081</div>
-            </div>
-            <div class="branch-office-item">
-              <div class="branch-office-name"><i class="fa-solid fa-building"></i> Chennai Branch Office</div>
-              <div class="branch-office-address">No.9, Ambika Complex, 1st Floor, Gokulam Colony, Karanaipudhuchery main road, Urapakkam, Chennai, Tamil Nadu, India – 603202</div>
-            </div>
-            <div class="branch-office-item">
-              <div class="branch-office-name"><i class="fa-solid fa-building"></i> Coimbatore Branch Office</div>
-              <div class="branch-office-address">Stackly, 79 Aiswarya Complex, Nethaji Road, PN Palayam, Coimbatore, Tamil Nadu, India – 641037</div>
+              <div class="branch-office-name"><i class="fa-solid fa-location-dot"></i> Bengaluru Branch Office</div>
+              <div class="branch-office-address">
+                Evolve Studio, 4th Floor,<br>
+                Khata No 10, Begur &ndash; Koppa Rd,<br>
+                in front of SNN Raj Serenity,<br>
+                Suraksha Nagar, Yelenahalli, Begur,<br>
+                Bengaluru, Karnataka &ndash; 560068
+              </div>
             </div>
           </div>
         </div>
@@ -472,7 +489,7 @@
       </div>
 
       <div class="footer-bottom">
-        <div>© 2026 STACKLY Food Truck. All rights reserved. Big Flavours. Fresh Moves. Street Food Reimagined.</div>
+        <div>&copy; 2026 STACKLY Food Truck. All rights reserved. Big Flavours. Fresh Moves. Street Food Reimagined.</div>
         <div class="footer-bottom-links">
           <a href="404.html">Privacy Policy</a>
           <a href="404.html">Terms of Service</a>

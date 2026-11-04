@@ -68,15 +68,15 @@ html, body {
 }
 
 /* ==========================================================================
-   Tablets (768px to 1023px)
+   Tablets & Responsive Breakpoints (Up to 1024px)
    ========================================================================== */
-@media screen and (max-width: 1023px) {
+@media screen and (max-width: 1024px) {
   .nav-menu-wrapper {
-    display: none; /* Mobile Drawer Activated */
+    display: none !important; /* Mobile Drawer Activated */
   }
 
   .hamburger-toggle {
-    display: flex;
+    display: flex !important;
   }
 
   .header-actions .login-nav-btn {

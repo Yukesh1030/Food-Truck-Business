@@ -511,43 +511,66 @@ ul, ol {
   font-weight: 600;
 }
 
-/* Hamburger Toggle Button */
+/* ==========================================================================
+   Hamburger Toggle Button & Mobile Off-Canvas Drawer
+   ========================================================================== */
 .hamburger-toggle {
-  display: none;
+  display: flex;
   flex-direction: column;
-  justify-content: space-around;
-  width: 42px;
-  height: 42px;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  width: 44px;
+  height: 44px;
   padding: 8px;
-  background: rgba(244, 179, 35, 0.15);
+  background-color: var(--color-primary);
+  border: 2px solid var(--color-accent);
   border-radius: var(--radius-sm);
   z-index: 1010;
   cursor: pointer;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+  transition: all var(--transition-normal);
+  flex-shrink: 0;
+}
+
+.hamburger-toggle:hover {
+  background-color: var(--color-accent);
+  border-color: var(--color-accent);
+  transform: scale(1.06);
+  box-shadow: var(--shadow-yellow);
 }
 
 .hamburger-line {
-  width: 100%;
-  height: 3px;
-  background-color: var(--color-primary);
+  width: 22px;
+  height: 2.5px;
+  background-color: var(--color-accent);
   border-radius: 2px;
   transition: all var(--transition-normal);
 }
 
-.site-header.scrolled .hamburger-line,
-.site-header.hero-dark .hamburger-line {
+.hamburger-toggle:hover .hamburger-line {
+  background-color: var(--color-primary);
+}
+
+/* Transformed state into X when open */
+.hamburger-toggle.active {
   background-color: var(--color-accent);
+  border-color: var(--color-accent);
+}
+
+.hamburger-toggle.active .hamburger-line {
+  background-color: var(--color-primary);
 }
 
 .hamburger-toggle.active .hamburger-line:nth-child(1) {
-  transform: translateY(8px) rotate(45deg);
-  background-color: var(--color-accent);
+  transform: translateY(7.5px) rotate(45deg);
 }
 .hamburger-toggle.active .hamburger-line:nth-child(2) {
   opacity: 0;
+  transform: scaleX(0);
 }
 .hamburger-toggle.active .hamburger-line:nth-child(3) {
-  transform: translateY(-8px) rotate(-45deg);
-  background-color: var(--color-accent);
+  transform: translateY(-7.5px) rotate(-45deg);
 }
 
 /* Mobile Slide-in Drawer */
@@ -558,14 +581,17 @@ ul, ol {
   width: 100%;
   max-width: 420px;
   height: 100vh;
-  background-color: var(--color-primary);
-  z-index: 1005;
-  padding: 100px 32px 40px 32px;
+  height: 100dvh;
+  background: linear-gradient(180deg, #171717 0%, #1a1a1a 100%);
+  color: var(--color-text-light);
+  z-index: 9999;
+  padding: 24px 28px 32px 28px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  box-shadow: -10px 0 30px rgba(0, 0, 0, 0.5);
-  transition: right var(--transition-smooth);
+  box-shadow: -15px 0 45px rgba(0, 0, 0, 0.65);
+  border-left: 3px solid var(--color-accent);
+  transition: right 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   overflow-y: auto;
 }
 
@@ -579,9 +605,10 @@ ul, ol {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.6);
-  backdrop-filter: blur(4px);
-  z-index: 1004;
+  background-color: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 9998;
   opacity: 0;
   visibility: hidden;
   transition: all var(--transition-normal);
@@ -592,55 +619,102 @@ ul, ol {
   visibility: visible;
 }
 
+.mobile-drawer-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  margin-bottom: 20px;
+}
+
+.mobile-drawer-close-btn {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1.5px solid var(--color-accent);
+  color: var(--color-accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.mobile-drawer-close-btn:hover {
+  background: var(--color-accent);
+  color: var(--color-primary);
+  transform: rotate(90deg);
+}
+
 .mobile-links-list {
   display: flex;
   flex-direction: column;
-  gap: 22px;
+  gap: 12px;
 }
 
 .mobile-link {
   font-family: var(--font-heading);
-  font-size: 2.2rem;
+  font-size: 1.85rem;
   letter-spacing: 1px;
   color: var(--color-text-light);
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-  padding-bottom: 10px;
+  padding: 10px 14px;
+  border-radius: var(--radius-sm);
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
   transition: all var(--transition-fast);
+}
+
+.mobile-link span.link-num {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--color-accent);
+  background: rgba(244, 179, 35, 0.15);
+  padding: 3px 8px;
+  border-radius: 4px;
 }
 
 .mobile-link:hover,
 .mobile-link.active {
+  background: rgba(244, 179, 35, 0.15);
+  border-color: var(--color-accent);
   color: var(--color-accent);
-  padding-left: 10px;
+  padding-left: 18px;
 }
 
 .mobile-drawer-footer {
-  margin-top: 40px;
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 14px;
 }
 
 .mobile-truck-status-badge {
   display: flex;
   align-items: center;
   gap: 12px;
-  padding: 14px;
+  padding: 12px 14px;
   background: rgba(255, 255, 255, 0.05);
   border-radius: var(--radius-md);
-  border: 1px solid rgba(244, 179, 35, 0.2);
+  border: 1px solid rgba(244, 179, 35, 0.25);
 }
 
 .status-dot-pulse {
-  width: 12px;
-  height: 12px;
+  width: 10px;
+  height: 10px;
   background-color: #2ecc71;
   border-radius: 50%;
   box-shadow: 0 0 10px #2ecc71;
   animation: pulseBeacon 1.8s infinite;
+  flex-shrink: 0;
 }
 
 /* ==========================================================================

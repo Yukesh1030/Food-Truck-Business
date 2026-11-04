@@ -98,6 +98,11 @@
 
 .headline-reveal-line {
   display: inline-block;
+  will-change: transform, opacity;
+}
+
+/* Fallback if JS or GSAP is disabled */
+.no-js .headline-reveal-line {
   transform: translateY(105%);
   opacity: 0;
   transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.8s ease;
