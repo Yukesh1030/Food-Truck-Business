@@ -65,6 +65,12 @@ const FormValidator = {
 };
 
 document.addEventListener('DOMContentLoaded', () => {
+  // Do NOT attach 404 redirect handlers on Login or Signup pages:
+  // They must preserve their respective authentication and role-based redirect functions.
+  const isAuthPage = window.location.pathname.endsWith('login.html') || 
+                     window.location.pathname.endsWith('signup.html');
+  if (isAuthPage) return;
+
   // 1. Contact Form on contact.html
   const contactForm = document.getElementById('generalContactForm');
   if (contactForm) {
@@ -218,8 +224,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // 4. Universal Form Fallback (for any other form on Home, About, Menu, Locations, Contact)
   document.querySelectorAll('form').forEach(form => {
-    // Avoid double attaching if already handled
-    if (form.id === 'generalContactForm' || form.id === 'newsletterForm' || form.id === 'locationAlertForm') {
+    // Avoid double attaching if already handled, and never attach to auth forms
+    if (
+      form.id === 'generalContactForm' || 
+      form.id === 'newsletterForm' || 
+      form.id === 'locationAlertForm' ||
+      form.id === 'loginForm' || 
+      form.id === 'signupForm'
+    ) {
       return;
     }
 

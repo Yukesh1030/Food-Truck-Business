@@ -53,7 +53,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Place Order Action
+  // Place Order Action -> Validates details and directs to 404 page
   if (placeOrderBtn) {
     placeOrderBtn.addEventListener('click', (e) => {
       e.preventDefault();
@@ -68,7 +68,7 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
       }
 
-      const phoneClean = phone.replace(/\D/g, '');
+      const phoneClean = phone ? phone.replace(/\D/g, '') : '';
       if (!phone || phoneClean.length !== 10) {
         showToast('Please enter a valid 10-digit mobile number.', 'exclamation-circle');
         document.getElementById('custPhone')?.focus();
@@ -82,29 +82,8 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
       }
 
-      // Generate random order ID
-      const orderId = 'STK-' + Math.floor(100000 + Math.random() * 900000);
-      const selectedTruck = document.querySelector('input[name="pickupTruck"]:checked')?.value || 'Bengaluru - Koramangala Hub';
-
-      const orderData = {
-        orderId: orderId,
-        date: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
-        items: cart,
-        total: total,
-        pickupLocation: selectedTruck,
-        customer: { name, phone, email },
-        status: 'Preparing on Grill'
-      };
-
-      localStorage.setItem('stackly_active_order', JSON.stringify(orderData));
-      // Empty the cart
-      localStorage.removeItem('stackly_cart');
-      CartManager.updateBadges();
-
-      showToast('Order confirmed! Redirecting to tracker...', 'check-circle');
-      setTimeout(() => {
-        window.location.href = `order-tracking.html?orderId=${orderId}`;
-      }, 1200);
+      // Direct to custom 404 page as requested
+      window.location.href = '404.html';
     });
   }
 });
