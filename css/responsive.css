@@ -176,13 +176,23 @@ html, body {
   }
 
   .btn {
-    padding: 12px 22px;
+    padding: 12px 20px;
     font-size: 0.88rem;
+    white-space: normal;
+    word-break: break-word;
+    max-width: 100%;
+    box-sizing: border-box;
+    text-align: center;
+    line-height: 1.35;
   }
 
   .btn-lg {
-    padding: 14px 28px;
-    font-size: 0.95rem;
+    padding: 13px 20px;
+    font-size: 0.92rem;
+    max-width: 100%;
+    white-space: normal;
+    box-sizing: border-box;
+    text-align: center;
   }
 
   /* Sticky Mobile Order Now Bar */
@@ -307,6 +317,11 @@ html, body {
    Newsletter & Notification Forms Mobile Alignment (Center Buttons)
    ========================================================================== */
 @media screen and (max-width: 640px) {
+  .container {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+
   #newsletterForm,
   .newsletter-subscribe-form,
   #locationAlertForm {

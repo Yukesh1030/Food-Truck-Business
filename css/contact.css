@@ -1,7 +1,44 @@
 /* ==========================================================================
    STACKLY Food Truck - Contact & Branch Offices Styles
+   Theme Colours:
+   - Charcoal Black: #171717 (Primary)
+   - Cream White:    #F5F0E6 (Background)
+   - Street Yellow:  #F4B323 (Accent)
    ========================================================================== */
 
+/* Strict Box Model & Overflow Prevention */
+.contact-hero-section,
+.contact-layout-grid,
+.contact-form-panel,
+.contact-info-col,
+.catering-quote-card,
+.catering-tiers-grid,
+.truck-dispatch-grid,
+.faq-accordion-wrap,
+.branch-cards-grid {
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+/* Contact Hero Section */
+.contact-hero-section {
+  position: relative;
+  padding-top: clamp(100px, 14vw, 160px);
+  padding-bottom: clamp(50px, 8vw, 80px);
+  overflow: hidden;
+  text-align: center;
+}
+
+.contact-hero-headline {
+  font-size: clamp(2.2rem, 7vw, 5.5rem);
+  line-height: 1.05;
+  letter-spacing: 1px;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+
+/* Contact Layout Grid */
 .contact-layout-grid {
   display: grid;
   grid-template-columns: 1fr 1.3fr;
@@ -26,6 +63,8 @@
   align-items: flex-start;
   gap: 20px;
   transition: all var(--transition-fast);
+  box-sizing: border-box;
+  width: 100%;
 }
 
 .contact-card-box:hover {
@@ -57,6 +96,8 @@
 .contact-box-text {
   font-size: 0.95rem;
   color: var(--color-text-muted);
+  word-break: break-word;
+  overflow-wrap: break-word;
 }
 
 /* Contact Form */
@@ -66,6 +107,8 @@
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-md);
   border: 1px solid var(--color-card-border);
+  box-sizing: border-box;
+  width: 100%;
 }
 
 .form-group {
@@ -74,6 +117,8 @@
   flex-direction: column;
   gap: 8px;
   position: relative;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .form-label {
@@ -88,6 +133,8 @@
 .form-select,
 .form-textarea {
   width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
   padding: 14px 18px;
   border-radius: var(--radius-sm);
   border: 1.5px solid rgba(23, 23, 23, 0.15);
@@ -128,11 +175,13 @@
   display: block;
 }
 
-/* Branch Offices Dedicated Section Grid (User's exact 4 branches) */
+/* Branch Offices Dedicated Section Grid */
 .branch-cards-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 28px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .branch-card {
@@ -145,6 +194,8 @@
   border-right: 1px solid var(--color-card-border);
   border-bottom: 1px solid var(--color-card-border);
   transition: all var(--transition-normal);
+  box-sizing: border-box;
+  width: 100%;
 }
 
 .branch-card:hover {
@@ -157,17 +208,22 @@
   align-items: center;
   justify-content: space-between;
   margin-bottom: 16px;
+  gap: 10px;
 }
 
 .branch-card-title {
   font-size: 1.6rem;
   color: var(--color-primary);
+  margin: 0;
+  line-height: 1.2;
 }
 
 .branch-card-address {
   font-size: 0.95rem;
   line-height: 1.7;
   color: var(--color-text-muted);
+  word-break: break-word;
+  overflow-wrap: break-word;
 }
 
 /* FAQ Accordion */
@@ -177,6 +233,8 @@
   display: flex;
   flex-direction: column;
   gap: 16px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .faq-item {
@@ -185,6 +243,8 @@
   border: 1px solid var(--color-card-border);
   overflow: hidden;
   box-shadow: var(--shadow-sm);
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .faq-trigger {
@@ -193,6 +253,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 14px;
   font-family: var(--font-heading);
   font-size: 1.35rem;
   color: var(--color-primary);
@@ -200,6 +261,14 @@
   cursor: pointer;
   background: transparent;
   transition: background var(--transition-fast);
+  border: none;
+  box-sizing: border-box;
+}
+
+.faq-trigger span {
+  flex: 1;
+  word-break: break-word;
+  line-height: 1.3;
 }
 
 .faq-trigger:hover {
@@ -210,6 +279,7 @@
   color: var(--color-accent);
   font-size: 1.1rem;
   transition: transform var(--transition-normal);
+  flex-shrink: 0;
 }
 
 .faq-item.active .faq-icon-arrow {
@@ -221,10 +291,11 @@
   overflow: hidden;
   transition: max-height 0.4s ease, padding 0.4s ease;
   padding: 0 26px;
+  box-sizing: border-box;
 }
 
 .faq-item.active .faq-body {
-  max-height: 300px;
+  max-height: 400px;
   padding: 0 26px 24px 26px;
 }
 
@@ -232,9 +303,8 @@
   font-size: 0.95rem;
   color: var(--color-text-muted);
   line-height: 1.7;
+  word-break: break-word;
 }
-
-
 
 /* ==========================================================================
    Responsive Grid & Component Styles for Contact Page
@@ -268,6 +338,22 @@
   box-sizing: border-box;
 }
 
+.catering-tier-card {
+  background: #FFFFFF;
+  padding: 30px;
+  border-radius: 16px;
+  border: 1px solid rgba(23, 23, 23, 0.08);
+  box-sizing: border-box;
+  width: 100%;
+  transition: all var(--transition-normal);
+}
+
+.catering-tier-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--color-accent);
+}
+
 .truck-dispatch-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -277,6 +363,16 @@
   box-sizing: border-box;
 }
 
+.contact-final-cta-btns {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Tablet Breakpoint (Up to 992px) */
 @media (max-width: 992px) {
   .contact-layout-grid {
     grid-template-columns: 1fr;
@@ -295,6 +391,7 @@
   }
 }
 
+/* Portrait Tablets & Large Phones (Up to 768px) */
 @media (max-width: 768px) {
   .branch-cards-grid {
     grid-template-columns: 1fr;
@@ -302,7 +399,7 @@
   }
 
   .contact-form-panel {
-    padding: 24px 18px;
+    padding: 24px 20px;
   }
 
   .contact-card-box {
@@ -325,7 +422,37 @@
   }
 }
 
+/* Mobile Devices (Up to 640px) - Android & iPhone Safe */
 @media (max-width: 640px) {
+  /* Prevent any button blowout */
+  .btn {
+    white-space: normal !important;
+    word-break: break-word !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    text-align: center !important;
+    line-height: 1.35 !important;
+  }
+
+  .btn-lg {
+    padding: 13px 18px !important;
+    font-size: 0.92rem !important;
+    letter-spacing: 1px !important;
+  }
+
+  .hero-actions-group {
+    flex-direction: column !important;
+    align-items: center !important;
+    width: 100% !important;
+    max-width: 320px !important;
+    margin: 0 auto !important;
+    gap: 10px !important;
+  }
+
+  .hero-actions-group .btn {
+    width: 100% !important;
+  }
+
   .contact-inputs-row {
     grid-template-columns: 1fr;
     gap: 14px;
@@ -336,37 +463,77 @@
     gap: 16px;
   }
 
+  .catering-tier-card {
+    padding: 20px 16px !important;
+  }
+
   .catering-quote-card {
-    padding: 20px 16px;
+    padding: 22px 16px !important;
     border-radius: 16px;
   }
 
+  .catering-quote-card .btn,
+  .truck-dispatch-grid .btn {
+    width: 100% !important;
+    display: flex !important;
+    justify-content: center !important;
+  }
+
   .faq-trigger {
-    padding: 16px 18px;
-    font-size: 1.15rem;
+    padding: 16px 14px !important;
+    font-size: 1.15rem !important;
+    gap: 10px;
   }
 
   .faq-item.active .faq-body {
-    padding: 0 18px 20px 18px;
+    padding: 0 14px 18px 14px !important;
   }
 
   .branch-card {
-    padding: 22px 18px;
+    padding: 20px 16px !important;
+  }
+
+  .branch-card-header {
+    flex-wrap: wrap !important;
+    gap: 8px !important;
+    align-items: flex-start !important;
   }
 
   .branch-card-title {
-    font-size: 1.35rem;
+    font-size: 1.35rem !important;
+    line-height: 1.25 !important;
   }
 
   .branch-card-address {
-    font-size: 0.88rem;
+    font-size: 0.88rem !important;
+    line-height: 1.6 !important;
+  }
+
+  .contact-final-cta-btns {
+    flex-direction: column !important;
+    align-items: center !important;
+    width: 100% !important;
+    max-width: 340px !important;
+    margin: 0 auto !important;
+    gap: 12px !important;
+  }
+
+  .contact-final-cta-btns .btn {
+    width: 100% !important;
   }
 }
 
-@media (max-width: 380px) {
+/* Narrow & Small Screens (Up to 480px / 380px) */
+@media (max-width: 480px) {
   .contact-card-box {
-    padding: 16px 12px;
-    gap: 12px;
+    padding: 16px 14px !important;
+    gap: 12px !important;
+  }
+
+  .contact-icon-bubble {
+    width: 40px;
+    height: 40px;
+    font-size: 1.15rem;
   }
 
   .contact-box-title {
@@ -374,10 +541,52 @@
   }
 
   .contact-box-text {
-    font-size: 0.85rem;
+    font-size: 0.88rem;
   }
 
   .contact-form-panel {
-    padding: 18px 12px;
+    padding: 20px 14px !important;
+  }
+
+  .form-input,
+  .form-select,
+  .form-textarea {
+    padding: 12px 14px !important;
+    font-size: 0.92rem !important;
+  }
+
+  .catering-quote-card {
+    padding: 18px 14px !important;
+  }
+
+  .catering-quote-card > div:last-child {
+    height: 180px !important;
+  }
+
+  .truck-dispatch-grid > div:last-child {
+    height: 200px !important;
+  }
+}
+
+@media (max-width: 360px) {
+  .contact-card-box {
+    padding: 14px 12px !important;
+    gap: 10px !important;
+  }
+
+  .contact-box-title {
+    font-size: 1.1rem;
+  }
+
+  .contact-box-text {
+    font-size: 0.84rem;
+  }
+
+  .contact-form-panel {
+    padding: 18px 10px !important;
+  }
+
+  .branch-card {
+    padding: 16px 12px !important;
   }
 }
