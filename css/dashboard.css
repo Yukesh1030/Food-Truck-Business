@@ -3,17 +3,22 @@
    Charcoal sidebar, cream content panels, street yellow highlights.
    ========================================================================== */
 
-.dashboard-body {
+html.dashboard-page,
+body.dashboard-body {
+  height: 100% !important;
+  max-height: 100vh !important;
+  overflow: hidden !important;
   background-color: var(--color-bg);
-  min-height: 100vh;
   display: flex;
 }
 
-/* Dashboard Shell Layout */
+/* Dashboard Shell Layout (Single scrollbar on .dash-main-area, zero double scrollbar) */
 .dashboard-wrapper {
   display: flex;
   width: 100%;
-  min-height: 100vh;
+  height: 100vh;
+  max-height: 100vh;
+  overflow: hidden;
 }
 
 /* Sidebar */
@@ -137,21 +142,24 @@
   color: #ffffff;
 }
 
-/* Main Dashboard Panel */
+/* Main Dashboard Panel - Single Scrollable View */
 .dash-main-area {
   flex: 1;
   display: flex;
   flex-direction: column;
   min-width: 0;
-  overflow-y: auto;
+  height: 100vh;
   max-height: 100vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
 }
 
 /* Top Navigation Bar */
 .dash-topbar {
   background: var(--color-card-bg);
-  height: 74px;
-  padding: 0 clamp(16px, 3vw, 32px);
+  min-height: 88px;
+  padding: 16px clamp(16px, 3vw, 32px) 24px clamp(16px, 3vw, 32px);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -159,6 +167,7 @@
   position: sticky;
   top: 0;
   z-index: 50;
+  box-sizing: border-box;
 }
 
 .dash-topbar-left {
@@ -274,6 +283,10 @@
   font-weight: 600;
   font-size: 0.92rem;
   line-height: 1.2;
+  max-width: 260px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .user-role-label {
@@ -569,8 +582,9 @@
   }
 
   .dash-topbar {
-    height: 60px;
-    padding: 0 16px;
+    height: auto;
+    min-height: 72px;
+    padding: 14px 16px 20px 16px;
   }
 
   .dash-search-box {
@@ -593,8 +607,9 @@
 
 @media screen and (max-width: 640px) {
   .dash-topbar {
-    padding: 0 12px;
-    height: 56px;
+    height: auto;
+    min-height: 68px;
+    padding: 12px 14px 18px 14px;
   }
 
   .dash-topbar-right {
@@ -732,7 +747,7 @@
 
 @media screen and (max-width: 360px) {
   .dash-topbar {
-    padding: 0 8px;
+    padding: 10px 10px 16px 10px;
   }
 
   .dash-topbar-right {

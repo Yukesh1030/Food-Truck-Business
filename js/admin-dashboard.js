@@ -51,6 +51,40 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // Dynamic User Header Email
+  const loadUserHeader = () => {
+    try {
+      const stored = localStorage.getItem('stackly_user') || localStorage.getItem('stackly_registered_user');
+      let email = '';
+      if (stored) {
+        const u = JSON.parse(stored);
+        if (u && u.email) email = u.email.trim();
+      }
+      if (!email) {
+        email = 'admin@stacklyfoodtruck.com';
+      }
+
+      const nameEls = document.querySelectorAll('.user-name-text');
+      nameEls.forEach(el => {
+        el.textContent = email;
+        el.title = email;
+      });
+
+      const avatarEls = document.querySelectorAll('.user-avatar-circle');
+      if (avatarEls.length > 0 && email) {
+        const prefix = email.split('@')[0];
+        const initials = prefix.length >= 2 ? prefix.substring(0, 2).toUpperCase() : email.substring(0, 2).toUpperCase();
+        avatarEls.forEach(el => {
+          el.textContent = initials;
+          el.title = email;
+        });
+      }
+    } catch (e) {
+      console.warn('Could not parse user profile:', e);
+    }
+  };
+  loadUserHeader();
+
   // Logout action
   const logoutBtns = document.querySelectorAll('.dash-logout-btn');
   logoutBtns.forEach(btn => {
