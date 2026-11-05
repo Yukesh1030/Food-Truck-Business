@@ -85,14 +85,14 @@
           <button class="dash-menu-toggle" id="dashMenuToggle" aria-label="Toggle Navigation Sidebar">
             <i class="fa-solid fa-bars"></i>
           </button>
-          <div class="dash-search-box">
+          <form id="clientSearchForm" class="dash-search-box" novalidate>
             <i class="fa-solid fa-magnifying-glass"></i>
-            <input type="text" placeholder="Search orders, favorites, receipts...">
-          </div>
+            <input type="text" id="clientSearchInput" placeholder="Search orders, favorites, receipts..." required>
+          </form>
         </div>
 
         <div class="dash-topbar-right">
-          <a href="menu.html" class="btn btn-primary btn-sm" style="display: inline-flex;"><i class="fa-solid fa-plus"></i> <span class="hide-on-mobile">Order New Bites</span></a>
+          <a href="404.html" class="btn btn-primary btn-sm" style="display: inline-flex;"><i class="fa-solid fa-plus"></i> <span class="hide-on-mobile">Order New Bites</span></a>
 
           <div class="dash-notif-btn" title="Notifications">
             <i class="fa-regular fa-bell"></i>
@@ -160,7 +160,7 @@
                   <div style="font-weight: 700; color: #F5F0E6; font-size: 0.9rem;">FREE VOLCANO FRIES</div>
                   <div style="font-size: 0.75rem; color: rgba(245,240,230,0.6);">Unlocked · Code: <strong>FREEFRIES</strong></div>
                 </div>
-                <button class="btn btn-primary btn-sm" onclick="showToast('Coupon FREEFRIES applied to cart!', 'check-circle')">Redeem</button>
+                <a href="404.html" class="btn btn-primary btn-sm">Redeem</a>
               </div>
 
               <div class="loyalty-voucher-pill">
@@ -169,7 +169,7 @@
                   <div style="font-weight: 700; color: #F5F0E6; font-size: 0.9rem;">20% OFF ANY SMASH BURGER</div>
                   <div style="font-size: 0.75rem; color: rgba(245,240,230,0.6);">Unlocked · Code: <strong>VIPBURGER</strong></div>
                 </div>
-                <button class="btn btn-primary btn-sm" onclick="showToast('Coupon VIPBURGER applied to cart!', 'check-circle')">Redeem</button>
+                <a href="404.html" class="btn btn-primary btn-sm">Redeem</a>
               </div>
             </div>
           </div>
@@ -221,7 +221,7 @@
                 <span class="badge badge-yellow" style="margin-bottom: 6px;">Live Status</span>
                 <h3 class="dash-panel-title">Order #STK-849201 · On The Grill</h3>
               </div>
-              <a href="order-tracking.html" class="btn btn-dark btn-sm">Full Screen Tracker</a>
+              <a href="404.html" class="btn btn-dark btn-sm">Full Screen Tracker</a>
             </div>
 
             <div class="client-order-tracker-grid">
@@ -253,7 +253,7 @@
           <div class="dash-panel">
             <div class="dash-panel-header">
               <h3 class="dash-panel-title">Your Go-To Reorders</h3>
-              <a href="menu.html" class="special-label dark">Browse Menu</a>
+              <a href="404.html" class="special-label dark">Browse Menu</a>
             </div>
 
             <div class="client-reorders-grid">
@@ -264,7 +264,7 @@
                 </div>
                 <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 16px;">
                   <span style="font-family: var(--font-heading); font-size: 1.5rem;">₹349</span>
-                  <button class="btn btn-primary btn-sm" onclick="quickReorder('smash-beast')"><i class="fa-solid fa-rotate-right"></i> Reorder</button>
+                  <a href="404.html" class="btn btn-primary btn-sm"><i class="fa-solid fa-rotate-right"></i> Reorder</a>
                 </div>
               </div>
 
@@ -275,7 +275,7 @@
                 </div>
                 <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 16px;">
                   <span style="font-family: var(--font-heading); font-size: 1.5rem;">₹199</span>
-                  <button class="btn btn-primary btn-sm" onclick="quickReorder('loaded-cheese-fries')"><i class="fa-solid fa-rotate-right"></i> Reorder</button>
+                  <a href="404.html" class="btn btn-primary btn-sm"><i class="fa-solid fa-rotate-right"></i> Reorder</a>
                 </div>
               </div>
 
@@ -286,7 +286,7 @@
                 </div>
                 <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 16px;">
                   <span style="font-family: var(--font-heading); font-size: 1.5rem;">₹379</span>
-                  <button class="btn btn-primary btn-sm" onclick="quickReorder('bbq-bacon-stack')"><i class="fa-solid fa-rotate-right"></i> Reorder</button>
+                  <a href="404.html" class="btn btn-primary btn-sm"><i class="fa-solid fa-rotate-right"></i> Reorder</a>
                 </div>
               </div>
             </div>
@@ -316,8 +316,8 @@
                   Sony World Signal, 80 Feet Road · Hot griddle active now · Open till 11:30 PM
                 </p>
                 <div class="proximity-actions-row">
-                  <a href="locations.html" class="btn btn-primary btn-sm"><i class="fa-solid fa-location-arrow"></i> View Route On Map</a>
-                  <button class="btn btn-outline-dark btn-sm" onclick="showToast('Arrival notification set! We will ping you.', 'bell')"><i class="fa-regular fa-bell"></i> Set Arrival Alert</button>
+                  <a href="404.html" class="btn btn-primary btn-sm"><i class="fa-solid fa-location-arrow"></i> View Route On Map</a>
+                  <a href="404.html" class="btn btn-outline-dark btn-sm"><i class="fa-regular fa-bell"></i> Set Arrival Alert</a>
                 </div>
               </div>
             </div>
@@ -358,7 +358,7 @@
                     <td>₹548</td>
                     <td>Bengaluru - Koramangala</td>
                     <td><span class="status-badge preparing">Grilling</span></td>
-                    <td><a href="order-tracking.html" class="special-label dark">Track</a></td>
+                    <td><a href="404.html" class="special-label dark">Track</a></td>
                   </tr>
                   <tr>
                     <td>28 Oct 2026</td>
@@ -390,7 +390,7 @@
                 <h3 class="dash-panel-title"><i class="fa-solid fa-receipt" style="color: var(--color-accent); margin-right: 8px;"></i>Digital Receipts &amp; GST Tax Invoices</h3>
                 <p style="font-size: 0.85rem; color: var(--color-text-muted); margin-top: 4px;">Download formal payment receipts and business expense vouchers</p>
               </div>
-              <button class="btn btn-outline-dark btn-sm" onclick="showToast('Exporting all tax receipts to PDF...', 'file-arrow-down')"><i class="fa-solid fa-download"></i> Download All (PDF)</button>
+              <a href="404.html" class="btn btn-outline-dark btn-sm"><i class="fa-solid fa-download"></i> Download All (PDF)</a>
             </div>
 
             <div class="dash-table-wrap">
@@ -412,7 +412,7 @@
                     <td>The Beast Smash Burger ×2, Loaded Fries ×1</td>
                     <td><strong>₹897</strong></td>
                     <td><span class="badge badge-dark">UPI · Google Pay</span></td>
-                    <td><button class="btn btn-primary btn-sm" style="padding: 6px 12px; font-size: 0.78rem;" onclick="showToast('Downloading Invoice #STK-INV-9021 PDF...', 'file-pdf')"><i class="fa-solid fa-file-pdf"></i> Download PDF</button></td>
+                    <td><a href="404.html" class="btn btn-primary btn-sm" style="padding: 6px 12px; font-size: 0.78rem;"><i class="fa-solid fa-file-pdf"></i> Download PDF</a></td>
                   </tr>
                   <tr>
                     <td><strong>#STK-INV-8842</strong></td>
@@ -420,7 +420,7 @@
                     <td>Crispy Hot Bird Burger ×1, Truffle Fries ×1</td>
                     <td><strong>₹498</strong></td>
                     <td><span class="badge badge-dark">Visa Card ···4812</span></td>
-                    <td><button class="btn btn-primary btn-sm" style="padding: 6px 12px; font-size: 0.78rem;" onclick="showToast('Downloading Invoice #STK-INV-8842 PDF...', 'file-pdf')"><i class="fa-solid fa-file-pdf"></i> Download PDF</button></td>
+                    <td><a href="404.html" class="btn btn-primary btn-sm" style="padding: 6px 12px; font-size: 0.78rem;"><i class="fa-solid fa-file-pdf"></i> Download PDF</a></td>
                   </tr>
                   <tr>
                     <td><strong>#STK-INV-8610</strong></td>
@@ -428,7 +428,7 @@
                     <td>Smoky BBQ Stacker ×3, Caramel Shakes ×2</td>
                     <td><strong>₹1,435</strong></td>
                     <td><span class="badge badge-dark">UPI · PhonePe</span></td>
-                    <td><button class="btn btn-primary btn-sm" style="padding: 6px 12px; font-size: 0.78rem;" onclick="showToast('Downloading Invoice #STK-INV-8610 PDF...', 'file-pdf')"><i class="fa-solid fa-file-pdf"></i> Download PDF</button></td>
+                    <td><a href="404.html" class="btn btn-primary btn-sm" style="padding: 6px 12px; font-size: 0.78rem;"><i class="fa-solid fa-file-pdf"></i> Download PDF</a></td>
                   </tr>
                 </tbody>
               </table>
@@ -457,7 +457,7 @@
                 <h3 class="food-card-title">The Beast Smash Burger</h3>
                 <div class="food-card-footer">
                   <span class="food-card-price">₹349</span>
-                  <button class="add-cart-btn" onclick="quickReorder('smash-beast')"><i class="fa-solid fa-cart-plus"></i> Reorder</button>
+                  <a href="404.html" class="add-cart-btn"><i class="fa-solid fa-cart-plus"></i> Reorder</a>
                 </div>
               </div>
             </div>
@@ -470,7 +470,7 @@
                 <h3 class="food-card-title">Volcano Loaded Cheese Fries</h3>
                 <div class="food-card-footer">
                   <span class="food-card-price">₹199</span>
-                  <button class="add-cart-btn" onclick="quickReorder('loaded-cheese-fries')"><i class="fa-solid fa-cart-plus"></i> Reorder</button>
+                  <a href="404.html" class="add-cart-btn"><i class="fa-solid fa-cart-plus"></i> Reorder</a>
                 </div>
               </div>
             </div>
@@ -483,7 +483,7 @@
                 <h3 class="food-card-title">Belgian Chocolate Shake</h3>
                 <div class="food-card-footer">
                   <span class="food-card-price">₹189</span>
-                  <button class="add-cart-btn" onclick="quickReorder('chocolate-shake')"><i class="fa-solid fa-cart-plus"></i> Reorder</button>
+                  <a href="404.html" class="add-cart-btn"><i class="fa-solid fa-cart-plus"></i> Reorder</a>
                 </div>
               </div>
             </div>
@@ -491,13 +491,14 @@
 
           <!-- NEW SECTION 04: Custom Dietary Preferences & Taste Profile Vault -->
           <div class="dash-panel" style="margin-top: 30px;">
-            <div class="dash-panel-header">
-              <div>
-                <h3 class="dash-panel-title"><i class="fa-solid fa-sliders" style="color: var(--color-accent); margin-right: 8px;"></i>Your Custom Street Taste Profile</h3>
-                <p style="font-size: 0.85rem; color: var(--color-text-muted); margin-top: 4px;">Set kitchen defaults for spice level, bun type, and allergen filters for rapid 1-click orders</p>
+            <form id="clientTasteProfileForm" novalidate>
+              <div class="dash-panel-header">
+                <div>
+                  <h3 class="dash-panel-title"><i class="fa-solid fa-sliders" style="color: var(--color-accent); margin-right: 8px;"></i>Your Custom Street Taste Profile</h3>
+                  <p style="font-size: 0.85rem; color: var(--color-text-muted); margin-top: 4px;">Set kitchen defaults for spice level, bun type, and allergen filters for rapid 1-click orders</p>
+                </div>
+                <button type="submit" class="btn btn-primary btn-sm"><i class="fa-solid fa-floppy-disk"></i> Save Profile</button>
               </div>
-              <button class="btn btn-primary btn-sm" onclick="showToast('Taste preferences saved to your account!', 'circle-check')"><i class="fa-solid fa-floppy-disk"></i> Save Profile</button>
-            </div>
 
             <div class="taste-vault-grid">
               <div class="taste-option-group">
@@ -539,6 +540,7 @@
                 <label class="taste-chip-checkbox"><input type="checkbox" checked> <span>Extra Secret Sauce</span></label>
               </div>
             </div>
+          </form>
           </div>
 
         </section>
@@ -570,8 +572,8 @@
                 <strong>Tier:</strong> Street Classic Package (100 Guests) · Assigned Truck 01
               </p>
               <div class="dash-card-actions">
-                <button class="btn btn-dark btn-sm" onclick="showToast('Catering coordinator Marcus will call you.', 'phone')"><i class="fa-solid fa-phone"></i> Contact Chef Marcus</button>
-                <button class="btn btn-outline btn-sm" onclick="showToast('Menu modifications requested.', 'file-pen')">Edit Guest Notes</button>
+                <a href="404.html" class="btn btn-dark btn-sm"><i class="fa-solid fa-phone"></i> Contact Chef Marcus</a>
+                <a href="404.html" class="btn btn-outline btn-sm">Edit Guest Notes</a>
               </div>
             </div>
           </div>
@@ -592,38 +594,44 @@
             <!-- Profile Details -->
             <div class="dash-panel">
               <h3 class="dash-panel-title" style="margin-bottom: 16px;">Saved Profile Info</h3>
-              <div class="form-group" style="margin-bottom: 14px;">
-                <label class="form-label">Full Name</label>
-                <input type="text" class="form-input" value="John Doe">
-              </div>
-              <div class="form-group" style="margin-bottom: 14px;">
-                <label class="form-label">Email Address</label>
-                <input type="email" class="form-input" value="user@example.com" disabled>
-              </div>
-              <div class="form-group" style="margin-bottom: 18px;">
-                <label class="form-label">Default Pickup Hub</label>
-                <select class="form-select">
-                  <option selected>Bengaluru - Koramangala Hub</option>
-                  <option>Hyderabad - Madhapur Tech Hub</option>
-                  <option>Chennai - Urapakkam Avenue</option>
-                  <option>Coimbatore - PN Palayam Stop</option>
-                </select>
-              </div>
-              <button class="btn btn-dark btn-sm" onclick="showToast('Profile preferences saved!', 'check')">Save Changes</button>
+              <form id="clientProfileForm" novalidate>
+                <div class="form-group" style="margin-bottom: 14px;">
+                  <label class="form-label" for="clientProfileName">Full Name</label>
+                  <input type="text" id="clientProfileName" class="form-input" value="John Doe" required minlength="2">
+                  <span class="form-error-msg" id="clientProfileNameError" style="color: #e74c3c; font-size: 0.8rem; display: none; margin-top: 4px;">Please enter your full name (minimum 2 characters).</span>
+                </div>
+                <div class="form-group" style="margin-bottom: 14px;">
+                  <label class="form-label" for="clientProfileEmail">Email Address</label>
+                  <input type="email" id="clientProfileEmail" class="form-input" value="user@example.com" disabled>
+                </div>
+                <div class="form-group" style="margin-bottom: 18px;">
+                  <label class="form-label" for="clientProfileHub">Default Pickup Hub</label>
+                  <select id="clientProfileHub" class="form-select" required>
+                    <option value="bengaluru" selected>Bengaluru - Koramangala Hub</option>
+                    <option value="hyderabad">Hyderabad - Madhapur Tech Hub</option>
+                    <option value="chennai">Chennai - Urapakkam Avenue</option>
+                    <option value="coimbatore">Coimbatore - PN Palayam Stop</option>
+                  </select>
+                  <span class="form-error-msg" id="clientProfileHubError" style="color: #e74c3c; font-size: 0.8rem; display: none; margin-top: 4px;">Please select your default pickup hub.</span>
+                </div>
+                <button type="submit" class="btn btn-dark btn-sm"><i class="fa-solid fa-floppy-disk"></i> Save Changes</button>
+              </form>
             </div>
 
             <!-- Support Ticket -->
             <div class="dash-panel">
               <h3 class="dash-panel-title" style="margin-bottom: 16px;">Concierge Support Message</h3>
               <p style="font-size: 0.88rem; color: #666; margin-bottom: 14px;">Need help with an order refund, dietary verification or festival query?</p>
-              <form id="clientSupportForm">
+              <form id="clientSupportForm" novalidate>
                 <div class="form-group" style="margin-bottom: 14px;">
-                  <label class="form-label">Subject</label>
-                  <input type="text" class="form-input" placeholder="e.g. Question about allergy options" required>
+                  <label class="form-label" for="clientSupportSubject">Subject</label>
+                  <input type="text" id="clientSupportSubject" class="form-input" placeholder="e.g. Question about allergy options" required minlength="3">
+                  <span class="form-error-msg" id="clientSupportSubjectError" style="color: #e74c3c; font-size: 0.8rem; display: none; margin-top: 4px;">Please enter a subject (minimum 3 characters).</span>
                 </div>
                 <div class="form-group" style="margin-bottom: 16px;">
-                  <label class="form-label">Message</label>
-                  <textarea class="form-textarea" placeholder="How can our street team help you?" required></textarea>
+                  <label class="form-label" for="clientSupportMessage">Message</label>
+                  <textarea id="clientSupportMessage" class="form-textarea" placeholder="How can our street team help you?" required minlength="10"></textarea>
+                  <span class="form-error-msg" id="clientSupportMsgError" style="color: #e74c3c; font-size: 0.8rem; display: none; margin-top: 4px;">Please enter your message details (minimum 10 characters).</span>
                 </div>
                 <button type="submit" class="btn btn-primary btn-sm"><i class="fa-solid fa-paper-plane"></i> Send Support Ticket</button>
               </form>
@@ -647,7 +655,7 @@
                 <p style="font-size: 0.85rem; color: var(--color-text-muted); margin: 6px 0 14px 0;">
                   Off-menu experimental slider with black truffle mayo &amp; bhut jolokia reduction. Only 25 crafted daily per truck.
                 </p>
-                <button class="btn btn-dark btn-sm" onclick="showToast('Secret Drop code added to your next order!', 'check')"><i class="fa-solid fa-lock-open"></i> Unlock Item Code</button>
+                <a href="404.html" class="btn btn-dark btn-sm"><i class="fa-solid fa-lock-open"></i> Unlock Item Code</a>
               </div>
 
               <div class="vip-perk-card">
@@ -656,7 +664,7 @@
                 <p style="font-size: 0.85rem; color: var(--color-text-muted); margin: 6px 0 14px 0;">
                   A warm 6-piece cinnamon sugar churros box with dark chocolate ganache dip on us during your birthday week.
                 </p>
-                <button class="btn btn-outline-dark btn-sm" onclick="showToast('Birthday voucher stored in your wallet!', 'cake-candles')"><i class="fa-solid fa-cake-candles"></i> Claim Voucher</button>
+                <a href="404.html" class="btn btn-outline-dark btn-sm"><i class="fa-solid fa-cake-candles"></i> Claim Voucher</a>
               </div>
 
               <div class="vip-perk-card">
@@ -665,7 +673,7 @@
                 <p style="font-size: 0.85rem; color: var(--color-text-muted); margin: 6px 0 14px 0;">
                   Skip the street crowd line at all upcoming 2026 music festivals and night bazaars by scanning your VIP digital QR badge.
                 </p>
-                <button class="btn btn-primary btn-sm" onclick="showToast('Express Pass QR generated in your wallet!', 'qrcode')"><i class="fa-solid fa-qrcode"></i> View VIP Pass</button>
+                <a href="404.html" class="btn btn-primary btn-sm"><i class="fa-solid fa-qrcode"></i> View VIP Pass</a>
               </div>
             </div>
           </div>
@@ -680,6 +688,7 @@
 
   <!-- Scripts -->
   <script src="js/main.js"></script>
+  <script src="js/validation.js"></script>
   <script src="js/client-dashboard.js"></script>
 </body>
 </html>

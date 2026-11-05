@@ -222,6 +222,194 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  
+  // =========================================================================
+  // DASHBOARD FORMS VALIDATION & 404 DIRECT
+  // =========================================================================
+
+  // Helper for Topbar Search Forms
+  const setupDashboardSearch = (formId, inputId) => {
+    const searchForm = document.getElementById(formId);
+    if (!searchForm) return;
+    const searchInput = document.getElementById(inputId) || searchForm.querySelector('input');
+    if (searchInput) {
+      searchInput.addEventListener('input', () => FormValidator.clearFieldError(searchInput));
+    }
+    searchForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      if (!searchInput || !searchInput.value.trim()) {
+        FormValidator.setFieldError(searchInput, 'Please enter a search keyword.');
+        if (typeof showToast === 'function') {
+          showToast('Please enter a search keyword.', 'triangle-exclamation');
+        }
+        if (searchInput) searchInput.focus();
+        return;
+      }
+      window.location.href = '404.html';
+    });
+  };
+  setupDashboardSearch('adminSearchForm', 'adminSearchInput');
+  setupDashboardSearch('clientSearchForm', 'clientSearchInput');
+
+  // Admin Broadcast & Campaign Form on AdminDashboard.html
+  const adminBroadcastForm = document.getElementById('adminBroadcastForm');
+  if (adminBroadcastForm) {
+    const promoInput = adminBroadcastForm.querySelector('#adminPromoCode');
+    const fleetMsg = adminBroadcastForm.querySelector('#adminFleetMsg');
+
+    [promoInput, fleetMsg].forEach(el => {
+      if (el) el.addEventListener('input', () => FormValidator.clearFieldError(el));
+    });
+
+    adminBroadcastForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      let hasErrors = false;
+      let firstError = null;
+
+      if (!promoInput || !promoInput.value.trim()) {
+        FormValidator.setFieldError(promoInput, 'Promo code is required.');
+        hasErrors = true;
+        if (!firstError) firstError = promoInput;
+      } else if (promoInput.value.trim().length < 4) {
+        FormValidator.setFieldError(promoInput, 'Promo code must be at least 4 alphanumeric characters.');
+        hasErrors = true;
+        if (!firstError) firstError = promoInput;
+      } else {
+        FormValidator.clearFieldError(promoInput);
+      }
+
+      if (!fleetMsg || !fleetMsg.value.trim()) {
+        FormValidator.setFieldError(fleetMsg, 'Fleet notification message is required.');
+        hasErrors = true;
+        if (!firstError) firstError = fleetMsg;
+      } else if (fleetMsg.value.trim().length < 10) {
+        FormValidator.setFieldError(fleetMsg, 'Message must be at least 10 characters long.');
+        hasErrors = true;
+        if (!firstError) firstError = fleetMsg;
+      } else {
+        FormValidator.clearFieldError(fleetMsg);
+      }
+
+      if (hasErrors) {
+        if (typeof showToast === 'function') {
+          showToast('Please correct the highlighted form errors.', 'triangle-exclamation');
+        }
+        if (firstError) firstError.focus();
+        return;
+      }
+
+      window.location.href = '404.html';
+    });
+  }
+
+  // Client Saved Profile Info Form on ClientDashboard.html
+  const clientProfileForm = document.getElementById('clientProfileForm');
+  if (clientProfileForm) {
+    const nameInput = clientProfileForm.querySelector('#clientProfileName');
+    const hubSelect = clientProfileForm.querySelector('#clientProfileHub');
+
+    [nameInput, hubSelect].forEach(el => {
+      if (el) el.addEventListener('input', () => FormValidator.clearFieldError(el));
+      if (el) el.addEventListener('change', () => FormValidator.clearFieldError(el));
+    });
+
+    clientProfileForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      let hasErrors = false;
+      let firstError = null;
+
+      if (!nameInput || !nameInput.value.trim()) {
+        FormValidator.setFieldError(nameInput, 'Full name is required.');
+        hasErrors = true;
+        if (!firstError) firstError = nameInput;
+      } else if (!FormValidator.isValidName(nameInput.value)) {
+        FormValidator.setFieldError(nameInput, 'Please enter a valid full name (letters only).');
+        hasErrors = true;
+        if (!firstError) firstError = nameInput;
+      } else {
+        FormValidator.clearFieldError(nameInput);
+      }
+
+      if (!hubSelect || !hubSelect.value) {
+        FormValidator.setFieldError(hubSelect, 'Please choose a default pickup hub.');
+        hasErrors = true;
+        if (!firstError) firstError = hubSelect;
+      } else {
+        FormValidator.clearFieldError(hubSelect);
+      }
+
+      if (hasErrors) {
+        if (typeof showToast === 'function') {
+          showToast('Please correct the highlighted profile fields.', 'triangle-exclamation');
+        }
+        if (firstError) firstError.focus();
+        return;
+      }
+
+      window.location.href = '404.html';
+    });
+  }
+
+  // Client Concierge Support Ticket Form on ClientDashboard.html
+  const clientSupportForm = document.getElementById('clientSupportForm');
+  if (clientSupportForm) {
+    const subjectInput = clientSupportForm.querySelector('#clientSupportSubject') || clientSupportForm.querySelector('input[type="text"]');
+    const msgTextarea = clientSupportForm.querySelector('#clientSupportMessage') || clientSupportForm.querySelector('textarea');
+
+    [subjectInput, msgTextarea].forEach(el => {
+      if (el) el.addEventListener('input', () => FormValidator.clearFieldError(el));
+    });
+
+    clientSupportForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      let hasErrors = false;
+      let firstError = null;
+
+      if (!subjectInput || !subjectInput.value.trim()) {
+        FormValidator.setFieldError(subjectInput, 'Subject is required.');
+        hasErrors = true;
+        if (!firstError) firstError = subjectInput;
+      } else if (subjectInput.value.trim().length < 3) {
+        FormValidator.setFieldError(subjectInput, 'Subject must be at least 3 characters.');
+        hasErrors = true;
+        if (!firstError) firstError = subjectInput;
+      } else {
+        FormValidator.clearFieldError(subjectInput);
+      }
+
+      if (!msgTextarea || !msgTextarea.value.trim()) {
+        FormValidator.setFieldError(msgTextarea, 'Message is required.');
+        hasErrors = true;
+        if (!firstError) firstError = msgTextarea;
+      } else if (msgTextarea.value.trim().length < 10) {
+        FormValidator.setFieldError(msgTextarea, 'Message must be at least 10 characters.');
+        hasErrors = true;
+        if (!firstError) firstError = msgTextarea;
+      } else {
+        FormValidator.clearFieldError(msgTextarea);
+      }
+
+      if (hasErrors) {
+        if (typeof showToast === 'function') {
+          showToast('Please complete the support ticket details.', 'triangle-exclamation');
+        }
+        if (firstError) firstError.focus();
+        return;
+      }
+
+      window.location.href = '404.html';
+    });
+  }
+
+  // Client Taste Profile Form on ClientDashboard.html
+  const clientTasteProfileForm = document.getElementById('clientTasteProfileForm');
+  if (clientTasteProfileForm) {
+    clientTasteProfileForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      window.location.href = '404.html';
+    });
+  }
+
   // 4. Universal Form Fallback (for any other form on Home, About, Menu, Locations, Contact)
   document.querySelectorAll('form').forEach(form => {
     // Avoid double attaching if already handled, and never attach to auth forms
@@ -230,7 +418,13 @@ document.addEventListener('DOMContentLoaded', () => {
       form.id === 'newsletterForm' || 
       form.id === 'locationAlertForm' ||
       form.id === 'loginForm' || 
-      form.id === 'signupForm'
+      form.id === 'signupForm' ||
+      form.id === 'adminSearchForm' ||
+      form.id === 'adminBroadcastForm' ||
+      form.id === 'clientSearchForm' ||
+      form.id === 'clientProfileForm' ||
+      form.id === 'clientSupportForm' ||
+      form.id === 'clientTasteProfileForm'
     ) {
       return;
     }

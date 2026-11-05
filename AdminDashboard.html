@@ -85,10 +85,10 @@
           <button class="dash-menu-toggle" id="dashMenuToggle" aria-label="Toggle Navigation Sidebar">
             <i class="fa-solid fa-bars"></i>
           </button>
-          <div class="dash-search-box">
+          <form id="adminSearchForm" class="dash-search-box" novalidate>
             <i class="fa-solid fa-magnifying-glass"></i>
-            <input type="text" placeholder="Search orders, dishes, fleet hubs...">
-          </div>
+            <input type="text" id="adminSearchInput" placeholder="Search orders, dishes, fleet hubs..." required>
+          </form>
         </div>
 
         <div class="dash-topbar-right">
@@ -123,8 +123,8 @@
               <h1 style="font-size: clamp(1.6rem, 5vw, 2.2rem); color: var(--color-primary); margin-top: 4px;">OPERATIONS OVERVIEW</h1>
             </div>
             <div class="dash-header-actions">
-              <button class="btn btn-primary btn-sm" onclick="openAddFoodModal()"><i class="fa-solid fa-plus"></i> Add Food Item</button>
-              <button class="btn btn-dark btn-sm" onclick="openUpdateLocationModal()"><i class="fa-solid fa-location-dot"></i> Update Location</button>
+              <a href="404.html" class="btn btn-primary btn-sm"><i class="fa-solid fa-plus"></i> Add Food Item</a>
+              <a href="404.html" class="btn btn-dark btn-sm"><i class="fa-solid fa-location-dot"></i> Update Location</a>
             </div>
           </div>
 
@@ -274,7 +274,7 @@
           <div class="dash-panel" style="margin-bottom: 30px;">
             <div class="dash-panel-header">
               <h3 class="dash-panel-title">Recent Incoming Orders</h3>
-              <a href="#" class="special-label dark" onclick="event.preventDefault(); showToast('Loaded full orders ledger.', 'list');">View All</a>
+              <a href="404.html" class="special-label dark">View All</a>
             </div>
             
             <div class="dash-table-wrap">
@@ -298,7 +298,7 @@
                     <td>₹548</td>
                     <td>Bengaluru - Koramangala</td>
                     <td><span class="status-badge preparing">Sizzling Grill</span></td>
-                    <td><button class="btn btn-outline btn-sm" onclick="showToast('Order #STK-9281 marked ready for pickup!', 'check')">Mark Ready</button></td>
+                    <td><a href="404.html" class="btn btn-outline btn-sm">Mark Ready</a></td>
                   </tr>
                   <tr>
                     <td><strong>#STK-9280</strong></td>
@@ -307,7 +307,7 @@
                     <td>₹488</td>
                     <td>Hyderabad - Madhapur</td>
                     <td><span class="status-badge pending">Ticket Printed</span></td>
-                    <td><button class="btn btn-outline btn-sm" onclick="showToast('Ticket pushed to flat-top queue!', 'fire')">Start Grill</button></td>
+                    <td><a href="404.html" class="btn btn-outline btn-sm">Start Grill</a></td>
                   </tr>
                   <tr>
                     <td><strong>#STK-9279</strong></td>
@@ -448,7 +448,7 @@
               <h1 style="font-size: clamp(1.6rem, 5vw, 2.2rem); color: var(--color-primary); margin-top: 4px;">MENU & INVENTORY</h1>
             </div>
             <div class="dash-header-actions">
-              <button class="btn btn-primary btn-sm" onclick="showToast('New dish modal opened.', 'plus')"><i class="fa-solid fa-plus"></i> New Dish</button>
+              <a href="404.html" class="btn btn-primary btn-sm"><i class="fa-solid fa-plus"></i> New Dish</a>
             </div>
           </div>
 
@@ -472,7 +472,7 @@
                     <td>₹349</td>
                     <td><span class="badge badge-yellow">Available</span></td>
                     <td>68 orders</td>
-                    <td><button class="btn btn-outline btn-sm">Edit</button></td>
+                    <td><a href="404.html" class="btn btn-outline btn-sm">Edit</a></td>
                   </tr>
                   <tr>
                     <td><strong>Crispy Hot Bird Burger</strong></td>
@@ -480,7 +480,7 @@
                     <td>₹299</td>
                     <td><span class="badge badge-yellow">Available</span></td>
                     <td>52 orders</td>
-                    <td><button class="btn btn-outline btn-sm">Edit</button></td>
+                    <td><a href="404.html" class="btn btn-outline btn-sm">Edit</a></td>
                   </tr>
                   <tr>
                     <td><strong>Volcano Loaded Cheese Fries</strong></td>
@@ -488,7 +488,7 @@
                     <td>₹199</td>
                     <td><span class="badge badge-yellow">Available</span></td>
                     <td>84 orders</td>
-                    <td><button class="btn btn-outline btn-sm">Edit</button></td>
+                    <td><a href="404.html" class="btn btn-outline btn-sm">Edit</a></td>
                   </tr>
                   <tr>
                     <td><strong>Peri Peri Chicken Wrap</strong></td>
@@ -496,7 +496,7 @@
                     <td>₹269</td>
                     <td><span class="badge badge-yellow">Available</span></td>
                     <td>36 orders</td>
-                    <td><button class="btn btn-outline btn-sm">Edit</button></td>
+                    <td><a href="404.html" class="btn btn-outline btn-sm">Edit</a></td>
                   </tr>
                   <tr>
                     <td><strong>Belgian Chocolate Shake</strong></td>
@@ -504,7 +504,7 @@
                     <td>₹189</td>
                     <td><span class="badge badge-yellow">Available</span></td>
                     <td>42 orders</td>
-                    <td><button class="btn btn-outline btn-sm">Edit</button></td>
+                    <td><a href="404.html" class="btn btn-outline btn-sm">Edit</a></td>
                   </tr>
                 </tbody>
               </table>
@@ -730,14 +730,23 @@
 
           <div class="dash-panel">
             <h3 class="dash-panel-title" style="margin-bottom: 18px;">Active Promo Campaign</h3>
-            <div style="display: flex; gap: 14px; align-items: center; margin-bottom: 20px;">
-              <input type="text" class="form-input" value="STACKLY15" style="max-width: 220px; font-weight: 700;">
-              <span class="badge badge-yellow">15% Discount Active</span>
-            </div>
+            <form id="adminBroadcastForm" novalidate>
+              <div class="form-group" style="margin-bottom: 20px;">
+                <label class="form-label" for="adminPromoCode">Active Promo Campaign Code</label>
+                <div style="display: flex; gap: 14px; align-items: center;">
+                  <input type="text" id="adminPromoCode" class="form-input" value="STACKLY15" style="max-width: 220px; font-weight: 700;" placeholder="e.g. STACKLY15" required minlength="4">
+                  <span class="badge badge-yellow">15% Discount Active</span>
+                </div>
+                <span class="form-error-msg" id="adminPromoError" style="color: #e74c3c; font-size: 0.8rem; display: none; margin-top: 4px;">Promo code must be at least 4 alphanumeric characters.</span>
+              </div>
 
-            <h3 class="dash-panel-title" style="margin-bottom: 14px;">Fleet Notification Message</h3>
-            <textarea class="form-textarea" style="margin-bottom: 16px;">"Sizzling fresh burgers today at Koramangala! Order online to skip the street rush."</textarea>
-            <button class="btn btn-dark btn-sm" onclick="showToast('Fleet broadcast dispatched!', 'broadcast-tower')">Push Broadcast to Mobile Apps</button>
+              <div class="form-group" style="margin-bottom: 16px;">
+                <label class="form-label" for="adminFleetMsg">Fleet Notification Message</label>
+                <textarea id="adminFleetMsg" class="form-textarea" style="margin-bottom: 4px;" placeholder="Enter message to broadcast..." required minlength="10">"Sizzling fresh burgers today at Koramangala! Order online to skip the street rush."</textarea>
+                <span class="form-error-msg" id="adminFleetMsgError" style="color: #e74c3c; font-size: 0.8rem; display: none; margin-top: 4px;">Fleet notification message must be at least 10 characters.</span>
+              </div>
+              <button type="submit" class="btn btn-dark btn-sm"><i class="fa-solid fa-broadcast-tower"></i> Push Broadcast to Mobile Apps</button>
+            </form>
           </div>
 
           <!-- NEW SECTION 05: Kitchen Crew On-Duty & Shift Roster -->
@@ -804,6 +813,7 @@
   <!-- Scripts -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script src="js/main.js"></script>
+  <script src="js/validation.js"></script>
   <script src="js/admin-dashboard.js"></script>
 </body>
 </html>

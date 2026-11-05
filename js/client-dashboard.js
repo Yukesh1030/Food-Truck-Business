@@ -160,13 +160,5 @@ document.addEventListener('DOMContentLoaded', () => {
     showToast('Re-order added to cart! Proceed to checkout.', 'cart-shopping');
   };
 
-  // Support ticket demo
-  const ticketForm = document.getElementById('clientSupportForm');
-  if (ticketForm) {
-    ticketForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-      showToast('Support ticket #TK-842 created. Our concierge will message you shortly.', 'headset');
-      ticketForm.reset();
-    });
-  }
+  // Form validations & 404 redirections are handled by js/validation.js
 });
