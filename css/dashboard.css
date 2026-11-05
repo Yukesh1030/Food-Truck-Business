@@ -37,6 +37,17 @@
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
+.dash-logo-link {
+  display: inline-flex;
+  align-items: center;
+  transition: opacity var(--transition-fast);
+  cursor: pointer;
+}
+
+.dash-logo-link:hover {
+  opacity: 0.85;
+}
+
 .dash-logo-img {
   height: 42px;
   width: auto;
