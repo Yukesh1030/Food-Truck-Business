@@ -3,23 +3,66 @@
  */
 
 document.addEventListener('DOMContentLoaded', () => {
-  // 1. Sidebar Tab Switching (5 Menus)
+  // Chart instances for re-triggering animations on tab switch
+  let salesChartInstance = null;
+  let statusChartInstance = null;
+
+  // 1. Sidebar Tab Switching (All 5 Sub-Pages / Tabs)
   const navItems = document.querySelectorAll('.dash-sidebar .dash-nav-item');
   const tabPanes = document.querySelectorAll('.dash-tab-pane');
   const sidebar = document.querySelector('.dash-sidebar');
   const menuToggle = document.querySelector('.dash-menu-toggle');
   const sidebarClose = document.querySelector('.dash-sidebar-close');
+  const mainArea = document.querySelector('.dash-main-area');
+
+  // Helper: Trigger In-Animation on a target pane
+  const triggerTabInAnimation = (pane) => {
+    if (!pane) return;
+    pane.classList.remove('tab-animating-in');
+    void pane.offsetWidth; // Force CSS reflow to re-trigger keyframe in-animations cleanly
+    pane.classList.add('tab-animating-in');
+  };
+
+  // Trigger in-animation on initial active tab on page load
+  const initialActivePane = document.querySelector('.dash-tab-pane.active');
+  if (initialActivePane) {
+    triggerTabInAnimation(initialActivePane);
+  }
 
   navItems.forEach(item => {
     item.addEventListener('click', () => {
+      if (item.classList.contains('active')) return;
+
       navItems.forEach(i => i.classList.remove('active'));
-      tabPanes.forEach(p => p.classList.remove('active'));
+      tabPanes.forEach(p => {
+        p.classList.remove('active');
+        p.classList.remove('tab-animating-in');
+      });
 
       item.classList.add('active');
       const targetTabId = item.dataset.tab;
       const targetPane = document.getElementById(targetTabId);
       if (targetPane) {
         targetPane.classList.add('active');
+        triggerTabInAnimation(targetPane);
+
+        // Smoothly scroll back to the top of the dashboard content area
+        if (mainArea) {
+          mainArea.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Re-animate KPI counters and charts if returning to Operations Overview
+        if (targetTabId === 'tab-overview') {
+          runAdminKpis();
+          if (salesChartInstance) {
+            salesChartInstance.reset();
+            salesChartInstance.update();
+          }
+          if (statusChartInstance) {
+            statusChartInstance.reset();
+            statusChartInstance.update();
+          }
+        }
       }
 
       // Close mobile sidebar if open
@@ -109,22 +152,27 @@ document.addEventListener('DOMContentLoaded', () => {
     window.requestAnimationFrame(step);
   };
 
-  const kpiOrders = document.getElementById('kpiOrders');
-  const kpiRevenue = document.getElementById('kpiRevenue');
-  const kpiItems = document.getElementById('kpiItems');
-  const kpiPending = document.getElementById('kpiPending');
+  const runAdminKpis = () => {
+    const kpiOrders = document.getElementById('kpiOrders');
+    const kpiRevenue = document.getElementById('kpiRevenue');
+    const kpiItems = document.getElementById('kpiItems');
+    const kpiPending = document.getElementById('kpiPending');
 
-  if (kpiOrders) animateValue(kpiOrders, 0, 128, 1200);
-  if (kpiRevenue) animateValue(kpiRevenue, 0, 24850, 1400, '₹');
-  if (kpiItems) animateValue(kpiItems, 0, 42, 1000);
-  if (kpiPending) animateValue(kpiPending, 0, 16, 900);
+    if (kpiOrders) animateValue(kpiOrders, 0, 128, 900);
+    if (kpiRevenue) animateValue(kpiRevenue, 0, 24850, 1100, '₹');
+    if (kpiItems) animateValue(kpiItems, 0, 42, 800);
+    if (kpiPending) animateValue(kpiPending, 0, 16, 700);
+  };
+
+  // Run on load
+  runAdminKpis();
 
   // 3. Chart.js Initialization
   if (typeof Chart !== 'undefined') {
     // Sales Bar Chart
     const salesCanvas = document.getElementById('adminSalesChart');
     if (salesCanvas) {
-      new Chart(salesCanvas.getContext('2d'), {
+      salesChartInstance = new Chart(salesCanvas.getContext('2d'), {
         type: 'bar',
         data: {
           labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
@@ -158,7 +206,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Status Doughnut Chart
     const statusCanvas = document.getElementById('adminStatusChart');
     if (statusCanvas) {
-      new Chart(statusCanvas.getContext('2d'), {
+      statusChartInstance = new Chart(statusCanvas.getContext('2d'), {
         type: 'doughnut',
         data: {
           labels: ['Delivered', 'Preparing', 'Pending'],
@@ -189,4 +237,3 @@ document.addEventListener('DOMContentLoaded', () => {
     showToast('Truck GPS beacon updated to current spot.', 'location-dot');
   };
 });
-

@@ -98,6 +98,7 @@
             <span class="notif-badge">4</span>
           </div>
 
+          
           <div class="user-profile-badge">
             <div class="user-avatar-circle">AD</div>
             <div style="display: flex; flex-direction: column;">
@@ -191,6 +192,84 @@
             </div>
           </div>
 
+          <!-- NEW SECTION 01: Item Sales Velocity & Leaderboard -->
+          <div class="dash-panel" style="margin-bottom: 30px;">
+            <div class="dash-panel-header">
+              <div>
+                <h3 class="dash-panel-title"><i class="fa-solid fa-fire" style="color: var(--color-accent); margin-right: 8px;"></i>Item Sales Velocity & Leaderboard</h3>
+                <p style="font-size: 0.85rem; color: var(--color-text-muted); margin-top: 4px;">Top selling street items ranked by real-time unit volume, revenue share, and margin</p>
+              </div>
+              <span class="badge badge-yellow">Updated Live</span>
+            </div>
+
+            <div class="velocity-grid">
+              <div class="velocity-item-card">
+                <div class="velocity-rank-pill">#1</div>
+                <div style="flex: 1;">
+                  <div style="font-weight: 700; color: var(--color-primary); font-size: 1.05rem;">The Beast Smash Burger</div>
+                  <div style="font-size: 0.82rem; color: var(--color-text-muted);">Double beef patty · Brioche bun</div>
+                </div>
+                <div class="velocity-stat-col">
+                  <div class="velocity-stat-num">78 Orders</div>
+                  <div class="velocity-stat-sub" style="color: #27ae60;"><i class="fa-solid fa-arrow-trend-up"></i> +18% Surge</div>
+                </div>
+                <div class="velocity-stat-col">
+                  <div class="velocity-stat-num">₹27,222</div>
+                  <div class="velocity-stat-sub">64% Margin</div>
+                </div>
+              </div>
+
+              <div class="velocity-item-card">
+                <div class="velocity-rank-pill">#2</div>
+                <div style="flex: 1;">
+                  <div style="font-weight: 700; color: var(--color-primary); font-size: 1.05rem;">Volcano Loaded Fries</div>
+                  <div style="font-size: 0.82rem; color: var(--color-text-muted);">Triple cheese melt · Jalapeño crunch</div>
+                </div>
+                <div class="velocity-stat-col">
+                  <div class="velocity-stat-num">64 Orders</div>
+                  <div class="velocity-stat-sub" style="color: #27ae60;"><i class="fa-solid fa-arrow-trend-up"></i> +12% Steady</div>
+                </div>
+                <div class="velocity-stat-col">
+                  <div class="velocity-stat-num">₹12,736</div>
+                  <div class="velocity-stat-sub">72% Margin</div>
+                </div>
+              </div>
+
+              <div class="velocity-item-card">
+                <div class="velocity-rank-pill">#3</div>
+                <div style="flex: 1;">
+                  <div style="font-weight: 700; color: var(--color-primary); font-size: 1.05rem;">Crispy Hot Bird Burger</div>
+                  <div style="font-size: 0.82rem; color: var(--color-text-muted);">Nashville cayenne glaze · Chipotle</div>
+                </div>
+                <div class="velocity-stat-col">
+                  <div class="velocity-stat-num">51 Orders</div>
+                  <div class="velocity-stat-sub" style="color: #27ae60;"><i class="fa-solid fa-arrow-trend-up"></i> +9% Steady</div>
+                </div>
+                <div class="velocity-stat-col">
+                  <div class="velocity-stat-num">₹15,249</div>
+                  <div class="velocity-stat-sub">58% Margin</div>
+                </div>
+              </div>
+
+              <div class="velocity-item-card">
+                <div class="velocity-rank-pill">#4</div>
+                <div style="flex: 1;">
+                  <div style="font-weight: 700; color: var(--color-primary); font-size: 1.05rem;">Truffle Portobello Melt</div>
+                  <div style="font-size: 0.82rem; color: var(--color-text-muted);">Vegetarian flagship · Truffle aioli</div>
+                </div>
+                <div class="velocity-stat-col">
+                  <div class="velocity-stat-num">38 Orders</div>
+                  <div class="velocity-stat-sub" style="color: #f39c12;"><i class="fa-solid fa-minus"></i> +4% Moderate</div>
+                </div>
+                <div class="velocity-stat-col">
+                  <div class="velocity-stat-num">₹12,122</div>
+                  <div class="velocity-stat-sub">61% Margin</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
           <!-- Recent Orders Table -->
           <div class="dash-panel" style="margin-bottom: 30px;">
             <div class="dash-panel-header">
@@ -252,6 +331,60 @@
               </table>
             </div>
           </div>
+
+          <!-- NEW SECTION 02: Kitchen Peak Rush & Wait Time Analytics -->
+          <div class="dash-panel" style="margin-bottom: 30px;">
+            <div class="dash-panel-header">
+              <div>
+                <h3 class="dash-panel-title"><i class="fa-solid fa-stopwatch" style="color: var(--color-accent); margin-right: 8px;"></i>Kitchen Peak Rush & Turnaround Analytics</h3>
+                <p style="font-size: 0.85rem; color: var(--color-text-muted); margin-top: 4px;">Ticket speed, flat-top griddle workload, and rush volume distribution</p>
+              </div>
+              <span class="badge badge-dark">Speed Target: &lt; 10m</span>
+            </div>
+
+            <div class="rush-metrics-grid">
+              <div class="rush-metric-box">
+                <div class="rush-metric-val">8.2 <span style="font-size: 1rem; font-weight: 500;">mins</span></div>
+                <div class="rush-metric-label">Avg Ticket Prep Speed</div>
+                <div style="font-size: 0.78rem; color: #27ae60; margin-top: 4px;"><i class="fa-solid fa-circle-check"></i> 1.8 mins faster than benchmark</div>
+              </div>
+
+              <div class="rush-metric-box">
+                <div class="rush-metric-val">84<span style="font-size: 1rem; font-weight: 500;">%</span></div>
+                <div class="rush-metric-label">Griddle Surface Load</div>
+                <div style="font-size: 0.78rem; color: var(--color-accent); margin-top: 4px;"><i class="fa-solid fa-fire-burner"></i> Heavy Searing (Peak Mode)</div>
+              </div>
+
+              <div class="rush-metric-box">
+                <div class="rush-metric-val">96.4<span style="font-size: 1rem; font-weight: 500;">%</span></div>
+                <div class="rush-metric-label">On-Time Ticket Fulfilment</div>
+                <div style="font-size: 0.78rem; color: #27ae60; margin-top: 4px;"><i class="fa-solid fa-circle-check"></i> Zero cancelled tickets</div>
+              </div>
+            </div>
+
+            <div style="margin-top: 20px;">
+              <div style="font-size: 0.9rem; font-weight: 600; color: var(--color-primary); margin-bottom: 12px;">Daily Street Rush Distribution &amp; Queue Windows</div>
+              <div class="rush-bar-row">
+                <div class="rush-bar-label">Lunch Surge (12:30 PM – 2:30 PM)</div>
+                <div class="rush-bar-track">
+                  <div class="rush-bar-fill" style="width: 85%; background: #F4B323;">85% Capacity</div>
+                </div>
+              </div>
+              <div class="rush-bar-row">
+                <div class="rush-bar-label">Evening Tea &amp; Bites (5:00 PM – 6:30 PM)</div>
+                <div class="rush-bar-track">
+                  <div class="rush-bar-fill" style="width: 62%; background: #f39c12;">62% Capacity</div>
+                </div>
+              </div>
+              <div class="rush-bar-row">
+                <div class="rush-bar-label">Night Street Rush (7:30 PM – 10:30 PM)</div>
+                <div class="rush-bar-track">
+                  <div class="rush-bar-fill" style="width: 95%; background: #e74c3c;">95% Peak Load</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
 
           <!-- Inventory Alerts & Bookings Split -->
           <div class="charts-split-grid">
@@ -436,6 +569,53 @@
               </table>
             </div>
           </div>
+        
+          <!-- NEW SECTION 03: Live Customer Feedback & Review Pulse -->
+          <div class="dash-panel" style="margin-top: 30px;">
+            <div class="dash-panel-header">
+              <div>
+                <h3 class="dash-panel-title"><i class="fa-solid fa-comments" style="color: var(--color-accent); margin-right: 8px;"></i>Live Customer Feedback &amp; Review Pulse</h3>
+                <p style="font-size: 0.85rem; color: var(--color-text-muted); margin-top: 4px;">Recent customer ratings, taste feedback, and street satisfaction index</p>
+              </div>
+              <div style="display: flex; align-items: center; gap: 8px;">
+                <span class="badge badge-yellow"><i class="fa-solid fa-star"></i> 4.9 Rating</span>
+                <span style="font-size: 0.82rem; color: #27ae60; font-weight: 600;">98.2% Positive</span>
+              </div>
+            </div>
+
+            <div class="feedback-pulse-grid">
+              <div class="feedback-card">
+                <div class="feedback-card-top">
+                  <div style="font-weight: 700; color: var(--color-primary);">Aarav M.</div>
+                  <div style="color: #f39c12; font-size: 0.85rem;"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                </div>
+                <div class="feedback-card-meta">Koramangala Truck Hub · Order #STK-849201</div>
+                <p class="feedback-card-body">"The caramelized edges on the Beast Smash patty were absolute perfection. Handed to me hot in under 7 minutes flat!"</p>
+                <div class="feedback-card-tag"><i class="fa-solid fa-check"></i> Prime Quality Verified</div>
+              </div>
+
+              <div class="feedback-card">
+                <div class="feedback-card-top">
+                  <div style="font-weight: 700; color: var(--color-primary);">Pooja Krishnan</div>
+                  <div style="color: #f39c12; font-size: 0.85rem;"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                </div>
+                <div class="feedback-card-meta">Madhapur Tech Hub · Order #STK-849188</div>
+                <p class="feedback-card-body">"Volcano Loaded Fries are pure comfort food. The spicy cheese sauce had just the right punch. Please keep parking near our office!"</p>
+                <div class="feedback-card-tag"><i class="fa-solid fa-bolt"></i> Fast Counter Pickup</div>
+              </div>
+
+              <div class="feedback-card">
+                <div class="feedback-card-top">
+                  <div style="font-weight: 700; color: var(--color-primary);">Vikram S.</div>
+                  <div style="color: #f39c12; font-size: 0.85rem;"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i></div>
+                </div>
+                <div class="feedback-card-meta">Marina Coastal Stop · Order #STK-849174</div>
+                <p class="feedback-card-body">"Hot Bird Burger was wonderfully crunchy with fiery Nashville glaze. Would love a fresh tropical cooler on the beverage menu."</p>
+                <div class="feedback-card-tag" style="color: #e67e22; background: rgba(230, 126, 34, 0.1);"><i class="fa-solid fa-lightbulb"></i> Menu Suggestion</div>
+              </div>
+            </div>
+          </div>
+
         </section>
 
         <!-- ==========================================
@@ -469,6 +649,72 @@
               </div>
             </div>
           </div>
+
+          <!-- NEW SECTION 04: Live Fleet Telemetry, Power & Equipment Diagnostics -->
+          <div class="dash-panel" style="margin-top: 30px;">
+            <div class="dash-panel-header">
+              <div>
+                <h3 class="dash-panel-title"><i class="fa-solid fa-gauge" style="color: var(--color-accent); margin-right: 8px;"></i>Live Fleet Telemetry &amp; Equipment Diagnostics</h3>
+                <p style="font-size: 0.85rem; color: var(--color-text-muted); margin-top: 4px;">Real-time onboard power generators, fuel reserves, water tanks, and griddle temperatures</p>
+              </div>
+              <span class="badge badge-yellow">4/4 Trucks Operational</span>
+            </div>
+
+            <div class="telemetry-grid">
+              <div class="telemetry-card">
+                <div class="telemetry-header">
+                  <div class="telemetry-truck-name">Truck Alpha · Koramangala Hub</div>
+                  <span class="telemetry-status-dot online"></span>
+                </div>
+                <div class="telemetry-stats">
+                  <div class="telemetry-stat-row"><span><i class="fa-solid fa-plug"></i> Silent Generator:</span> <strong>98% OK</strong></div>
+                  <div class="telemetry-stat-row"><span><i class="fa-solid fa-gas-pump"></i> Propane Reserves:</span> <strong>82% Full</strong></div>
+                  <div class="telemetry-stat-row"><span><i class="fa-solid fa-faucet-drip"></i> Fresh Water Tank:</span> <strong>160L / 200L</strong></div>
+                  <div class="telemetry-stat-row"><span><i class="fa-solid fa-temperature-high"></i> Flat-Top Griddle:</span> <strong style="color: #e74c3c;">242°C (Optimal)</strong></div>
+                </div>
+              </div>
+
+              <div class="telemetry-card">
+                <div class="telemetry-header">
+                  <div class="telemetry-truck-name">Truck Beta · Madhapur Tech Hub</div>
+                  <span class="telemetry-status-dot online"></span>
+                </div>
+                <div class="telemetry-stats">
+                  <div class="telemetry-stat-row"><span><i class="fa-solid fa-plug"></i> Silent Generator:</span> <strong>95% OK</strong></div>
+                  <div class="telemetry-stat-row"><span><i class="fa-solid fa-gas-pump"></i> Propane Reserves:</span> <strong>76% Full</strong></div>
+                  <div class="telemetry-stat-row"><span><i class="fa-solid fa-faucet-drip"></i> Fresh Water Tank:</span> <strong>140L / 200L</strong></div>
+                  <div class="telemetry-stat-row"><span><i class="fa-solid fa-temperature-high"></i> Flat-Top Griddle:</span> <strong style="color: #e74c3c;">238°C (Optimal)</strong></div>
+                </div>
+              </div>
+
+              <div class="telemetry-card">
+                <div class="telemetry-header">
+                  <div class="telemetry-truck-name">Truck Gamma · Marina Coastal Stop</div>
+                  <span class="telemetry-status-dot online"></span>
+                </div>
+                <div class="telemetry-stats">
+                  <div class="telemetry-stat-row"><span><i class="fa-solid fa-plug"></i> Silent Generator:</span> <strong>91% OK</strong></div>
+                  <div class="telemetry-stat-row"><span><i class="fa-solid fa-gas-pump"></i> Propane Reserves:</span> <strong>68% Full</strong></div>
+                  <div class="telemetry-stat-row"><span><i class="fa-solid fa-faucet-drip"></i> Fresh Water Tank:</span> <strong>175L / 200L</strong></div>
+                  <div class="telemetry-stat-row"><span><i class="fa-solid fa-temperature-high"></i> Flat-Top Griddle:</span> <strong style="color: #e74c3c;">240°C (Optimal)</strong></div>
+                </div>
+              </div>
+
+              <div class="telemetry-card">
+                <div class="telemetry-header">
+                  <div class="telemetry-truck-name">Truck Delta · Coimbatore Western Hub</div>
+                  <span class="telemetry-status-dot online"></span>
+                </div>
+                <div class="telemetry-stats">
+                  <div class="telemetry-stat-row"><span><i class="fa-solid fa-plug"></i> Silent Generator:</span> <strong>99% OK</strong></div>
+                  <div class="telemetry-stat-row"><span><i class="fa-solid fa-gas-pump"></i> Propane Reserves:</span> <strong>88% Full</strong></div>
+                  <div class="telemetry-stat-row"><span><i class="fa-solid fa-faucet-drip"></i> Fresh Water Tank:</span> <strong>190L / 200L</strong></div>
+                  <div class="telemetry-stat-row"><span><i class="fa-solid fa-temperature-high"></i> Flat-Top Griddle:</span> <strong style="color: #e74c3c;">235°C (Optimal)</strong></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
         </section>
 
         <!-- ==========================================
@@ -493,6 +739,60 @@
             <textarea class="form-textarea" style="margin-bottom: 16px;">"Sizzling fresh burgers today at Koramangala! Order online to skip the street rush."</textarea>
             <button class="btn btn-dark btn-sm" onclick="showToast('Fleet broadcast dispatched!', 'broadcast-tower')">Push Broadcast to Mobile Apps</button>
           </div>
+
+          <!-- NEW SECTION 05: Kitchen Crew On-Duty & Shift Roster -->
+          <div class="dash-panel" style="margin-top: 30px;">
+            <div class="dash-panel-header">
+              <div>
+                <h3 class="dash-panel-title"><i class="fa-solid fa-users-gear" style="color: var(--color-accent); margin-right: 8px;"></i>Kitchen Crew On-Duty &amp; Shift Roster</h3>
+                <p style="font-size: 0.85rem; color: var(--color-text-muted); margin-top: 4px;">Active head griddle masters, line prep chefs, and mobile window leads</p>
+              </div>
+              <span class="badge badge-dark">12 Crew Checked In</span>
+            </div>
+
+            <div class="crew-roster-grid">
+              <div class="crew-member-card">
+                <div class="crew-avatar">RK</div>
+                <div style="flex: 1;">
+                  <div style="font-weight: 700; color: var(--color-primary); font-size: 1rem;">Chef Rajesh Kumar</div>
+                  <div style="font-size: 0.82rem; color: var(--color-accent); font-weight: 600;">Head Griddle Master · Bengaluru Hub</div>
+                  <div style="font-size: 0.78rem; color: var(--color-text-muted); margin-top: 4px;"><i class="fa-regular fa-clock"></i> 11:00 AM – 8:00 PM (4h 15m active)</div>
+                </div>
+                <span class="badge badge-yellow">On Griddle</span>
+              </div>
+
+              <div class="crew-member-card">
+                <div class="crew-avatar">SN</div>
+                <div style="flex: 1;">
+                  <div style="font-weight: 700; color: var(--color-primary); font-size: 1rem;">Suresh Nair</div>
+                  <div style="font-size: 0.82rem; color: var(--color-accent); font-weight: 600;">Fleet Lead &amp; Operations · Hyderabad Hub</div>
+                  <div style="font-size: 0.78rem; color: var(--color-text-muted); margin-top: 4px;"><i class="fa-regular fa-clock"></i> 12:00 PM – 9:00 PM (3h 20m active)</div>
+                </div>
+                <span class="badge badge-yellow">Counter Window</span>
+              </div>
+
+              <div class="crew-member-card">
+                <div class="crew-avatar">PR</div>
+                <div style="flex: 1;">
+                  <div style="font-weight: 700; color: var(--color-primary); font-size: 1rem;">Priya Raman</div>
+                  <div style="font-size: 0.82rem; color: var(--color-accent); font-weight: 600;">Prep Cook &amp; Assembly · Chennai Hub</div>
+                  <div style="font-size: 0.78rem; color: var(--color-text-muted); margin-top: 4px;"><i class="fa-regular fa-clock"></i> 2:00 PM – 11:00 PM (2h 40m active)</div>
+                </div>
+                <span class="badge badge-yellow">Line Assembly</span>
+              </div>
+
+              <div class="crew-member-card">
+                <div class="crew-avatar">KV</div>
+                <div style="flex: 1;">
+                  <div style="font-weight: 700; color: var(--color-primary); font-size: 1rem;">Karthik Vijay</div>
+                  <div style="font-size: 0.82rem; color: var(--color-accent); font-weight: 600;">Cashier &amp; Token Dispatch · Coimbatore Hub</div>
+                  <div style="font-size: 0.78rem; color: var(--color-text-muted); margin-top: 4px;"><i class="fa-regular fa-clock"></i> 11:30 AM – 8:30 PM (3h 50m active)</div>
+                </div>
+                <span class="badge badge-yellow">POS Ready</span>
+              </div>
+            </div>
+          </div>
+
         </section>
 
       </main>

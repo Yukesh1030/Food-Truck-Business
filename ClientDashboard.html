@@ -125,6 +125,56 @@
             </div>
           </div>
 
+          <!-- NEW SECTION 01: STACKLY Street VIP Rewards & Points Vault -->
+          <div class="dash-panel loyalty-reward-panel" style="margin-bottom: 30px;">
+            <div class="loyalty-header-row">
+              <div style="flex: 1;">
+                <span class="badge badge-yellow"><i class="fa-solid fa-crown"></i> Silver Tier Foodie</span>
+                <h3 style="font-size: clamp(1.6rem, 3.5vw, 2.2rem); color: #F5F0E6; margin: 8px 0 4px 0; font-family: var(--font-heading);">
+                  STACKLY STREET VIP REWARDS
+                </h3>
+                <p style="color: rgba(245, 240, 230, 0.75); font-size: 0.92rem;">
+                  Earn 10 street points on every ₹100 spent · Redeem for free smash burgers, truffle dips &amp; shakes.
+                </p>
+              </div>
+              <div class="loyalty-points-badge">
+                <div style="font-size: 2.2rem; font-family: var(--font-heading); color: var(--color-accent); line-height: 1;">1,450</div>
+                <div style="font-size: 0.75rem; text-transform: uppercase; color: #F5F0E6; letter-spacing: 1px;">Street Points</div>
+              </div>
+            </div>
+
+            <div class="loyalty-progress-container">
+              <div style="display: flex; justify-content: space-between; font-size: 0.85rem; color: #F5F0E6; margin-bottom: 6px;">
+                <span>Current: <strong>Silver Tier</strong></span>
+                <span><strong>50 Points</strong> until Gold Tier</span>
+              </div>
+              <div class="loyalty-progress-track">
+                <div class="loyalty-progress-fill" style="width: 82%;"></div>
+              </div>
+            </div>
+
+            <div class="loyalty-vouchers-grid">
+              <div class="loyalty-voucher-pill">
+                <i class="fa-solid fa-ticket" style="color: var(--color-accent); font-size: 1.2rem;"></i>
+                <div style="flex: 1;">
+                  <div style="font-weight: 700; color: #F5F0E6; font-size: 0.9rem;">FREE VOLCANO FRIES</div>
+                  <div style="font-size: 0.75rem; color: rgba(245,240,230,0.6);">Unlocked · Code: <strong>FREEFRIES</strong></div>
+                </div>
+                <button class="btn btn-primary btn-sm" onclick="showToast('Coupon FREEFRIES applied to cart!', 'check-circle')">Redeem</button>
+              </div>
+
+              <div class="loyalty-voucher-pill">
+                <i class="fa-solid fa-burger" style="color: var(--color-accent); font-size: 1.2rem;"></i>
+                <div style="flex: 1;">
+                  <div style="font-weight: 700; color: #F5F0E6; font-size: 0.9rem;">20% OFF ANY SMASH BURGER</div>
+                  <div style="font-size: 0.75rem; color: rgba(245,240,230,0.6);">Unlocked · Code: <strong>VIPBURGER</strong></div>
+                </div>
+                <button class="btn btn-primary btn-sm" onclick="showToast('Coupon VIPBURGER applied to cart!', 'check-circle')">Redeem</button>
+              </div>
+            </div>
+          </div>
+
+
           <!-- Customer KPI Cards -->
           <div class="kpi-cards-grid">
             <div class="kpi-card">
@@ -242,6 +292,37 @@
             </div>
           </div>
 
+        
+          <!-- NEW SECTION 02: Nearest Food Truck Live Proximity & Schedule -->
+          <div class="dash-panel" style="margin-bottom: 30px;">
+            <div class="dash-panel-header">
+              <div>
+                <h3 class="dash-panel-title"><i class="fa-solid fa-map-pin" style="color: var(--color-accent); margin-right: 8px;"></i>Nearest Food Truck Live Proximity</h3>
+                <p style="font-size: 0.85rem; color: var(--color-text-muted); margin-top: 4px;">Real-time GPS distance and service status to your saved location</p>
+              </div>
+              <span class="badge badge-yellow"><i class="fa-solid fa-signal"></i> Live GPS Online</span>
+            </div>
+
+            <div class="proximity-card">
+              <div class="proximity-icon-wrap">
+                <i class="fa-solid fa-truck-fast"></i>
+              </div>
+              <div style="flex: 1;">
+                <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+                  <span style="font-weight: 700; color: var(--color-primary); font-size: 1.1rem;">Koramangala 5th Block Hub</span>
+                  <span class="badge badge-dark">0.8 km from you</span>
+                </div>
+                <p style="font-size: 0.88rem; color: var(--color-text-muted); margin: 6px 0 10px 0;">
+                  Sony World Signal, 80 Feet Road · Hot griddle active now · Open till 11:30 PM
+                </p>
+                <div class="proximity-actions-row">
+                  <a href="locations.html" class="btn btn-primary btn-sm"><i class="fa-solid fa-location-arrow"></i> View Route On Map</a>
+                  <button class="btn btn-outline-dark btn-sm" onclick="showToast('Arrival notification set! We will ping you.', 'bell')"><i class="fa-regular fa-bell"></i> Set Arrival Alert</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
         </section>
 
         <!-- ==========================================
@@ -301,6 +382,59 @@
               </table>
             </div>
           </div>
+
+          <!-- NEW SECTION 03: Digital Receipts & Tax Invoices Ledger -->
+          <div class="dash-panel" style="margin-top: 30px;">
+            <div class="dash-panel-header">
+              <div>
+                <h3 class="dash-panel-title"><i class="fa-solid fa-receipt" style="color: var(--color-accent); margin-right: 8px;"></i>Digital Receipts &amp; GST Tax Invoices</h3>
+                <p style="font-size: 0.85rem; color: var(--color-text-muted); margin-top: 4px;">Download formal payment receipts and business expense vouchers</p>
+              </div>
+              <button class="btn btn-outline-dark btn-sm" onclick="showToast('Exporting all tax receipts to PDF...', 'file-arrow-down')"><i class="fa-solid fa-download"></i> Download All (PDF)</button>
+            </div>
+
+            <div class="dash-table-wrap">
+              <table class="dash-table">
+                <thead>
+                  <tr>
+                    <th>Invoice ID</th>
+                    <th>Date &amp; Time</th>
+                    <th>Items Ordered</th>
+                    <th>Amount</th>
+                    <th>Payment Method</th>
+                    <th>Tax Invoice</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>#STK-INV-9021</strong></td>
+                    <td>04 Nov 2026, 8:42 PM</td>
+                    <td>The Beast Smash Burger ×2, Loaded Fries ×1</td>
+                    <td><strong>₹897</strong></td>
+                    <td><span class="badge badge-dark">UPI · Google Pay</span></td>
+                    <td><button class="btn btn-primary btn-sm" style="padding: 6px 12px; font-size: 0.78rem;" onclick="showToast('Downloading Invoice #STK-INV-9021 PDF...', 'file-pdf')"><i class="fa-solid fa-file-pdf"></i> Download PDF</button></td>
+                  </tr>
+                  <tr>
+                    <td><strong>#STK-INV-8842</strong></td>
+                    <td>28 Oct 2026, 1:15 PM</td>
+                    <td>Crispy Hot Bird Burger ×1, Truffle Fries ×1</td>
+                    <td><strong>₹498</strong></td>
+                    <td><span class="badge badge-dark">Visa Card ···4812</span></td>
+                    <td><button class="btn btn-primary btn-sm" style="padding: 6px 12px; font-size: 0.78rem;" onclick="showToast('Downloading Invoice #STK-INV-8842 PDF...', 'file-pdf')"><i class="fa-solid fa-file-pdf"></i> Download PDF</button></td>
+                  </tr>
+                  <tr>
+                    <td><strong>#STK-INV-8610</strong></td>
+                    <td>15 Oct 2026, 9:30 PM</td>
+                    <td>Smoky BBQ Stacker ×3, Caramel Shakes ×2</td>
+                    <td><strong>₹1,435</strong></td>
+                    <td><span class="badge badge-dark">UPI · PhonePe</span></td>
+                    <td><button class="btn btn-primary btn-sm" style="padding: 6px 12px; font-size: 0.78rem;" onclick="showToast('Downloading Invoice #STK-INV-8610 PDF...', 'file-pdf')"><i class="fa-solid fa-file-pdf"></i> Download PDF</button></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
         </section>
 
         <!-- ==========================================
@@ -354,6 +488,59 @@
               </div>
             </div>
           </div>
+
+          <!-- NEW SECTION 04: Custom Dietary Preferences & Taste Profile Vault -->
+          <div class="dash-panel" style="margin-top: 30px;">
+            <div class="dash-panel-header">
+              <div>
+                <h3 class="dash-panel-title"><i class="fa-solid fa-sliders" style="color: var(--color-accent); margin-right: 8px;"></i>Your Custom Street Taste Profile</h3>
+                <p style="font-size: 0.85rem; color: var(--color-text-muted); margin-top: 4px;">Set kitchen defaults for spice level, bun type, and allergen filters for rapid 1-click orders</p>
+              </div>
+              <button class="btn btn-primary btn-sm" onclick="showToast('Taste preferences saved to your account!', 'circle-check')"><i class="fa-solid fa-floppy-disk"></i> Save Profile</button>
+            </div>
+
+            <div class="taste-vault-grid">
+              <div class="taste-option-group">
+                <label class="form-label"><i class="fa-solid fa-pepper-hot" style="color: #e74c3c;"></i> Preferred Spice Level</label>
+                <select class="form-select">
+                  <option selected>Medium Street Heat (Recommended)</option>
+                  <option>Fiery Hot (Nashville Cayenne Glaze)</option>
+                  <option>Mild / Kid Friendly (Zero Chili)</option>
+                </select>
+              </div>
+
+              <div class="taste-option-group">
+                <label class="form-label"><i class="fa-solid fa-bread-slice" style="color: var(--color-accent);"></i> Default Bun Preference</label>
+                <select class="form-select">
+                  <option selected>Toasted Brioche Bun (Standard)</option>
+                  <option>Soft Potato Roll</option>
+                  <option>Gluten-Free Seeded Bun (+₹30)</option>
+                  <option>Crisp Lettuce Wrap (Low-Carb)</option>
+                </select>
+              </div>
+
+              <div class="taste-option-group">
+                <label class="form-label"><i class="fa-solid fa-utensils"></i> Dietary Style</label>
+                <select class="form-select">
+                  <option selected>Non-Vegetarian (All Meat Options)</option>
+                  <option>Strictly Halal Kitchen Certified</option>
+                  <option>Vegetarian &amp; Dedicated Fryer Only</option>
+                </select>
+              </div>
+            </div>
+
+            <div style="margin-top: 20px;">
+              <label class="form-label" style="margin-bottom: 10px; display: block;">Allergen &amp; Topping Exclusions</label>
+              <div class="allergens-chips-row">
+                <label class="taste-chip-checkbox"><input type="checkbox"> <span>No Raw Onions</span></label>
+                <label class="taste-chip-checkbox"><input type="checkbox"> <span>No Pickles</span></label>
+                <label class="taste-chip-checkbox"><input type="checkbox"> <span>Nut-Free Prep</span></label>
+                <label class="taste-chip-checkbox"><input type="checkbox"> <span>Dairy-Free Cheese</span></label>
+                <label class="taste-chip-checkbox"><input type="checkbox" checked> <span>Extra Secret Sauce</span></label>
+              </div>
+            </div>
+          </div>
+
         </section>
 
         <!-- ==========================================
@@ -442,6 +629,47 @@
               </form>
             </div>
           </div>
+        
+          <!-- NEW SECTION 05: VIP Exclusive Tasting Passes & Secret Drops -->
+          <div class="dash-panel" style="margin-top: 30px;">
+            <div class="dash-panel-header">
+              <div>
+                <h3 class="dash-panel-title"><i class="fa-solid fa-gift" style="color: var(--color-accent); margin-right: 8px;"></i>VIP Secret Menu Drops &amp; Event Passes</h3>
+                <p style="font-size: 0.85rem; color: var(--color-text-muted); margin-top: 4px;">Exclusive off-menu creations and festival privileges reserved for verified foodies</p>
+              </div>
+              <span class="badge badge-yellow">Member Perks</span>
+            </div>
+
+            <div class="vip-perks-grid">
+              <div class="vip-perk-card">
+                <div class="vip-perk-badge">Secret Drop #09</div>
+                <div style="font-weight: 700; color: var(--color-primary); font-size: 1.1rem; margin-top: 8px;">Ghost Pepper Truffle Slider</div>
+                <p style="font-size: 0.85rem; color: var(--color-text-muted); margin: 6px 0 14px 0;">
+                  Off-menu experimental slider with black truffle mayo &amp; bhut jolokia reduction. Only 25 crafted daily per truck.
+                </p>
+                <button class="btn btn-dark btn-sm" onclick="showToast('Secret Drop code added to your next order!', 'check')"><i class="fa-solid fa-lock-open"></i> Unlock Item Code</button>
+              </div>
+
+              <div class="vip-perk-card">
+                <div class="vip-perk-badge" style="background: rgba(46, 204, 113, 0.15); color: #27ae60;">Annual Perk</div>
+                <div style="font-weight: 700; color: var(--color-primary); font-size: 1.1rem; margin-top: 8px;">Birthday Churros Box</div>
+                <p style="font-size: 0.85rem; color: var(--color-text-muted); margin: 6px 0 14px 0;">
+                  A warm 6-piece cinnamon sugar churros box with dark chocolate ganache dip on us during your birthday week.
+                </p>
+                <button class="btn btn-outline-dark btn-sm" onclick="showToast('Birthday voucher stored in your wallet!', 'cake-candles')"><i class="fa-solid fa-cake-candles"></i> Claim Voucher</button>
+              </div>
+
+              <div class="vip-perk-card">
+                <div class="vip-perk-badge" style="background: rgba(244, 179, 35, 0.15); color: var(--color-accent);">VIP Pass</div>
+                <div style="font-weight: 700; color: var(--color-primary); font-size: 1.1rem; margin-top: 8px;">Food Carnival Express Queue</div>
+                <p style="font-size: 0.85rem; color: var(--color-text-muted); margin: 6px 0 14px 0;">
+                  Skip the street crowd line at all upcoming 2026 music festivals and night bazaars by scanning your VIP digital QR badge.
+                </p>
+                <button class="btn btn-primary btn-sm" onclick="showToast('Express Pass QR generated in your wallet!', 'qrcode')"><i class="fa-solid fa-qrcode"></i> View VIP Pass</button>
+              </div>
+            </div>
+          </div>
+
         </section>
 
       </main>
