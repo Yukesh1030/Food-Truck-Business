@@ -65,7 +65,6 @@ html, body {
   .footer-top-grid {
     grid-template-columns: 1fr 1fr;
     gap: 40px;
-    justify-items: center;
   }
 
   .nav-links-list {
@@ -96,7 +95,6 @@ html, body {
   .footer-top-grid {
     grid-template-columns: 1fr 1fr;
     gap: 36px;
-    justify-items: center;
   }
 
   .section-padding {
@@ -141,21 +139,139 @@ html, body {
     height: 38px;
   }
 
+  /* Footer Mobile View: Strictly Align Contents in Center */
+  .site-footer {
+    text-align: center !important;
+  }
+
   .footer-top-grid {
-    grid-template-columns: 1fr;
-    gap: 40px;
-    justify-items: center;
+    grid-template-columns: 1fr !important;
+    gap: 36px;
+    justify-items: center !important;
+    text-align: center !important;
+  }
+
+  .footer-top-grid > div {
+    display: flex;
+    flex-direction: column;
+    align-items: center !important;
+    text-align: center !important;
+    width: 100%;
+  }
+
+  .footer-brand-col {
+    display: flex;
+    flex-direction: column;
+    align-items: center !important;
+    text-align: center !important;
+    gap: 16px;
+    width: 100%;
+  }
+
+  .footer-logo-img {
+    margin: 0 auto !important;
+    display: block;
+  }
+
+  .footer-tagline {
+    text-align: center !important;
+  }
+
+  .footer-brand-desc {
+    text-align: center !important;
+    max-width: 380px;
+    margin: 0 auto !important;
+  }
+
+  .footer-heading {
+    text-align: center !important;
+    display: block !important;
+    width: 100%;
+    margin-bottom: 18px;
+  }
+
+  .footer-links-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center !important;
+    text-align: center !important;
+    width: 100%;
+    gap: 12px;
+  }
+
+  .footer-link-item {
+    text-align: center !important;
+    width: 100%;
+  }
+
+  .footer-link-item a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center !important;
+    text-align: center !important;
+    gap: 8px;
+  }
+
+  .footer-link-item a:hover {
+    transform: translateY(-2px);
+  }
+
+  .branch-offices-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center !important;
+    width: 100%;
+    gap: 14px;
+  }
+
+  .branch-office-item {
+    text-align: center !important;
+    width: 100%;
+    max-width: 340px;
+    margin: 0 auto !important;
+    border-top: 3px solid var(--color-accent);
+    border-left: 1px solid rgba(255, 255, 255, 0.08);
+    box-sizing: border-box;
+  }
+
+  .branch-office-name {
+    display: flex;
+    align-items: center;
+    justify-content: center !important;
+    text-align: center !important;
+    gap: 8px;
+  }
+
+  .branch-office-address {
+    text-align: center !important;
+  }
+
+  .footer-social-row {
+    display: flex;
+    align-items: center;
+    justify-content: center !important;
+    width: 100%;
+    gap: 12px;
+    margin-top: 14px;
   }
 
   .footer-bottom {
-    flex-direction: column;
-    text-align: center;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
     gap: 16px;
+    width: 100%;
   }
 
   .footer-bottom-links {
-    justify-content: center;
+    display: flex;
+    justify-content: center !important;
+    align-items: center !important;
     flex-wrap: wrap;
+    gap: 20px;
+    width: 100%;
+    text-align: center !important;
   }
 
   /* Single Column Food & Features on Mobile */
