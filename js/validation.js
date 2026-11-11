@@ -9,9 +9,11 @@ const FormValidator = {
     return re.test(String(email).trim());
   },
 
-  // Strict 10-digit phone number check
+  // Strict 10-digit phone number check (rejects alphabetic characters)
   isValidPhone(phone) {
-    const cleaned = String(phone).replace(/\D/g, '');
+    const raw = String(phone).trim();
+    if (/[a-zA-Z]/.test(raw)) return false;
+    const cleaned = raw.replace(/\D/g, '');
     return cleaned.length === 10;
   },
 

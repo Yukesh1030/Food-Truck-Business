@@ -164,16 +164,5 @@ document.addEventListener('DOMContentLoaded', () => {
     );
   }
 
-  // Notification Subscribe Form
-  const notifForm = document.getElementById('locationAlertForm');
-  if (notifForm) {
-    notifForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const phoneInput = notifForm.querySelector('input[type="tel"]') || notifForm.querySelector('input[type="email"]');
-      if (phoneInput && phoneInput.value.trim()) {
-        showToast('Subscribed! You will receive live GPS truck alerts.', 'bell');
-        phoneInput.value = '';
-      }
-    });
-  }
+  // #locationAlertForm validation and 404 redirect are handled in js/validation.js
 });

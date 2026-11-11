@@ -459,8 +459,11 @@
           Get instant SMS or WhatsApp pings when the STACKLY truck parks within 3 km of your campus or office!
         </p>
 
-        <form id="locationAlertForm" style="display: flex; gap: 12px; max-width: 500px; margin: 0 auto; flex-wrap: wrap;">
-          <input type="tel" placeholder="Enter 10-digit mobile number..." required style="flex: 1; min-width: 240px; padding: 16px 20px; border-radius: var(--radius-full); background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.2); color: #F5F0E6;">
+        <form id="locationAlertForm" novalidate style="display: flex; gap: 12px; max-width: 500px; margin: 0 auto; flex-wrap: wrap; justify-content: center; align-items: flex-start;">
+          <div class="form-group" style="flex: 1; min-width: min(240px, 100%); text-align: left;">
+            <input type="tel" id="locationAlertPhone" placeholder="Enter 10-digit mobile number..." maxlength="15" required style="width: 100%; box-sizing: border-box; padding: 16px 20px; border-radius: var(--radius-full); background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.2); color: #F5F0E6;">
+            <span class="form-error-msg"></span>
+          </div>
           <button type="submit" class="btn btn-primary" style="padding: 16px 28px;">Notify Me</button>
         </form>
       </div>
