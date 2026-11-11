@@ -6,9 +6,6 @@ document.addEventListener('DOMContentLoaded', () => {
   // 1. Sidebar Tab Switching (All 5 Sub-Pages / Tabs)
   const navItems = document.querySelectorAll('.dash-sidebar .dash-nav-item');
   const tabPanes = document.querySelectorAll('.dash-tab-pane');
-  const sidebar = document.querySelector('.dash-sidebar');
-  const menuToggle = document.querySelector('.dash-menu-toggle');
-  const sidebarClose = document.querySelector('.dash-sidebar-close');
   const mainArea = document.querySelector('.dash-main-area');
 
   // Helper: Trigger In-Animation on a target pane
@@ -53,32 +50,12 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       }
 
-      if (sidebar && sidebar.classList.contains('open')) {
-        sidebar.classList.remove('open');
-        if (sidebarOverlay) sidebarOverlay.classList.remove('open');
-      }
     });
   });
 
-  // Mobile sidebar controls
-  const sidebarOverlay = document.getElementById('dashSidebarOverlay');
-  if (menuToggle) {
-    menuToggle.addEventListener('click', () => {
-      if (sidebar) sidebar.classList.add('open');
-      if (sidebarOverlay) sidebarOverlay.classList.add('open');
-    });
-  }
-  if (sidebarClose) {
-    sidebarClose.addEventListener('click', () => {
-      if (sidebar) sidebar.classList.remove('open');
-      if (sidebarOverlay) sidebarOverlay.classList.remove('open');
-    });
-  }
-  if (sidebarOverlay) {
-    sidebarOverlay.addEventListener('click', () => {
-      if (sidebar) sidebar.classList.remove('open');
-      sidebarOverlay.classList.remove('open');
-    });
+  // Shared mobile sidebar toggle with background scroll lock
+  if (typeof window.initDashboardSidebar === 'function') {
+    window.initDashboardSidebar();
   }
 
   // Dynamic User Header Email

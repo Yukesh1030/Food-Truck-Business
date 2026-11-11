@@ -593,6 +593,8 @@ ul, ol {
   border-left: 3px solid var(--color-accent);
   transition: right 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   overflow-y: auto;
+  overscroll-behavior: contain;
+  touch-action: pan-y;
 }
 
 .mobile-nav-drawer.open {
@@ -611,12 +613,20 @@ ul, ol {
   z-index: 9998;
   opacity: 0;
   visibility: hidden;
+  touch-action: none;
+  overscroll-behavior: none;
   transition: all var(--transition-normal);
 }
 
 .mobile-nav-overlay.visible {
   opacity: 1;
   visibility: visible;
+}
+
+html.nav-scroll-locked,
+body.nav-scroll-locked {
+  overflow: hidden !important;
+  overscroll-behavior: none !important;
 }
 
 .mobile-drawer-header {

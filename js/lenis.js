@@ -25,6 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
       touchMultiplier: 1,
       infinite: false
     });
+    window.lenisInstance = lenisInstance;
 
     if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
       gsap.registerPlugin(ScrollTrigger);

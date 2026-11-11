@@ -467,12 +467,26 @@ body.dashboard-body {
   z-index: 95;
   opacity: 0;
   visibility: hidden;
+  touch-action: none;
+  overscroll-behavior: none;
   transition: opacity var(--transition-fast), visibility var(--transition-fast);
 }
 
 .dash-sidebar-overlay.open {
   opacity: 1;
   visibility: visible;
+}
+
+html.dash-sidebar-open,
+body.dash-sidebar-open {
+  overflow: hidden !important;
+  overscroll-behavior: none !important;
+}
+
+body.dash-sidebar-open .dash-main-area {
+  overflow: hidden !important;
+  overscroll-behavior: none !important;
+  touch-action: none !important;
 }
 
 /* Client Dashboard Grids */
@@ -591,6 +605,7 @@ body.dashboard-body {
     display: flex;
     flex-direction: column;
     overflow: hidden;
+    overscroll-behavior: contain;
   }
 
   .dash-sidebar.open {
@@ -666,6 +681,8 @@ body.dashboard-body {
     min-height: 0;
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
+    touch-action: pan-y;
     padding: 12px 16px;
     gap: 6px;
   }

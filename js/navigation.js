@@ -50,7 +50,12 @@ document.addEventListener('DOMContentLoaded', () => {
     hamburgerBtn.setAttribute('aria-expanded', 'true');
     mobileDrawer.classList.add('open');
     if (mobileOverlay) mobileOverlay.classList.add('visible');
-    document.body.style.overflow = 'hidden'; // Prevent background scrolling
+    if (window.StacklyScrollLock) {
+      window.StacklyScrollLock.lock(mobileDrawer, 'nav-scroll-locked');
+    } else {
+      document.documentElement.classList.add('nav-scroll-locked');
+      document.body.classList.add('nav-scroll-locked');
+    }
   };
 
   const closeMobileNav = () => {
@@ -59,7 +64,13 @@ document.addEventListener('DOMContentLoaded', () => {
     hamburgerBtn.setAttribute('aria-expanded', 'false');
     mobileDrawer.classList.remove('open');
     if (mobileOverlay) mobileOverlay.classList.remove('visible');
-    document.body.style.overflow = '';
+    if (window.StacklyScrollLock) {
+      window.StacklyScrollLock.unlock('nav-scroll-locked');
+    } else {
+      document.documentElement.classList.remove('nav-scroll-locked');
+      document.body.classList.remove('nav-scroll-locked');
+      document.body.style.overflow = '';
+    }
   };
 
   // Close button inside the drawer
@@ -92,6 +103,13 @@ document.addEventListener('DOMContentLoaded', () => {
   // Close drawer on Escape
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && mobileDrawer && mobileDrawer.classList.contains('open')) {
+      closeMobileNav();
+    }
+  });
+
+  // Unlock background scroll automatically if resized to desktop view
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 1024 && mobileDrawer && mobileDrawer.classList.contains('open')) {
       closeMobileNav();
     }
   });

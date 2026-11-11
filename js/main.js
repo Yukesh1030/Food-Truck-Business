@@ -297,6 +297,165 @@ function closeQuickView() {
   if (modal) modal.remove();
 }
 
+// Shared Background Scroll Lock Controller for Mobile Hamburger Drawers
+const StacklyScrollLock = (() => {
+  let activeDrawer = null;
+  let activeLockClass = 'nav-scroll-locked';
+  let lastTouchY = 0;
+
+  const findScrollableTarget = (target) => {
+    if (!activeDrawer || !target || !activeDrawer.contains(target)) return null;
+    let el = target;
+    while (el && el !== document.body && el !== document.documentElement) {
+      const style = window.getComputedStyle(el);
+      const canScrollY = (style.overflowY === 'auto' || style.overflowY === 'scroll') &&
+                         el.scrollHeight > el.clientHeight + 1;
+      if (canScrollY) return el;
+      if (el === activeDrawer) break;
+      el = el.parentElement;
+    }
+    return null;
+  };
+
+  const onTouchStart = (e) => {
+    if (e.touches && e.touches.length > 0) {
+      lastTouchY = e.touches[0].clientY;
+    }
+  };
+
+  const onTouchMove = (e) => {
+    if (!activeDrawer) return;
+    if (e.touches && e.touches.length > 1) return;
+
+    const currentY = e.touches && e.touches[0] ? e.touches[0].clientY : lastTouchY;
+    const deltaY = currentY - lastTouchY;
+    lastTouchY = currentY;
+
+    const scrollable = findScrollableTarget(e.target);
+    if (!scrollable) {
+      e.preventDefault();
+      return;
+    }
+
+    const atTop = scrollable.scrollTop <= 0;
+    const atBottom = scrollable.scrollTop + scrollable.clientHeight >= scrollable.scrollHeight - 1;
+    if ((deltaY > 0 && atTop) || (deltaY < 0 && atBottom)) {
+      e.preventDefault();
+    }
+  };
+
+  const onWheel = (e) => {
+    if (!activeDrawer) return;
+    const scrollable = findScrollableTarget(e.target);
+    if (!scrollable) {
+      e.preventDefault();
+      return;
+    }
+
+    const atTop = scrollable.scrollTop <= 0;
+    const atBottom = scrollable.scrollTop + scrollable.clientHeight >= scrollable.scrollHeight - 1;
+    if ((e.deltaY < 0 && atTop) || (e.deltaY > 0 && atBottom)) {
+      e.preventDefault();
+    }
+  };
+
+  const onKeyDown = (e) => {
+    if (!activeDrawer) return;
+    const tag = e.target && e.target.tagName ? e.target.tagName.toUpperCase() : '';
+    if (tag === 'INPUT' || tag === 'TEXTAREA' || tag === 'SELECT') return;
+
+    const scrollKeys = ['ArrowUp', 'ArrowDown', 'PageUp', 'PageDown', 'Home', 'End'];
+    if (scrollKeys.includes(e.key) || (e.key === ' ' && !activeDrawer.contains(e.target))) {
+      e.preventDefault();
+    }
+  };
+
+  return {
+    lock(drawerEl, lockClass = 'nav-scroll-locked') {
+      if (activeDrawer === drawerEl && document.documentElement.classList.contains(lockClass)) {
+        return;
+      }
+      if (activeDrawer && activeLockClass !== lockClass) {
+        document.documentElement.classList.remove(activeLockClass);
+        document.body.classList.remove(activeLockClass);
+      }
+
+      activeDrawer = drawerEl || null;
+      activeLockClass = lockClass;
+      document.documentElement.classList.add(lockClass);
+      document.body.classList.add(lockClass);
+
+      if (window.lenisInstance && typeof window.lenisInstance.stop === 'function') {
+        window.lenisInstance.stop();
+      }
+
+      document.addEventListener('touchstart', onTouchStart, { passive: true, capture: true });
+      document.addEventListener('touchmove', onTouchMove, { passive: false, capture: true });
+      document.addEventListener('wheel', onWheel, { passive: false, capture: true });
+      document.addEventListener('keydown', onKeyDown, true);
+    },
+
+    unlock(lockClass = activeLockClass) {
+      activeDrawer = null;
+      document.documentElement.classList.remove(lockClass);
+      document.body.classList.remove(lockClass);
+      document.body.style.overflow = '';
+
+      document.removeEventListener('touchstart', onTouchStart, true);
+      document.removeEventListener('touchmove', onTouchMove, true);
+      document.removeEventListener('wheel', onWheel, true);
+      document.removeEventListener('keydown', onKeyDown, true);
+
+      if (window.lenisInstance && typeof window.lenisInstance.start === 'function') {
+        window.lenisInstance.start();
+      }
+    }
+  };
+})();
+window.StacklyScrollLock = StacklyScrollLock;
+
+// Shared Mobile Sidebar Drawer Controller for Admin & Client Dashboards
+function initDashboardSidebar() {
+  const sidebar = document.querySelector('.dash-sidebar');
+  const overlay = document.getElementById('dashSidebarOverlay');
+  const openBtn = document.querySelector('.dash-menu-toggle');
+  const closeBtn = document.querySelector('.dash-sidebar-close');
+  const navItems = document.querySelectorAll('.dash-sidebar .dash-nav-item');
+
+  if (!sidebar || sidebar.dataset.drawerBound === 'true') return;
+  sidebar.dataset.drawerBound = 'true';
+
+  const openSidebar = () => {
+    sidebar.classList.add('open');
+    if (overlay) overlay.classList.add('open');
+    StacklyScrollLock.lock(sidebar, 'dash-sidebar-open');
+  };
+
+  const closeSidebar = () => {
+    sidebar.classList.remove('open');
+    if (overlay) overlay.classList.remove('open');
+    StacklyScrollLock.unlock('dash-sidebar-open');
+  };
+
+  if (openBtn) openBtn.addEventListener('click', openSidebar);
+  if (closeBtn) closeBtn.addEventListener('click', closeSidebar);
+  if (overlay) overlay.addEventListener('click', closeSidebar);
+  navItems.forEach(item => item.addEventListener('click', closeSidebar));
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && sidebar.classList.contains('open')) {
+      closeSidebar();
+    }
+  });
+
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 860 && sidebar.classList.contains('open')) {
+      closeSidebar();
+    }
+  });
+}
+window.initDashboardSidebar = initDashboardSidebar;
+
 // Global Page Preloader Controller (0.7 sec)
 const PRELOADER_DURATION_MS = 700;
 
