@@ -563,19 +563,43 @@ body.dashboard-body {
 }
 
 @media screen and (max-width: 860px) {
+  html.dashboard-page,
+  body.dashboard-body {
+    height: 100% !important;
+    max-height: 100dvh !important;
+  }
+
+  .dashboard-wrapper,
+  .dash-main-area {
+    height: 100%;
+    height: 100dvh;
+    max-height: 100dvh;
+  }
+
   .dash-sidebar {
     position: fixed;
     top: 0;
+    bottom: 0;
     left: -310px;
-    height: 100vh;
+    height: auto;
+    height: 100dvh;
+    max-height: 100%;
     width: 280px;
     max-width: 84vw;
     z-index: 100;
     box-shadow: 10px 0 30px rgba(0, 0, 0, 0.45);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
   }
 
   .dash-sidebar.open {
     left: 0;
+  }
+
+  .dash-sidebar-header {
+    padding: 18px 20px;
+    flex-shrink: 0;
   }
 
   /* Show User Email ID & Profile inside Hamburger Menu on Mobile */
@@ -583,12 +607,13 @@ body.dashboard-body {
     display: flex !important;
     align-items: center;
     gap: 12px;
-    padding: 12px 14px;
-    margin: 12px 16px 4px 16px;
+    padding: 10px 14px;
+    margin: 10px 16px 2px 16px;
     background: rgba(245, 240, 230, 0.05);
     border: 1px solid rgba(245, 240, 230, 0.12);
     border-radius: var(--radius-md);
     box-sizing: border-box;
+    flex-shrink: 0;
   }
 
   .dash-sidebar-user-mobile .user-avatar-circle {
@@ -634,6 +659,26 @@ body.dashboard-body {
     letter-spacing: 0.5px;
     margin-top: 2px;
     line-height: 1.2;
+  }
+
+  .dash-nav-list {
+    flex: 1 1 auto;
+    min-height: 0;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    padding: 12px 16px;
+    gap: 6px;
+  }
+
+  .dash-nav-item {
+    padding: 12px 16px;
+  }
+
+  .dash-sidebar-footer {
+    flex-shrink: 0;
+    padding: 14px 16px calc(16px + env(safe-area-inset-bottom, 0px)) 16px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    background-color: var(--color-primary);
   }
 
 
