@@ -297,6 +297,36 @@ function closeQuickView() {
   if (modal) modal.remove();
 }
 
+// Global Page Preloader Controller (0.7 sec)
+const PRELOADER_DURATION_MS = 700;
+
+function initPreloader() {
+  const preloader = document.getElementById('sitePreloader');
+  if (!preloader) return;
+
+  let dismissed = false;
+  const hidePreloader = () => {
+    if (dismissed) return;
+    dismissed = true;
+    preloader.classList.add('is-hidden');
+    preloader.setAttribute('aria-hidden', 'true');
+    setTimeout(() => {
+      preloader.style.display = 'none';
+    }, 300);
+  };
+
+  window.addEventListener('pageshow', (event) => {
+    if (event.persisted) {
+      preloader.style.transition = 'none';
+      hidePreloader();
+    }
+  });
+
+  setTimeout(hidePreloader, PRELOADER_DURATION_MS);
+}
+
+initPreloader();
+
 // Global Init on DOM Load
 document.addEventListener('DOMContentLoaded', () => {
   CartManager.updateBadges();

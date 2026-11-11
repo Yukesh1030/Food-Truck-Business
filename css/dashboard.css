@@ -66,6 +66,11 @@ body.dashboard-body {
   cursor: pointer;
 }
 
+/* Mobile Sidebar User Profile - Hidden on Desktop */
+.dash-sidebar-user-mobile {
+  display: none !important;
+}
+
 /* Sidebar Nav (Exactly 5 menus) */
 .dash-nav-list {
   padding: 24px 16px;
@@ -573,6 +578,65 @@ body.dashboard-body {
     left: 0;
   }
 
+  /* Show User Email ID & Profile inside Hamburger Menu on Mobile */
+  .dash-sidebar-user-mobile {
+    display: flex !important;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 14px;
+    margin: 12px 16px 4px 16px;
+    background: rgba(245, 240, 230, 0.05);
+    border: 1px solid rgba(245, 240, 230, 0.12);
+    border-radius: var(--radius-md);
+    box-sizing: border-box;
+  }
+
+  .dash-sidebar-user-mobile .user-avatar-circle {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background-color: var(--color-primary);
+    color: var(--color-accent);
+    border: 2px solid var(--color-accent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 0.95rem;
+    flex-shrink: 0;
+  }
+
+  .dash-sidebar-user-info {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    min-width: 0;
+    flex: 1;
+  }
+
+  .dash-sidebar-user-mobile .user-name-text {
+    display: block !important;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #F5F0E6;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    line-height: 1.25;
+  }
+
+  .dash-sidebar-user-mobile .user-role-label {
+    display: block !important;
+    font-size: 0.72rem;
+    font-weight: 500;
+    color: var(--color-accent);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-top: 2px;
+    line-height: 1.2;
+  }
+
+
   .dash-sidebar-close {
     display: block;
   }
@@ -616,8 +680,8 @@ body.dashboard-body {
     gap: 8px;
   }
 
-  .user-name-text,
-  .user-role-label {
+  .dash-topbar .user-name-text,
+  .dash-topbar .user-role-label {
     display: none;
   }
 

@@ -23,6 +23,19 @@
   <link rel="stylesheet" href="css/dashboard.css">
 </head>
 <body class="dashboard-body">
+  <!-- Global Page Preloader (0.7s) -->
+  <div id="sitePreloader" class="site-preloader" role="status" aria-label="Loading STACKLY Food Truck">
+    <div class="site-preloader-inner">
+      <div class="site-preloader-logo-wrap">
+        <img src="assets/Brand-logo.webp" alt="STACKLY Food Truck Logo" class="site-preloader-logo" decoding="sync">
+      </div>
+      <span class="site-preloader-spinner" aria-hidden="true"></span>
+      <p class="site-preloader-tagline">Big Flavours &bull; Fresh Moves</p>
+      <div class="site-preloader-bar" aria-hidden="true">
+        <span class="site-preloader-progress"></span>
+      </div>
+    </div>
+  </div>
 
   <div class="dashboard-wrapper">
     <div class="dash-sidebar-overlay" id="dashSidebarOverlay"></div>
@@ -34,6 +47,15 @@
           <img src="assets/Brand-logo.webp" alt="STACKLY" class="dash-logo-img">
         </a>
         <button class="dash-sidebar-close" id="dashSidebarClose"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+
+      <!-- Mobile View User Profile (Displayed inside hamburger menu on mobile only) -->
+      <div class="dash-sidebar-user-mobile">
+        <div class="user-avatar-circle" style="background-color: var(--color-primary); color: var(--color-accent);">JD</div>
+        <div class="dash-sidebar-user-info">
+          <span class="user-name-text">client@stacklyfoodtruck.com</span>
+          <span class="user-role-label">VIP Foodie</span>
+        </div>
       </div>
 
       <nav class="dash-nav-list" aria-label="Client Navigation">
